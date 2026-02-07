@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-07T12:39:32",
+  "timestamp": "2026-02-07T12:40:01",
   "overall": "failed",
   "groups": {
     "cron_jobs": {
@@ -49,7 +49,7 @@
     "services": {
       "display_name": "Services",
       "status": "failed",
-      "passing": 4,
+      "passing": 2,
       "total": 6,
       "components": {
         "modem-daemon": {
@@ -66,8 +66,8 @@
         },
         "vt-monitor": {
           "name": "VT Email Monitor",
-          "status": "healthy",
-          "detail": "Active",
+          "status": "failed",
+          "detail": "Not active",
           "type": "systemd_service"
         },
         "vt-chat-monitor": {
@@ -78,8 +78,8 @@
         },
         "memory-daemon": {
           "name": "Memory Daemon",
-          "status": "healthy",
-          "detail": "Active, health OK",
+          "status": "failed",
+          "detail": "Not active",
           "type": "systemd_service"
         },
         "openclaw-gateway": {
@@ -175,7 +175,7 @@
         "health-dash": {
           "name": "Health Dashboard",
           "status": "failed",
-          "detail": "HTTPSConnectionPool(host='health.kos.plus', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x73cf0e72a7b0>: Failed to resolve 'health.kos.plus' (Name or service not known: health.kos.plus using 1 resolver(s))\"))",
+          "detail": "HTTPSConnectionPool(host='health.kos.plus', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7565e32de690>: Failed to resolve 'health.kos.plus' (Name or service not known: health.kos.plus using 1 resolver(s))\"))",
           "type": "http_endpoint"
         }
       }
@@ -187,28 +187,42 @@
       "group": "services",
       "component": "aurora-monitor",
       "message": "Not active",
-      "timestamp": "2026-02-07T12:39:32"
+      "timestamp": "2026-02-07T12:40:01"
+    },
+    {
+      "severity": "critical",
+      "group": "services",
+      "component": "vt-monitor",
+      "message": "Not active",
+      "timestamp": "2026-02-07T12:40:01"
     },
     {
       "severity": "critical",
       "group": "services",
       "component": "vt-chat-monitor",
       "message": "Not active",
-      "timestamp": "2026-02-07T12:39:32"
+      "timestamp": "2026-02-07T12:40:01"
+    },
+    {
+      "severity": "critical",
+      "group": "services",
+      "component": "memory-daemon",
+      "message": "Not active",
+      "timestamp": "2026-02-07T12:40:01"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "ms365-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-07T12:39:32"
+      "timestamp": "2026-02-07T12:40:01"
     },
     {
       "severity": "warning",
       "group": "dashboards",
       "component": "health-dash",
-      "message": "HTTPSConnectionPool(host='health.kos.plus', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x73cf0e72a7b0>: Failed to resolve 'health.kos.plus' (Name or service not known: health.kos.plus using 1 resolver(s))\"))",
-      "timestamp": "2026-02-07T12:39:32"
+      "message": "HTTPSConnectionPool(host='health.kos.plus', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7565e32de690>: Failed to resolve 'health.kos.plus' (Name or service not known: health.kos.plus using 1 resolver(s))\"))",
+      "timestamp": "2026-02-07T12:40:01"
     }
   ]
 }
