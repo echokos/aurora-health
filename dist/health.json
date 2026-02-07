@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-07T16:45:01",
+  "timestamp": "2026-02-07T16:50:01",
   "overall": "failed",
   "groups": {
     "cron_jobs": {
@@ -23,7 +23,7 @@
         "work-cycle": {
           "name": "HEARTBEAT Executor",
           "status": "warning",
-          "detail": "Status: None (never)",
+          "detail": "Status: skipped (0h ago)",
           "type": "openclaw_cron"
         },
         "oauth-refresh": {
@@ -47,7 +47,7 @@
         "daily-brief": {
           "name": "Daily Brief Generation",
           "status": "healthy",
-          "detail": "Last run: 10h ago",
+          "detail": "Last run: 11h ago",
           "type": "system_cron"
         },
         "daily-note": {
@@ -161,7 +161,7 @@
         "working-md": {
           "name": "WORKING.md Freshness",
           "status": "healthy",
-          "detail": "0.9h old",
+          "detail": "1.0h old",
           "type": "file_freshness"
         },
         "working-md-private": {
@@ -205,28 +205,28 @@
       "group": "services",
       "component": "vt-monitor",
       "message": "Status: ",
-      "timestamp": "2026-02-07T16:45:01"
+      "timestamp": "2026-02-07T16:50:01"
     },
     {
       "severity": "critical",
       "group": "services",
       "component": "vt-signal-monitor",
       "message": "Status: ",
-      "timestamp": "2026-02-07T16:45:01"
+      "timestamp": "2026-02-07T16:50:01"
     },
     {
       "severity": "critical",
       "group": "services",
       "component": "memory-daemon",
       "message": "Status: ",
-      "timestamp": "2026-02-07T16:45:01"
+      "timestamp": "2026-02-07T16:50:01"
     },
     {
       "severity": "critical",
       "group": "memory_system",
       "component": "working-md-private",
       "message": "5.8h old (max: 4h)",
-      "timestamp": "2026-02-07T16:45:01"
+      "timestamp": "2026-02-07T16:50:01"
     }
   ]
 }
