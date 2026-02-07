@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-02-07T12:50:01",
-  "overall": "failed",
+  "timestamp": "2026-02-07T12:52:49",
+  "overall": "warning",
   "groups": {
     "cron_jobs": {
       "display_name": "Cron Jobs",
       "status": "warning",
-      "passing": 2,
-      "total": 6,
+      "passing": 7,
+      "total": 11,
       "components": {
         "nightly-memory": {
           "name": "Nightly Memory Organization",
@@ -43,13 +43,43 @@
           "status": "warning",
           "detail": "Last run: 3d ago (stale)",
           "type": "system_cron"
+        },
+        "daily-brief": {
+          "name": "Daily Brief Generation",
+          "status": "healthy",
+          "detail": "Last run: 7h ago",
+          "type": "system_cron"
+        },
+        "daily-note": {
+          "name": "Obsidian Daily Note",
+          "status": "healthy",
+          "detail": "Last run: 7h ago",
+          "type": "system_cron"
+        },
+        "wardrobe-selection": {
+          "name": "Wardrobe Selection",
+          "status": "healthy",
+          "detail": "Last run: 6h ago",
+          "type": "system_cron"
+        },
+        "session-memory-sync": {
+          "name": "Session Memory Sync",
+          "status": "healthy",
+          "detail": "Last run: 0h ago",
+          "type": "system_cron"
+        },
+        "phone-memory-sync": {
+          "name": "Phone Memory Sync",
+          "status": "healthy",
+          "detail": "Last run: 0h ago",
+          "type": "system_cron"
         }
       }
     },
     "services": {
       "display_name": "Services",
-      "status": "failed",
-      "passing": 2,
+      "status": "warning",
+      "passing": 5,
       "total": 6,
       "components": {
         "modem-daemon": {
@@ -58,28 +88,28 @@
           "detail": "Active, health OK",
           "type": "systemd_service"
         },
-        "aurora-monitor": {
-          "name": "Aurora Monitor",
-          "status": "failed",
-          "detail": "Not active",
-          "type": "systemd_service"
-        },
         "vt-monitor": {
           "name": "VT Email Monitor",
-          "status": "failed",
-          "detail": "Not active",
+          "status": "healthy",
+          "detail": "Active",
           "type": "systemd_service"
         },
         "vt-chat-monitor": {
           "name": "VT Chat Monitor",
-          "status": "failed",
-          "detail": "Not active",
+          "status": "warning",
+          "detail": "Activating (may be restarting)",
+          "type": "systemd_service"
+        },
+        "vt-signal-monitor": {
+          "name": "VT Swing Signal Monitor",
+          "status": "healthy",
+          "detail": "Active",
           "type": "systemd_service"
         },
         "memory-daemon": {
           "name": "Memory Daemon",
-          "status": "failed",
-          "detail": "Not active",
+          "status": "healthy",
+          "detail": "Active, health OK",
           "type": "systemd_service"
         },
         "openclaw-gateway": {
@@ -137,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md Freshness",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.3h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "Private WORKING.md Freshness",
           "status": "healthy",
-          "detail": "1.8h old",
+          "detail": "1.9h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -162,60 +192,18 @@
     },
     "dashboards": {
       "display_name": "Dashboards",
-      "status": "failed",
+      "status": "healthy",
       "passing": 1,
-      "total": 2,
+      "total": 1,
       "components": {
         "aurora-dash": {
           "name": "Aurora Dashboard",
           "status": "healthy",
           "detail": "HTTP 200",
           "type": "http_endpoint"
-        },
-        "health-dash": {
-          "name": "Health Dashboard",
-          "status": "failed",
-          "detail": "HTTPSConnectionPool(host='health.kos.plus', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7354da1b3530>: Failed to resolve 'health.kos.plus' (Name or service not known: health.kos.plus using 1 resolver(s))\"))",
-          "type": "http_endpoint"
         }
       }
     }
   },
-  "alerts": [
-    {
-      "severity": "critical",
-      "group": "services",
-      "component": "aurora-monitor",
-      "message": "Not active",
-      "timestamp": "2026-02-07T12:50:01"
-    },
-    {
-      "severity": "critical",
-      "group": "services",
-      "component": "vt-monitor",
-      "message": "Not active",
-      "timestamp": "2026-02-07T12:50:01"
-    },
-    {
-      "severity": "critical",
-      "group": "services",
-      "component": "vt-chat-monitor",
-      "message": "Not active",
-      "timestamp": "2026-02-07T12:50:01"
-    },
-    {
-      "severity": "critical",
-      "group": "services",
-      "component": "memory-daemon",
-      "message": "Not active",
-      "timestamp": "2026-02-07T12:50:01"
-    },
-    {
-      "severity": "warning",
-      "group": "dashboards",
-      "component": "health-dash",
-      "message": "HTTPSConnectionPool(host='health.kos.plus', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7354da1b3530>: Failed to resolve 'health.kos.plus' (Name or service not known: health.kos.plus using 1 resolver(s))\"))",
-      "timestamp": "2026-02-07T12:50:01"
-    }
-  ]
+  "alerts": []
 }
