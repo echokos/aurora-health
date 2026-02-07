@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-07T12:52:49",
-  "overall": "warning",
+  "timestamp": "2026-02-07T12:55:01",
+  "overall": "failed",
   "groups": {
     "cron_jobs": {
       "display_name": "Cron Jobs",
@@ -78,8 +78,8 @@
     },
     "services": {
       "display_name": "Services",
-      "status": "warning",
-      "passing": 5,
+      "status": "failed",
+      "passing": 2,
       "total": 6,
       "components": {
         "modem-daemon": {
@@ -90,26 +90,26 @@
         },
         "vt-monitor": {
           "name": "VT Email Monitor",
-          "status": "healthy",
-          "detail": "Active",
+          "status": "failed",
+          "detail": "Status: ",
           "type": "systemd_service"
         },
         "vt-chat-monitor": {
           "name": "VT Chat Monitor",
-          "status": "warning",
-          "detail": "Activating (may be restarting)",
+          "status": "failed",
+          "detail": "Status: ",
           "type": "systemd_service"
         },
         "vt-signal-monitor": {
           "name": "VT Swing Signal Monitor",
-          "status": "healthy",
-          "detail": "Active",
+          "status": "failed",
+          "detail": "Status: ",
           "type": "systemd_service"
         },
         "memory-daemon": {
           "name": "Memory Daemon",
-          "status": "healthy",
-          "detail": "Active, health OK",
+          "status": "failed",
+          "detail": "Status: ",
           "type": "systemd_service"
         },
         "openclaw-gateway": {
@@ -205,5 +205,34 @@
       }
     }
   },
-  "alerts": []
+  "alerts": [
+    {
+      "severity": "critical",
+      "group": "services",
+      "component": "vt-monitor",
+      "message": "Status: ",
+      "timestamp": "2026-02-07T12:55:01"
+    },
+    {
+      "severity": "critical",
+      "group": "services",
+      "component": "vt-chat-monitor",
+      "message": "Status: ",
+      "timestamp": "2026-02-07T12:55:01"
+    },
+    {
+      "severity": "critical",
+      "group": "services",
+      "component": "vt-signal-monitor",
+      "message": "Status: ",
+      "timestamp": "2026-02-07T12:55:01"
+    },
+    {
+      "severity": "critical",
+      "group": "services",
+      "component": "memory-daemon",
+      "message": "Status: ",
+      "timestamp": "2026-02-07T12:55:01"
+    }
+  ]
 }
