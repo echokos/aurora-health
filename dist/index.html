@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora Health Monitor</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+    <style>
+        .status-healthy { color: #22c55e; }
+        .status-warning { color: #eab308; }
+        .status-failed { color: #ef4444; }
+        .status-unknown { color: #6b7280; }
+        
+        .bg-status-healthy { background-color: rgba(34, 197, 94, 0.1); }
+        .bg-status-warning { background-color: rgba(234, 179, 8, 0.1); }
+        .bg-status-failed { background-color: rgba(239, 68, 68, 0.1); }
+    </style>
+</head>
+<body class="min-h-screen bg-base-300">
+    <div x-data="healthDashboard()" x-init="init()" class="container mx-auto px-4 py-8 max-w-4xl">
+        
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold mb-2">Aurora Health Monitor</h1>
+            <p class="text-base-content/60" x-text="'Last updated: ' + formatTime(data.timestamp)"></p>
+        </div>
+        
+        <!-- Overall Status -->
+        <div class="card bg-base-100 shadow-xl mb-6" :class="'bg-status-' + data.overall">
+            <div class="card-body text-center py-6">
+                <h2 class="text-2xl font-bold" :class="'status-' + data.overall">
+                    <span x-text="statusIcon(data.overall)"></span>
+                    <span x-text="data.overall?.toUpperCase() || 'LOADING'"></span>
+                </h2>
+                <p class="text-base-content/60" x-text="getSummary()"></p>
+            </div>
+        </div>
+        
+        <!-- Alerts -->
+        <template x-if="data.alerts && data.alerts.length > 0">
+            <div class="alert alert-error mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                <div>
+                    <template x-for="alert in data.alerts.slice(0, 3)" :key="alert.component">
+                        <p x-text="alert.component + ': ' + alert.message"></p>
+                    </template>
+                </div>
+            </div>
+        </template>
+        
+        <!-- Groups -->
+        <template x-for="(group, groupId) in data.groups" :key="groupId">
+            <div class="card bg-base-100 shadow-lg mb-4">
+                <div class="card-body p-4">
+                    <!-- Group Header -->
+                    <div class="flex items-center justify-between cursor-pointer" @click="toggleGroup(groupId)">
+                        <div class="flex items-center gap-2">
+                            <span :class="'status-' + group.status" x-text="statusIcon(group.status)"></span>
+                            <h3 class="font-bold" x-text="group.display_name"></h3>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="badge" :class="badgeClass(group.status)" x-text="group.passing + '/' + group.total"></span>
+                            <svg class="w-4 h-4 transition-transform" :class="expanded[groupId] ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <!-- Components (expandable) -->
+                    <div x-show="expanded[groupId]" x-collapse class="mt-4 space-y-2">
+                        <template x-for="(comp, compId) in group.components" :key="compId">
+                            <div class="flex items-center justify-between py-2 px-3 rounded bg-base-200">
+                                <div class="flex items-center gap-2">
+                                    <span :class="'status-' + comp.status" x-text="statusIcon(comp.status)"></span>
+                                    <span x-text="comp.name"></span>
+                                </div>
+                                <span class="text-sm text-base-content/60" x-text="comp.detail"></span>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </template>
+        
+        <!-- Footer -->
+        <div class="text-center text-base-content/40 text-sm mt-8">
+            <p>Auto-refreshes every 60 seconds</p>
+            <p class="mt-1">
+                <a href="https://dash.kos.plus" class="link">Main Dashboard</a>
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        function healthDashboard() {
+            return {
+                data: {},
+                expanded: {},
+                
+                async init() {
+                    await this.fetchData();
+                    // Auto-refresh every 60 seconds
+                    setInterval(() => this.fetchData(), 60000);
+                },
+                
+                async fetchData() {
+                    try {
+                        const resp = await fetch('health.json?t=' + Date.now());
+                        this.data = await resp.json();
+                        
+                        // Auto-expand groups with failures
+                        for (const [groupId, group] of Object.entries(this.data.groups || {})) {
+                            if (group.status === 'failed') {
+                                this.expanded[groupId] = true;
+                            } else if (!(groupId in this.expanded)) {
+                                this.expanded[groupId] = false;
+                            }
+                        }
+                    } catch (e) {
+                        console.error('Failed to fetch health data:', e);
+                    }
+                },
+                
+                formatTime(iso) {
+                    if (!iso) return 'Unknown';
+                    const d = new Date(iso);
+                    return d.toLocaleTimeString('en-US', { 
+                        hour: 'numeric', 
+                        minute: '2-digit',
+                        hour12: true 
+                    });
+                },
+                
+                statusIcon(status) {
+                    const icons = {
+                        healthy: '✅',
+                        warning: '⚠️',
+                        failed: '❌',
+                        unknown: '❓'
+                    };
+                    return icons[status] || '❓';
+                },
+                
+                badgeClass(status) {
+                    const classes = {
+                        healthy: 'badge-success',
+                        warning: 'badge-warning',
+                        failed: 'badge-error',
+                        unknown: 'badge-ghost'
+                    };
+                    return classes[status] || 'badge-ghost';
+                },
+                
+                toggleGroup(groupId) {
+                    this.expanded[groupId] = !this.expanded[groupId];
+                },
+                
+                getSummary() {
+                    if (!this.data.groups) return 'Loading...';
+                    
+                    let total = 0, passing = 0;
+                    for (const group of Object.values(this.data.groups)) {
+                        total += group.total;
+                        passing += group.passing;
+                    }
+                    return `${passing}/${total} checks passing`;
+                }
+            };
+        }
+    </script>
+</body>
+</html>
