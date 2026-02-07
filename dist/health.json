@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-07T13:10:02",
+  "timestamp": "2026-02-07T13:15:02",
   "overall": "failed",
   "groups": {
     "cron_jobs": {
@@ -80,7 +80,7 @@
       "display_name": "Services",
       "status": "failed",
       "passing": 2,
-      "total": 6,
+      "total": 5,
       "components": {
         "modem-daemon": {
           "name": "Modem Daemon",
@@ -90,12 +90,6 @@
         },
         "vt-monitor": {
           "name": "VT Email Monitor",
-          "status": "failed",
-          "detail": "Status: ",
-          "type": "systemd_service"
-        },
-        "vt-chat-monitor": {
-          "name": "VT Chat Monitor",
           "status": "failed",
           "detail": "Status: ",
           "type": "systemd_service"
@@ -167,13 +161,13 @@
         "working-md": {
           "name": "WORKING.md Freshness",
           "status": "healthy",
-          "detail": "0.5h old",
+          "detail": "0.6h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "Private WORKING.md Freshness",
           "status": "healthy",
-          "detail": "2.2h old",
+          "detail": "2.3h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -211,28 +205,21 @@
       "group": "services",
       "component": "vt-monitor",
       "message": "Status: ",
-      "timestamp": "2026-02-07T13:10:02"
-    },
-    {
-      "severity": "critical",
-      "group": "services",
-      "component": "vt-chat-monitor",
-      "message": "Status: ",
-      "timestamp": "2026-02-07T13:10:02"
+      "timestamp": "2026-02-07T13:15:02"
     },
     {
       "severity": "critical",
       "group": "services",
       "component": "vt-signal-monitor",
       "message": "Status: ",
-      "timestamp": "2026-02-07T13:10:02"
+      "timestamp": "2026-02-07T13:15:02"
     },
     {
       "severity": "critical",
       "group": "services",
       "component": "memory-daemon",
       "message": "Status: ",
-      "timestamp": "2026-02-07T13:10:02"
+      "timestamp": "2026-02-07T13:15:02"
     }
   ]
 }
