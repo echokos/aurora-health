@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-08T11:25:01",
+  "timestamp": "2026-02-08T11:25:53",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -55,8 +55,8 @@
     "scheduled-jobs": {
       "display_name": "Scheduled Jobs",
       "status": "warning",
-      "passing": 14,
-      "total": 15,
+      "passing": 15,
+      "total": 16,
       "components": {
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
@@ -146,6 +146,12 @@
           "name": "Memory Sweep (Nightly)",
           "status": "healthy",
           "detail": "Last run: 7h ago",
+          "type": "system_cron"
+        },
+        "recent-memory-updates": {
+          "name": "RECENT.md Updates (4x Daily)",
+          "status": "healthy",
+          "detail": "Script ready (no runs yet)",
           "type": "system_cron"
         }
       }
