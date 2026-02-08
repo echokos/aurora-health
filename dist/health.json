@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-08T02:45:01",
+  "timestamp": "2026-02-08T02:50:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -79,7 +79,7 @@
         "daily-brief": {
           "name": "Daily Brief",
           "status": "healthy",
-          "detail": "Last run: 20h ago",
+          "detail": "Last run: 21h ago",
           "type": "system_cron"
         },
         "daily-note": {
@@ -223,14 +223,14 @@
       "group": "memory-files",
       "component": "working-md",
       "message": "4.8h old (max: 4h)",
-      "timestamp": "2026-02-08T02:45:01"
+      "timestamp": "2026-02-08T02:50:01"
     },
     {
       "severity": "critical",
       "group": "memory-files",
       "component": "daily-file",
       "message": "File not found",
-      "timestamp": "2026-02-08T02:45:01"
+      "timestamp": "2026-02-08T02:50:01"
     }
   ]
 }
