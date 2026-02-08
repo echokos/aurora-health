@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-02-08T17:50:02",
+  "timestamp": "2026-02-08T17:55:01",
   "overall": "warning",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
-      "status": "warning",
-      "passing": 6,
+      "status": "healthy",
+      "passing": 7,
       "total": 7,
       "components": {
         "openclaw-gateway": {
           "name": "OpenClaw Gateway",
-          "status": "warning",
-          "detail": "Activating (may be restarting)",
+          "status": "healthy",
+          "detail": "Active",
           "type": "systemd_service"
         },
         "modem-daemon": {
@@ -169,7 +169,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 4h ago",
+          "detail": "Last run: 5h ago",
           "type": "system_cron"
         }
       }
@@ -215,13 +215,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.1h old",
+          "detail": "0.2h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.1h old",
+          "detail": "0.2h old",
           "type": "file_freshness"
         },
         "daily-file": {
