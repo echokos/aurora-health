@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-02-07T18:45:01",
+  "timestamp": "2026-02-07T18:50:01",
   "overall": "warning",
   "groups": {
     "cron_jobs": {
       "display_name": "Cron Jobs",
-      "status": "warning",
-      "passing": 10,
+      "status": "healthy",
+      "passing": 11,
       "total": 11,
       "components": {
         "nightly-memory": {
@@ -23,7 +23,7 @@
         "work-cycle": {
           "name": "HEARTBEAT Executor",
           "status": "healthy",
-          "detail": "Skipped (1h ago) - active session",
+          "detail": "Skipped (2h ago) - active session",
           "type": "openclaw_cron"
         },
         "oauth-refresh": {
@@ -40,14 +40,14 @@
         },
         "session-archive": {
           "name": "Session Archive",
-          "status": "warning",
-          "detail": "Last run: 3d ago (stale)",
+          "status": "healthy",
+          "detail": "Last run: 3d ago",
           "type": "system_cron"
         },
         "daily-brief": {
           "name": "Daily Brief Generation",
           "status": "healthy",
-          "detail": "Last run: 12h ago",
+          "detail": "Last run: 13h ago",
           "type": "system_cron"
         },
         "daily-note": {
@@ -161,13 +161,13 @@
         "working-md": {
           "name": "WORKING.md Freshness",
           "status": "healthy",
-          "detail": "0.4h old",
+          "detail": "0.5h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "Private WORKING.md Freshness",
           "status": "healthy",
-          "detail": "0.4h old",
+          "detail": "0.5h old",
           "type": "file_freshness"
         },
         "daily-file": {
