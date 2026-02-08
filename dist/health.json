@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-08T00:55:01",
+  "timestamp": "2026-02-08T01:00:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -85,7 +85,7 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 19h ago",
+          "detail": "Last run: 20h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -167,19 +167,19 @@
     "memory-files": {
       "display_name": "Memory Files",
       "status": "failed",
-      "passing": 3,
+      "passing": 2,
       "total": 4,
       "components": {
         "working-md": {
           "name": "WORKING.md (Public)",
-          "status": "healthy",
-          "detail": "2.9h old",
+          "status": "warning",
+          "detail": "3.0h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "2.9h old",
+          "detail": "3.0h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -223,7 +223,7 @@
       "group": "memory-files",
       "component": "daily-file",
       "message": "File not found",
-      "timestamp": "2026-02-08T00:55:01"
+      "timestamp": "2026-02-08T01:00:01"
     }
   ]
 }
