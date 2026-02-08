@@ -1,29 +1,29 @@
 {
-  "timestamp": "2026-02-07T18:40:01",
+  "timestamp": "2026-02-07T18:45:01",
   "overall": "warning",
   "groups": {
     "cron_jobs": {
       "display_name": "Cron Jobs",
       "status": "warning",
-      "passing": 7,
+      "passing": 10,
       "total": 11,
       "components": {
         "nightly-memory": {
           "name": "Nightly Memory Organization",
-          "status": "warning",
-          "detail": "No logfile found",
+          "status": "healthy",
+          "detail": "Script ready (no runs yet)",
           "type": "system_cron"
         },
         "morning-message": {
           "name": "Good Morning Message",
-          "status": "warning",
-          "detail": "No logfile found",
+          "status": "healthy",
+          "detail": "Script ready (no runs yet)",
           "type": "system_cron"
         },
         "work-cycle": {
           "name": "HEARTBEAT Executor",
-          "status": "warning",
-          "detail": "Status: skipped (1h ago)",
+          "status": "healthy",
+          "detail": "Skipped (1h ago) - active session",
           "type": "openclaw_cron"
         },
         "oauth-refresh": {
@@ -147,7 +147,7 @@
         "todoist-api": {
           "name": "Todoist API",
           "status": "warning",
-          "detail": "Env var TODOIST_TOKEN not set",
+          "detail": "API returned 401",
           "type": "api_key"
         }
       }
@@ -161,13 +161,13 @@
         "working-md": {
           "name": "WORKING.md Freshness",
           "status": "healthy",
-          "detail": "0.3h old",
+          "detail": "0.4h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "Private WORKING.md Freshness",
           "status": "healthy",
-          "detail": "0.3h old",
+          "detail": "0.4h old",
           "type": "file_freshness"
         },
         "daily-file": {
