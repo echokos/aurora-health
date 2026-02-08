@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-07T17:55:01",
-  "overall": "failed",
+  "timestamp": "2026-02-07T18:00:01",
+  "overall": "warning",
   "groups": {
     "cron_jobs": {
       "display_name": "Cron Jobs",
@@ -53,7 +53,7 @@
         "daily-note": {
           "name": "Obsidian Daily Note",
           "status": "healthy",
-          "detail": "Last run: 12h ago",
+          "detail": "Last run: 13h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -154,20 +154,20 @@
     },
     "memory_system": {
       "display_name": "Memory System",
-      "status": "failed",
-      "passing": 3,
+      "status": "healthy",
+      "passing": 4,
       "total": 4,
       "components": {
         "working-md": {
           "name": "WORKING.md Freshness",
           "status": "healthy",
-          "detail": "0.3h old",
+          "detail": "0.4h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "Private WORKING.md Freshness",
-          "status": "failed",
-          "detail": "6.9h old (max: 4h)",
+          "status": "healthy",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -199,13 +199,5 @@
       }
     }
   },
-  "alerts": [
-    {
-      "severity": "critical",
-      "group": "memory_system",
-      "component": "working-md-private",
-      "message": "6.9h old (max: 4h)",
-      "timestamp": "2026-02-07T17:55:01"
-    }
-  ]
+  "alerts": []
 }
