@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-07T22:35:01",
+  "timestamp": "2026-02-07T22:40:02",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -173,13 +173,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.6h old",
+          "detail": "0.7h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.6h old",
+          "detail": "0.7h old",
           "type": "file_freshness"
         },
         "daily-file": {
