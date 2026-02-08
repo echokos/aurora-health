@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-08T03:00:01",
+  "timestamp": "2026-02-08T03:05:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -61,7 +61,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 22h ago",
+          "detail": "Last run: 23h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -91,7 +91,7 @@
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 20h ago",
+          "detail": "Last run: 21h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -103,7 +103,7 @@
         "session-memory-sync": {
           "name": "Session Memory Sync",
           "status": "healthy",
-          "detail": "Last run: 8h ago",
+          "detail": "Last run: 9h ago",
           "type": "system_cron"
         },
         "morning-message": {
@@ -173,13 +173,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "failed",
-          "detail": "5.0h old (max: 4h)",
+          "detail": "5.1h old (max: 4h)",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "5.0h old",
+          "detail": "5.1h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -222,15 +222,15 @@
       "severity": "critical",
       "group": "memory-files",
       "component": "working-md",
-      "message": "5.0h old (max: 4h)",
-      "timestamp": "2026-02-08T03:00:01"
+      "message": "5.1h old (max: 4h)",
+      "timestamp": "2026-02-08T03:05:01"
     },
     {
       "severity": "critical",
       "group": "memory-files",
       "component": "daily-file",
       "message": "File not found",
-      "timestamp": "2026-02-08T03:00:01"
+      "timestamp": "2026-02-08T03:05:01"
     }
   ]
 }
