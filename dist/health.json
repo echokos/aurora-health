@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-08T11:10:01",
+  "timestamp": "2026-02-08T11:15:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -55,8 +55,8 @@
     "scheduled-jobs": {
       "display_name": "Scheduled Jobs",
       "status": "warning",
-      "passing": 11,
-      "total": 12,
+      "passing": 14,
+      "total": 15,
       "components": {
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
@@ -129,6 +129,24 @@
           "status": "warning",
           "detail": "No logfile or script found",
           "type": "system_cron"
+        },
+        "memory-automation-public": {
+          "name": "Public WORKING.md Automation",
+          "status": "healthy",
+          "detail": "Last run: 0h ago",
+          "type": "system_cron"
+        },
+        "memory-automation-private": {
+          "name": "Private WORKING.md Automation",
+          "status": "healthy",
+          "detail": "Last run: 0h ago",
+          "type": "system_cron"
+        },
+        "memory-sweep": {
+          "name": "Memory Sweep (Nightly)",
+          "status": "healthy",
+          "detail": "Last run: 7h ago",
+          "type": "system_cron"
         }
       }
     },
@@ -173,13 +191,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.1h old",
+          "detail": "0.0h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.1h old",
+          "detail": "0.2h old",
           "type": "file_freshness"
         },
         "daily-file": {
