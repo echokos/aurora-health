@@ -1,31 +1,63 @@
 {
-  "timestamp": "2026-02-07T20:35:01",
-  "overall": "failed",
+  "timestamp": "2026-02-07T20:40:02",
+  "overall": "warning",
   "groups": {
-    "cron_jobs": {
-      "display_name": "Cron Jobs",
+    "core-services": {
+      "display_name": "Core Services",
       "status": "healthy",
-      "passing": 11,
-      "total": 11,
+      "passing": 7,
+      "total": 7,
       "components": {
-        "nightly-memory": {
-          "name": "Nightly Memory Organization",
+        "openclaw-gateway": {
+          "name": "OpenClaw Gateway",
           "status": "healthy",
-          "detail": "Script ready (no runs yet)",
+          "detail": "Active",
+          "type": "systemd_service"
+        },
+        "modem-daemon": {
+          "name": "Modem Daemon",
+          "status": "healthy",
+          "detail": "Process running",
+          "type": "process"
+        },
+        "aurora-monitor": {
+          "name": "Aurora Monitor",
+          "status": "healthy",
+          "detail": "Process running",
+          "type": "process"
+        },
+        "vt-monitor": {
+          "name": "VT Signal Monitor",
+          "status": "healthy",
+          "detail": "Active",
+          "type": "systemd_service"
+        },
+        "vt-signal-monitor": {
+          "name": "VT Swing Signal Monitor",
+          "status": "healthy",
+          "detail": "Active",
+          "type": "systemd_service"
+        },
+        "vt-chat-monitor": {
+          "name": "VT Chat Monitor",
+          "status": "healthy",
+          "detail": "Last run: 0h ago",
           "type": "system_cron"
         },
-        "morning-message": {
-          "name": "Good Morning Message",
+        "qdrant": {
+          "name": "Qdrant Vector DB",
           "status": "healthy",
-          "detail": "Script ready (no runs yet)",
-          "type": "system_cron"
-        },
-        "work-cycle": {
-          "name": "HEARTBEAT Executor",
-          "status": "healthy",
-          "detail": "Operational (skips during conversation)",
-          "type": "openclaw_cron"
-        },
+          "detail": "HTTP 200",
+          "type": "http_endpoint"
+        }
+      }
+    },
+    "scheduled-jobs": {
+      "display_name": "Scheduled Jobs",
+      "status": "warning",
+      "passing": 11,
+      "total": 12,
+      "components": {
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
@@ -45,13 +77,13 @@
           "type": "system_cron"
         },
         "daily-brief": {
-          "name": "Daily Brief Generation",
+          "name": "Daily Brief",
           "status": "healthy",
           "detail": "Last run: 14h ago",
           "type": "system_cron"
         },
         "daily-note": {
-          "name": "Obsidian Daily Note",
+          "name": "Daily Note",
           "status": "healthy",
           "detail": "Last run: 15h ago",
           "type": "system_cron"
@@ -62,63 +94,49 @@
           "detail": "Last run: 14h ago",
           "type": "system_cron"
         },
+        "phone-memory-sync": {
+          "name": "Phone Memory Sync",
+          "status": "healthy",
+          "detail": "Last run: 0h ago",
+          "type": "system_cron"
+        },
         "session-memory-sync": {
           "name": "Session Memory Sync",
           "status": "healthy",
           "detail": "Last run: 2h ago",
           "type": "system_cron"
         },
-        "phone-memory-sync": {
-          "name": "Phone Memory Sync",
+        "morning-message": {
+          "name": "Morning Message",
           "status": "healthy",
-          "detail": "Last run: 0h ago",
+          "detail": "Script ready (no runs yet)",
+          "type": "system_cron"
+        },
+        "nightly-memory": {
+          "name": "Nightly Memory Organization",
+          "status": "healthy",
+          "detail": "Script ready (no runs yet)",
+          "type": "system_cron"
+        },
+        "work-cycle": {
+          "name": "Work Cycle (Self-Heal)",
+          "status": "healthy",
+          "detail": "Script ready (no runs yet)",
+          "type": "system_cron"
+        },
+        "daily-standup": {
+          "name": "Daily Standup",
+          "status": "warning",
+          "detail": "No logfile or script found",
           "type": "system_cron"
         }
       }
     },
-    "services": {
-      "display_name": "Services",
-      "status": "failed",
-      "passing": 4,
-      "total": 5,
-      "components": {
-        "modem-daemon": {
-          "name": "Modem Daemon",
-          "status": "healthy",
-          "detail": "Active, health OK",
-          "type": "systemd_service"
-        },
-        "vt-monitor": {
-          "name": "VT Email Monitor",
-          "status": "healthy",
-          "detail": "Active",
-          "type": "systemd_service"
-        },
-        "vt-signal-monitor": {
-          "name": "VT Swing Signal Monitor",
-          "status": "healthy",
-          "detail": "Active",
-          "type": "systemd_service"
-        },
-        "memory-daemon": {
-          "name": "Memory Daemon",
-          "status": "failed",
-          "detail": "Not active",
-          "type": "systemd_service"
-        },
-        "openclaw-gateway": {
-          "name": "OpenClaw Gateway",
-          "status": "healthy",
-          "detail": "Process running",
-          "type": "process"
-        }
-      }
-    },
     "apis": {
-      "display_name": "API Integrations",
+      "display_name": "API Connections",
       "status": "warning",
-      "passing": 4,
-      "total": 5,
+      "passing": 3,
+      "total": 4,
       "components": {
         "gmail-api": {
           "name": "Gmail API",
@@ -127,22 +145,16 @@
           "type": "oauth_token"
         },
         "ms365-api": {
-          "name": "MS365 (LIFT)",
+          "name": "MS365 API",
           "status": "healthy",
           "detail": "Token 0d old",
           "type": "oauth_token"
         },
         "quickbooks-api": {
-          "name": "QuickBooks",
+          "name": "QuickBooks API",
           "status": "healthy",
           "detail": "Token 3d old",
           "type": "oauth_token"
-        },
-        "qdrant": {
-          "name": "Qdrant (Memory Search)",
-          "status": "healthy",
-          "detail": "HTTP 200",
-          "type": "http_endpoint"
         },
         "todoist-api": {
           "name": "Todoist API",
@@ -152,26 +164,26 @@
         }
       }
     },
-    "memory_system": {
-      "display_name": "Memory System",
+    "memory-files": {
+      "display_name": "Memory Files",
       "status": "healthy",
       "passing": 4,
       "total": 4,
       "components": {
         "working-md": {
-          "name": "WORKING.md Freshness",
+          "name": "WORKING.md (Public)",
           "status": "healthy",
           "detail": "0.1h old",
           "type": "file_freshness"
         },
         "working-md-private": {
-          "name": "Private WORKING.md Freshness",
+          "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "1.7h old",
+          "detail": "1.8h old",
           "type": "file_freshness"
         },
         "daily-file": {
-          "name": "Today's Memory File",
+          "name": "Daily File",
           "status": "healthy",
           "detail": "File exists",
           "type": "file_exists"
@@ -179,7 +191,7 @@
         "memory-files": {
           "name": "Core Memory Files",
           "status": "healthy",
-          "detail": "All 5 files present",
+          "detail": "All 6 files present",
           "type": "files_exist"
         }
       }
@@ -187,11 +199,17 @@
     "dashboards": {
       "display_name": "Dashboards",
       "status": "healthy",
-      "passing": 1,
-      "total": 1,
+      "passing": 2,
+      "total": 2,
       "components": {
         "aurora-dash": {
           "name": "Aurora Dashboard",
+          "status": "healthy",
+          "detail": "HTTP 200",
+          "type": "http_endpoint"
+        },
+        "health-dash": {
+          "name": "Health Dashboard",
           "status": "healthy",
           "detail": "HTTP 200",
           "type": "http_endpoint"
@@ -199,13 +217,5 @@
       }
     }
   },
-  "alerts": [
-    {
-      "severity": "critical",
-      "group": "services",
-      "component": "memory-daemon",
-      "message": "Not active",
-      "timestamp": "2026-02-07T20:35:01"
-    }
-  ]
+  "alerts": []
 }
