@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-08T09:45:01",
+  "timestamp": "2026-02-08T09:50:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -79,7 +79,7 @@
         "daily-brief": {
           "name": "Daily Brief",
           "status": "healthy",
-          "detail": "Last run: 3h ago",
+          "detail": "Last run: 4h ago",
           "type": "system_cron"
         },
         "daily-note": {
@@ -179,7 +179,7 @@
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "1.0h old",
+          "detail": "1.1h old",
           "type": "file_freshness"
         },
         "daily-file": {
