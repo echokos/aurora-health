@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-08T11:30:01",
+  "timestamp": "2026-02-08T11:35:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -145,7 +145,7 @@
         "memory-sweep": {
           "name": "Memory Sweep (Nightly)",
           "status": "healthy",
-          "detail": "Last run: 7h ago",
+          "detail": "Last run: 8h ago",
           "type": "system_cron"
         },
         "recent-memory-updates": {
@@ -197,13 +197,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.0h old",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
         "daily-file": {
