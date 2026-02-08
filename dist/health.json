@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-08T13:55:01",
+  "timestamp": "2026-02-08T14:00:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -151,7 +151,7 @@
         "recent-memory-updates": {
           "name": "RECENT.md Updates (4x Daily)",
           "status": "healthy",
-          "detail": "Last run: 1h ago",
+          "detail": "Last run: 2h ago",
           "type": "system_cron"
         },
         "monthly-index-generation": {
@@ -215,7 +215,7 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.0h old",
           "type": "file_freshness"
         },
         "working-md-private": {
