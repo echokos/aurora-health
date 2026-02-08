@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-08T00:00:01",
+  "timestamp": "2026-02-08T00:05:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -61,7 +61,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 19h ago",
+          "detail": "Last run: 20h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -85,13 +85,13 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 18h ago",
+          "detail": "Last run: 19h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 17h ago",
+          "detail": "Last run: 18h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -103,7 +103,7 @@
         "session-memory-sync": {
           "name": "Session Memory Sync",
           "status": "healthy",
-          "detail": "Last run: 5h ago",
+          "detail": "Last run: 6h ago",
           "type": "system_cron"
         },
         "morning-message": {
@@ -173,13 +173,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "2.0h old",
+          "detail": "2.1h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "2.0h old",
+          "detail": "2.1h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -223,7 +223,7 @@
       "group": "memory-files",
       "component": "daily-file",
       "message": "File not found",
-      "timestamp": "2026-02-08T00:00:01"
+      "timestamp": "2026-02-08T00:05:01"
     }
   ]
 }
