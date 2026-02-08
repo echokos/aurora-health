@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-07T18:55:01",
+  "timestamp": "2026-02-07T19:00:01",
   "overall": "warning",
   "groups": {
     "cron_jobs": {
@@ -23,7 +23,7 @@
         "work-cycle": {
           "name": "HEARTBEAT Executor",
           "status": "healthy",
-          "detail": "Skipped (2h ago) - active session",
+          "detail": "Operational (skips during conversation)",
           "type": "openclaw_cron"
         },
         "oauth-refresh": {
