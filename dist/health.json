@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-09T04:00:01",
+  "timestamp": "2026-02-09T04:05:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -61,7 +61,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 23h ago",
+          "detail": "Last run: 0h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -79,13 +79,13 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 22h ago",
+          "detail": "Last run: 23h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 21h ago",
+          "detail": "Last run: 22h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -179,7 +179,7 @@
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "1.0h old",
+          "detail": "1.1h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -191,7 +191,7 @@
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "warning",
-          "detail": "7.3h old",
+          "detail": "7.4h old",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
