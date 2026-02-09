@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-09T13:58:30",
-  "overall": "healthy",
+  "timestamp": "2026-02-09T14:00:01",
+  "overall": "warning",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -85,7 +85,7 @@
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 7h ago",
+          "detail": "Last run: 8h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -133,15 +133,15 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 7h ago",
+          "detail": "Last run: 8h ago",
           "type": "system_cron"
         }
       }
     },
     "apis": {
       "display_name": "API Connections",
-      "status": "healthy",
-      "passing": 4,
+      "status": "warning",
+      "passing": 3,
       "total": 4,
       "components": {
         "gmail-api": {
@@ -164,8 +164,8 @@
         },
         "todoist-api": {
           "name": "Todoist API",
-          "status": "healthy",
-          "detail": "API responding",
+          "status": "warning",
+          "detail": "API returned 401",
           "type": "api_key"
         }
       }
