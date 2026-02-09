@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-09T02:55:01",
+  "timestamp": "2026-02-09T03:00:02",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -73,19 +73,19 @@
         "session-archive": {
           "name": "Session Archive",
           "status": "healthy",
-          "detail": "Last run: 23h ago",
+          "detail": "Last run: 1d ago",
           "type": "system_cron"
         },
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 21h ago",
+          "detail": "Last run: 22h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 20h ago",
+          "detail": "Last run: 21h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -179,7 +179,7 @@
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "2.4h old",
+          "detail": "2.5h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
