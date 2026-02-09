@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-09T12:55:01",
-  "overall": "failed",
+  "timestamp": "2026-02-09T13:00:01",
+  "overall": "warning",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -172,14 +172,14 @@
     },
     "memory-files": {
       "display_name": "Memory Files",
-      "status": "failed",
-      "passing": 5,
+      "status": "warning",
+      "passing": 6,
       "total": 7,
       "components": {
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "0.0h old",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -190,14 +190,14 @@
         },
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
-          "status": "failed",
-          "detail": "16.3h old (max: 8h)",
+          "status": "healthy",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
           "name": "Private MEMORY.md Size Check",
           "status": "healthy",
-          "detail": "MEMORY.md: 3.8KB",
+          "detail": "MEMORY.md: 3.2KB",
           "type": "file_size"
         },
         "context-files-size": {
@@ -241,13 +241,5 @@
       }
     }
   },
-  "alerts": [
-    {
-      "severity": "critical",
-      "group": "memory-files",
-      "component": "memory-md-private",
-      "message": "16.3h old (max: 8h)",
-      "timestamp": "2026-02-09T12:55:01"
-    }
-  ]
+  "alerts": []
 }
