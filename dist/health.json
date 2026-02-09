@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-09T12:00:01",
+  "timestamp": "2026-02-09T12:05:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -61,7 +61,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 7h ago",
+          "detail": "Last run: 8h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -79,7 +79,7 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 6h ago",
+          "detail": "Last run: 7h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -191,7 +191,7 @@
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "failed",
-          "detail": "15.3h old (max: 8h)",
+          "detail": "15.4h old (max: 8h)",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
@@ -246,8 +246,8 @@
       "severity": "critical",
       "group": "memory-files",
       "component": "memory-md-private",
-      "message": "15.3h old (max: 8h)",
-      "timestamp": "2026-02-09T12:00:01"
+      "message": "15.4h old (max: 8h)",
+      "timestamp": "2026-02-09T12:05:01"
     }
   ]
 }
