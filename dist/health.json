@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-08T23:10:01",
+  "timestamp": "2026-02-08T23:15:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -191,7 +191,7 @@
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "healthy",
-          "detail": "2.5h old",
+          "detail": "2.6h old",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
