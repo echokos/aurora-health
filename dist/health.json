@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-08T20:15:01",
-  "overall": "warning",
+  "timestamp": "2026-02-08T20:20:01",
+  "overall": "failed",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -208,20 +208,20 @@
     },
     "memory-files": {
       "display_name": "Memory Files",
-      "status": "healthy",
-      "passing": 4,
+      "status": "failed",
+      "passing": 1,
       "total": 4,
       "components": {
         "working-md": {
           "name": "WORKING.md (Public)",
-          "status": "healthy",
-          "detail": "0.1h old",
+          "status": "failed",
+          "detail": "File not found",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
-          "status": "healthy",
-          "detail": "0.1h old",
+          "status": "failed",
+          "detail": "File not found",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -232,8 +232,8 @@
         },
         "memory-files": {
           "name": "Core Memory Files",
-          "status": "healthy",
-          "detail": "All 6 files present",
+          "status": "failed",
+          "detail": "Missing: WORKING.md, RECENT.md, MEMORY.md, WORKING.md, RECENT.md, MEMORY.md",
           "type": "files_exist"
         }
       }
@@ -259,5 +259,27 @@
       }
     }
   },
-  "alerts": []
+  "alerts": [
+    {
+      "severity": "critical",
+      "group": "memory-files",
+      "component": "working-md",
+      "message": "File not found",
+      "timestamp": "2026-02-08T20:20:01"
+    },
+    {
+      "severity": "critical",
+      "group": "memory-files",
+      "component": "working-md-private",
+      "message": "File not found",
+      "timestamp": "2026-02-08T20:20:01"
+    },
+    {
+      "severity": "critical",
+      "group": "memory-files",
+      "component": "memory-files",
+      "message": "Missing: WORKING.md, RECENT.md, MEMORY.md, WORKING.md, RECENT.md, MEMORY.md",
+      "timestamp": "2026-02-08T20:20:01"
+    }
+  ]
 }
