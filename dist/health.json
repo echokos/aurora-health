@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-09T06:00:01",
+  "timestamp": "2026-02-09T06:05:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -79,7 +79,7 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 0h ago",
+          "detail": "Last run: 1h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -173,13 +173,13 @@
     "memory-files": {
       "display_name": "Memory Files",
       "status": "failed",
-      "passing": 5,
+      "passing": 4,
       "total": 7,
       "components": {
         "memory-md": {
           "name": "MEMORY.md (Public)",
-          "status": "healthy",
-          "detail": "3.0h old",
+          "status": "warning",
+          "detail": "3.1h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -191,7 +191,7 @@
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "failed",
-          "detail": "9.3h old (max: 8h)",
+          "detail": "9.4h old (max: 8h)",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
@@ -246,8 +246,8 @@
       "severity": "critical",
       "group": "memory-files",
       "component": "memory-md-private",
-      "message": "9.3h old (max: 8h)",
-      "timestamp": "2026-02-09T06:00:01"
+      "message": "9.4h old (max: 8h)",
+      "timestamp": "2026-02-09T06:05:01"
     }
   ]
 }
