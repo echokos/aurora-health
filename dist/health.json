@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-08T20:25:01",
-  "overall": "failed",
+  "timestamp": "2026-02-08T20:30:01",
+  "overall": "warning",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -55,8 +55,8 @@
     "scheduled-jobs": {
       "display_name": "Scheduled Jobs",
       "status": "warning",
-      "passing": 18,
-      "total": 19,
+      "passing": 13,
+      "total": 15,
       "components": {
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
@@ -100,12 +100,6 @@
           "detail": "Last run: 0h ago",
           "type": "system_cron"
         },
-        "session-memory-sync": {
-          "name": "Session Memory Sync",
-          "status": "healthy",
-          "detail": "Last run: 1d ago",
-          "type": "system_cron"
-        },
         "morning-message": {
           "name": "Morning Message",
           "status": "healthy",
@@ -130,28 +124,10 @@
           "detail": "No logfile or script found",
           "type": "system_cron"
         },
-        "memory-automation-public": {
-          "name": "Public WORKING.md Automation",
-          "status": "healthy",
-          "detail": "Last run: 0h ago",
-          "type": "system_cron"
-        },
-        "memory-automation-private": {
-          "name": "Private WORKING.md Automation",
-          "status": "healthy",
-          "detail": "Last run: 0h ago",
-          "type": "system_cron"
-        },
-        "memory-sweep": {
-          "name": "Memory Sweep (Nightly)",
-          "status": "healthy",
-          "detail": "Last run: 16h ago",
-          "type": "system_cron"
-        },
-        "recent-memory-updates": {
-          "name": "RECENT.md Updates (4x Daily)",
-          "status": "healthy",
-          "detail": "Last run: 2h ago",
+        "memory-compact": {
+          "name": "Memory Compaction (Nightly)",
+          "status": "warning",
+          "detail": "No logfile or script found",
           "type": "system_cron"
         },
         "monthly-index-generation": {
@@ -208,20 +184,20 @@
     },
     "memory-files": {
       "display_name": "Memory Files",
-      "status": "failed",
-      "passing": 1,
+      "status": "healthy",
+      "passing": 4,
       "total": 4,
       "components": {
-        "working-md": {
-          "name": "WORKING.md (Public)",
-          "status": "failed",
-          "detail": "File not found",
+        "memory-md": {
+          "name": "memory.md (Public)",
+          "status": "healthy",
+          "detail": "0.2h old",
           "type": "file_freshness"
         },
-        "working-md-private": {
-          "name": "WORKING.md (Private)",
-          "status": "failed",
-          "detail": "File not found",
+        "memory-md-private": {
+          "name": "memory.md (Private)",
+          "status": "healthy",
+          "detail": "0.2h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -232,8 +208,8 @@
         },
         "memory-files": {
           "name": "Core Memory Files",
-          "status": "failed",
-          "detail": "Missing: WORKING.md, RECENT.md, MEMORY.md, WORKING.md, RECENT.md, MEMORY.md",
+          "status": "healthy",
+          "detail": "All 2 files present",
           "type": "files_exist"
         }
       }
@@ -259,27 +235,5 @@
       }
     }
   },
-  "alerts": [
-    {
-      "severity": "critical",
-      "group": "memory-files",
-      "component": "working-md",
-      "message": "File not found",
-      "timestamp": "2026-02-08T20:25:01"
-    },
-    {
-      "severity": "critical",
-      "group": "memory-files",
-      "component": "working-md-private",
-      "message": "File not found",
-      "timestamp": "2026-02-08T20:25:01"
-    },
-    {
-      "severity": "critical",
-      "group": "memory-files",
-      "component": "memory-files",
-      "message": "Missing: WORKING.md, RECENT.md, MEMORY.md, WORKING.md, RECENT.md, MEMORY.md",
-      "timestamp": "2026-02-08T20:25:01"
-    }
-  ]
+  "alerts": []
 }
