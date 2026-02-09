@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-08T20:40:01",
-  "overall": "warning",
+  "timestamp": "2026-02-08T20:45:01",
+  "overall": "failed",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -184,14 +184,14 @@
     },
     "memory-files": {
       "display_name": "Memory Files",
-      "status": "healthy",
-      "passing": 4,
+      "status": "failed",
+      "passing": 1,
       "total": 7,
       "components": {
         "memory-md": {
           "name": "memory.md (Public)",
-          "status": "healthy",
-          "detail": "0.0h old",
+          "status": "failed",
+          "detail": "File not found",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -202,8 +202,8 @@
         },
         "memory-md-private": {
           "name": "memory.md (Private)",
-          "status": "healthy",
-          "detail": "0.0h old",
+          "status": "failed",
+          "detail": "File not found",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
@@ -226,8 +226,8 @@
         },
         "memory-files": {
           "name": "Core Memory Files",
-          "status": "healthy",
-          "detail": "All 2 files present",
+          "status": "failed",
+          "detail": "Missing: memory.md, memory.md",
           "type": "files_exist"
         }
       }
@@ -253,5 +253,27 @@
       }
     }
   },
-  "alerts": []
+  "alerts": [
+    {
+      "severity": "critical",
+      "group": "memory-files",
+      "component": "memory-md",
+      "message": "File not found",
+      "timestamp": "2026-02-08T20:45:01"
+    },
+    {
+      "severity": "critical",
+      "group": "memory-files",
+      "component": "memory-md-private",
+      "message": "File not found",
+      "timestamp": "2026-02-08T20:45:01"
+    },
+    {
+      "severity": "critical",
+      "group": "memory-files",
+      "component": "memory-files",
+      "message": "Missing: memory.md, memory.md",
+      "timestamp": "2026-02-08T20:45:01"
+    }
+  ]
 }
