@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-09T07:30:01",
+  "timestamp": "2026-02-09T07:35:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -115,7 +115,7 @@
         "memory-compact": {
           "name": "Memory Compaction (Nightly)",
           "status": "healthy",
-          "detail": "Last run: 3h ago",
+          "detail": "Last run: 4h ago",
           "type": "system_cron"
         },
         "monthly-index-generation": {
@@ -179,7 +179,7 @@
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "0.0h old",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -191,7 +191,7 @@
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "failed",
-          "detail": "10.8h old (max: 8h)",
+          "detail": "10.9h old (max: 8h)",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
@@ -246,8 +246,8 @@
       "severity": "critical",
       "group": "memory-files",
       "component": "memory-md-private",
-      "message": "10.8h old (max: 8h)",
-      "timestamp": "2026-02-09T07:30:01"
+      "message": "10.9h old (max: 8h)",
+      "timestamp": "2026-02-09T07:35:01"
     }
   ]
 }
