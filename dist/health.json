@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-08T20:45:01",
-  "overall": "failed",
+  "timestamp": "2026-02-08T20:50:01",
+  "overall": "warning",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -55,8 +55,8 @@
     "scheduled-jobs": {
       "display_name": "Scheduled Jobs",
       "status": "warning",
-      "passing": 13,
-      "total": 15,
+      "passing": 12,
+      "total": 14,
       "components": {
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
@@ -74,12 +74,6 @@
           "name": "Session Archive",
           "status": "healthy",
           "detail": "Last run: 17h ago",
-          "type": "system_cron"
-        },
-        "daily-brief": {
-          "name": "Daily Brief",
-          "status": "healthy",
-          "detail": "Last run: 14h ago",
           "type": "system_cron"
         },
         "daily-note": {
@@ -184,38 +178,38 @@
     },
     "memory-files": {
       "display_name": "Memory Files",
-      "status": "failed",
-      "passing": 1,
+      "status": "warning",
+      "passing": 6,
       "total": 7,
       "components": {
         "memory-md": {
-          "name": "memory.md (Public)",
-          "status": "failed",
-          "detail": "File not found",
+          "name": "MEMORY.md (Public)",
+          "status": "healthy",
+          "detail": "0.2h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
-          "name": "memory.md Size Check",
-          "status": "unknown",
-          "detail": "Unknown check type: file_size",
+          "name": "MEMORY.md Size Check",
+          "status": "healthy",
+          "detail": "MEMORY.md: 4.6KB",
           "type": "file_size"
         },
         "memory-md-private": {
-          "name": "memory.md (Private)",
-          "status": "failed",
-          "detail": "File not found",
+          "name": "MEMORY.md (Private)",
+          "status": "healthy",
+          "detail": "0.2h old",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
-          "name": "Private memory.md Size Check",
-          "status": "unknown",
-          "detail": "Unknown check type: file_size",
+          "name": "Private MEMORY.md Size Check",
+          "status": "healthy",
+          "detail": "MEMORY.md: 3.8KB",
           "type": "file_size"
         },
         "context-files-size": {
           "name": "Context Files Size Check",
-          "status": "unknown",
-          "detail": "Unknown check type: file_size",
+          "status": "warning",
+          "detail": "USER.md: 15.4KB",
           "type": "file_size"
         },
         "daily-file": {
@@ -226,8 +220,8 @@
         },
         "memory-files": {
           "name": "Core Memory Files",
-          "status": "failed",
-          "detail": "Missing: memory.md, memory.md",
+          "status": "healthy",
+          "detail": "All 2 files present",
           "type": "files_exist"
         }
       }
@@ -253,27 +247,5 @@
       }
     }
   },
-  "alerts": [
-    {
-      "severity": "critical",
-      "group": "memory-files",
-      "component": "memory-md",
-      "message": "File not found",
-      "timestamp": "2026-02-08T20:45:01"
-    },
-    {
-      "severity": "critical",
-      "group": "memory-files",
-      "component": "memory-md-private",
-      "message": "File not found",
-      "timestamp": "2026-02-08T20:45:01"
-    },
-    {
-      "severity": "critical",
-      "group": "memory-files",
-      "component": "memory-files",
-      "message": "Missing: memory.md, memory.md",
-      "timestamp": "2026-02-08T20:45:01"
-    }
-  ]
+  "alerts": []
 }
