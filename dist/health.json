@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-09T15:15:01",
-  "overall": "warning",
+  "timestamp": "2026-02-09T15:20:02",
+  "overall": "healthy",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -140,8 +140,8 @@
     },
     "apis": {
       "display_name": "API Connections",
-      "status": "warning",
-      "passing": 3,
+      "status": "healthy",
+      "passing": 4,
       "total": 4,
       "components": {
         "gmail-api": {
@@ -164,8 +164,8 @@
         },
         "todoist-api": {
           "name": "Todoist API",
-          "status": "warning",
-          "detail": "API returned 401",
+          "status": "healthy",
+          "detail": "API responding",
           "type": "api_key"
         }
       }
