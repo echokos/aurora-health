@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-08T20:30:01",
+  "timestamp": "2026-02-08T20:35:02",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -186,19 +186,37 @@
       "display_name": "Memory Files",
       "status": "healthy",
       "passing": 4,
-      "total": 4,
+      "total": 7,
       "components": {
         "memory-md": {
           "name": "memory.md (Public)",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.3h old",
           "type": "file_freshness"
+        },
+        "memory-md-size": {
+          "name": "memory.md Size Check",
+          "status": "unknown",
+          "detail": "Unknown check type: file_size",
+          "type": "file_size"
         },
         "memory-md-private": {
           "name": "memory.md (Private)",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.3h old",
           "type": "file_freshness"
+        },
+        "memory-md-private-size": {
+          "name": "Private memory.md Size Check",
+          "status": "unknown",
+          "detail": "Unknown check type: file_size",
+          "type": "file_size"
+        },
+        "context-files-size": {
+          "name": "Context Files Size Check",
+          "status": "unknown",
+          "detail": "Unknown check type: file_size",
+          "type": "file_size"
         },
         "daily-file": {
           "name": "Daily File",
