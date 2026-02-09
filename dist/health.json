@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-09T11:10:01",
+  "timestamp": "2026-02-09T11:15:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -179,7 +179,7 @@
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "2.0h old",
+          "detail": "2.1h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -191,7 +191,7 @@
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "failed",
-          "detail": "14.5h old (max: 8h)",
+          "detail": "14.6h old (max: 8h)",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
@@ -246,8 +246,8 @@
       "severity": "critical",
       "group": "memory-files",
       "component": "memory-md-private",
-      "message": "14.5h old (max: 8h)",
-      "timestamp": "2026-02-09T11:10:01"
+      "message": "14.6h old (max: 8h)",
+      "timestamp": "2026-02-09T11:15:01"
     }
   ]
 }
