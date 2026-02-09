@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-08T20:50:01",
+  "timestamp": "2026-02-08T20:55:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -56,7 +56,7 @@
       "display_name": "Scheduled Jobs",
       "status": "warning",
       "passing": 12,
-      "total": 14,
+      "total": 13,
       "components": {
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
@@ -112,12 +112,6 @@
           "detail": "Script ready (no runs yet)",
           "type": "system_cron"
         },
-        "daily-standup": {
-          "name": "Daily Standup",
-          "status": "warning",
-          "detail": "No logfile or script found",
-          "type": "system_cron"
-        },
         "memory-compact": {
           "name": "Memory Compaction (Nightly)",
           "status": "warning",
@@ -139,7 +133,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 7h ago",
+          "detail": "Last run: 8h ago",
           "type": "system_cron"
         }
       }
@@ -185,7 +179,7 @@
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.3h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -197,7 +191,7 @@
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.3h old",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
