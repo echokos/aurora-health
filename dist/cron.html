@@ -181,17 +181,41 @@
 <body class="min-h-screen">
     <div x-data="cronCalendar()" x-init="init()" class="container mx-auto px-4 py-6 max-w-6xl">
         
-        <!-- Header Navigation -->
-        <div class="flex items-center justify-between mb-6">
-            <a href="/" class="btn btn-ghost btn-sm gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
-                Health System
-            </a>
-            
-            <!-- View Toggle (hidden on mobile) -->
-            <div class="join week-view-only">
+        <!-- Unified Header -->
+        <header class="navbar bg-base-100 rounded-box shadow-sm mb-6">
+            <div class="flex-1">
+                <a href="/" class="btn btn-ghost text-lg font-semibold">Aurora Health</a>
+            </div>
+            <div class="flex-none gap-2">
+                <!-- Navigation -->
+                <ul class="menu menu-horizontal px-1 hidden sm:flex">
+                    <li><a href="/" class="opacity-70 hover:opacity-100">Health Monitor</a></li>
+                    <li><a href="/cron" class="font-medium">Cron Calendar</a></li>
+                </ul>
+                <!-- Mobile dropdown -->
+                <div class="dropdown dropdown-end sm:hidden">
+                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                    </div>
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><a href="/">Health Monitor</a></li>
+                        <li><a href="/cron">Cron Calendar</a></li>
+                    </ul>
+                </div>
+                <!-- Theme Toggle -->
+                <label class="swap swap-rotate btn btn-ghost btn-circle">
+                    <input type="checkbox" class="theme-controller" value="light" @change="toggleTheme($event)" />
+                    <!-- sun icon -->
+                    <svg class="swap-off fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/></svg>
+                    <!-- moon icon -->
+                    <svg class="swap-on fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/></svg>
+                </label>
+            </div>
+        </header>
+        
+        <!-- View Toggle (below header, hidden on mobile) -->
+        <div class="flex items-center justify-end mb-4 week-view-only" x-show="view === 'week' || window.innerWidth >= 768">
+            <div class="join">
                 <button class="join-item btn btn-sm" :class="view === 'week' ? 'btn-primary' : 'btn-ghost'" @click="view = 'week'">Week</button>
                 <button class="join-item btn btn-sm" :class="view === 'list' ? 'btn-primary' : 'btn-ghost'" @click="view = 'list'">List</button>
             </div>
@@ -241,7 +265,7 @@
                                 <!-- Day Cells -->
                                 <template x-for="day in weekDays" :key="'cell-' + day.key + '-' + hour">
                                     <div class="day-cell" :class="day.isToday ? 'today' : ''">
-                                        <template x-for="event in getEventsForCell(day.dayOfWeek, hour)" :key="event.id + '-' + day.key">
+                                        <template x-for="event in getEventsForCell(day.dayOfWeek, hour, day.dateNum)" :key="event.id + '-' + day.key">
                                             <div 
                                                 class="event-pill" 
                                                 :class="getEventClass(event)"
@@ -261,7 +285,7 @@
             <!-- Recurring Jobs Section (High-Frequency) -->
             <div class="card bg-base-100 border border-base-300 shadow-sm mt-4" x-show="recurringEvents.length > 0">
                 <div class="card-body p-4">
-                    <h3 class="text-sm font-semibold text-base-content/70 mb-3">Recurring Jobs (Every 1-30 min)</h3>
+                    <h3 class="text-sm font-semibold text-base-content/70 mb-3">Frequent Jobs</h3>
                     <div class="flex flex-wrap gap-2">
                         <template x-for="event in recurringEvents" :key="event.id">
                             <button 
@@ -500,9 +524,24 @@
                     });
                 },
                 
-                // Timeline groups for list view
+                // Timeline groups for list view - filtered for TODAY
                 get timelineGroups() {
                     const groups = {};
+                    const today = new Date();
+                    const todayDate = today.getDate();
+                    // Convert JS day (0=Sun) to our format (0=Mon, 6=Sun)
+                    const jsDay = today.getDay();
+                    const todayDayOfWeek = jsDay === 0 ? 6 : jsDay - 1;
+                    
+                    const dayMap = {
+                        'monday': 0, 'mon': 0,
+                        'tuesday': 1, 'tue': 1,
+                        'wednesday': 2, 'wed': 2,
+                        'thursday': 3, 'thu': 3,
+                        'friday': 4, 'fri': 4,
+                        'saturday': 5, 'sat': 5,
+                        'sunday': 6, 'sun': 6
+                    };
                     
                     this.scheduledEvents.forEach(event => {
                         const time = event.schedule?.times?.[0];
@@ -510,6 +549,19 @@
                         
                         const match = time.match(/^(\d+):/);
                         if (!match) return;
+                        
+                        const freq = event.schedule?.frequency || '';
+                        
+                        // Weekly events: only show if today matches
+                        if (freq === 'weekly') {
+                            const eventDay = (event.schedule?.day || '').toLowerCase();
+                            if (dayMap[eventDay] !== todayDayOfWeek) return;
+                        }
+                        
+                        // Monthly events: only show on 1st of month
+                        if (freq === 'monthly') {
+                            if (todayDate !== 1) return;
+                        }
                         
                         const hour = parseInt(match[1]);
                         if (!groups[hour]) {
@@ -523,7 +575,8 @@
                 
                 // Get events for a specific calendar cell
                 // dayOfWeek: 0=Mon, 1=Tue, ..., 6=Sun
-                getEventsForCell(dayOfWeek, hour) {
+                // dateNum: day of month (1-31)
+                getEventsForCell(dayOfWeek, hour, dateNum) {
                     return (this.data.events || []).filter(e => {
                         const freq = e.schedule?.frequency || '';
                         
@@ -565,10 +618,9 @@
                             return dayMap[eventDay] === dayOfWeek;
                         }
                         
-                        // Monthly: show on a specific day (if we have day info), otherwise first of month behavior
+                        // Monthly: only show on 1st of month
                         if (freq === 'monthly') {
-                            // For now, show monthly on Monday only to indicate "once a week-ish"
-                            return dayOfWeek === 0;
+                            return dateNum === 1;
                         }
                         
                         // Unknown frequency - show all days
@@ -648,9 +700,25 @@
                 showEventDetail(event) {
                     this.selectedEvent = event;
                     document.getElementById('event-modal').showModal();
+                },
+                
+                toggleTheme(event) {
+                    const theme = event.target.checked ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-theme', theme);
+                    localStorage.setItem('aurora-theme', theme);
                 }
             };
         }
+        
+        // Apply saved theme on load
+        (function() {
+            const saved = localStorage.getItem('aurora-theme');
+            if (saved) {
+                document.documentElement.setAttribute('data-theme', saved);
+                const checkbox = document.querySelector('.theme-controller');
+                if (checkbox) checkbox.checked = saved === 'light';
+            }
+        })();
     </script>
 </body>
 </html>

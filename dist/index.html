@@ -6,41 +6,84 @@
     <title>Aurora Health Monitor</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
     <style>
-        .status-healthy { color: #22c55e; }
-        .status-warning { color: #eab308; }
-        .status-failed { color: #ef4444; }
-        .status-unknown { color: #6b7280; }
+        :root {
+            --color-base-100: oklch(25.33% .016 252.42);
+            --color-base-200: oklch(23.26% .014 253.1);
+            --color-base-300: oklch(21.15% .012 254.09);
+            --color-base-content: oklch(97.807% .029 256.847);
+            --color-primary: oklch(58% .233 277.117);
+        }
         
-        .bg-status-healthy { background-color: rgba(34, 197, 94, 0.1); }
-        .bg-status-warning { background-color: rgba(234, 179, 8, 0.1); }
-        .bg-status-failed { background-color: rgba(239, 68, 68, 0.1); }
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            background: var(--color-base-200);
+        }
+        
+        .status-healthy { color: oklch(76% .15 163); }
+        .status-warning { color: oklch(80% .15 85); }
+        .status-failed { color: oklch(70% .15 25); }
+        .status-unknown { color: oklch(60% .02 250); }
+        
+        .bg-status-healthy { background: oklch(76% .15 163 / 0.1); border-color: oklch(76% .15 163 / 0.3); }
+        .bg-status-warning { background: oklch(80% .15 85 / 0.1); border-color: oklch(80% .15 85 / 0.3); }
+        .bg-status-failed { background: oklch(70% .15 25 / 0.1); border-color: oklch(70% .15 25 / 0.3); }
     </style>
 </head>
-<body class="min-h-screen bg-base-300">
-    <div x-data="healthDashboard()" x-init="init()" class="container mx-auto px-4 py-8 max-w-4xl">
+<body class="min-h-screen">
+    <div x-data="healthDashboard()" x-init="init()" class="container mx-auto px-4 py-6 max-w-4xl">
         
-        <!-- Header -->
-        <div class="text-center mb-8">
-            <h1 class="text-3xl font-bold mb-2">Aurora Health Monitor</h1>
-            <p class="text-base-content/60" x-text="'Last updated: ' + formatTime(data.timestamp)"></p>
-        </div>
+        <!-- Unified Header -->
+        <header class="navbar bg-base-100 rounded-box shadow-sm mb-6">
+            <div class="flex-1">
+                <a href="/" class="btn btn-ghost text-lg font-semibold">Aurora Health</a>
+            </div>
+            <div class="flex-none gap-2">
+                <!-- Navigation -->
+                <ul class="menu menu-horizontal px-1 hidden sm:flex">
+                    <li><a href="/" class="font-medium">Health Monitor</a></li>
+                    <li><a href="/cron" class="opacity-70 hover:opacity-100">Cron Calendar</a></li>
+                </ul>
+                <!-- Mobile dropdown -->
+                <div class="dropdown dropdown-end sm:hidden">
+                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                    </div>
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><a href="/">Health Monitor</a></li>
+                        <li><a href="/cron">Cron Calendar</a></li>
+                    </ul>
+                </div>
+                <!-- Theme Toggle -->
+                <label class="swap swap-rotate btn btn-ghost btn-circle">
+                    <input type="checkbox" class="theme-controller" value="light" @change="toggleTheme($event)" />
+                    <!-- sun icon -->
+                    <svg class="swap-off fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/></svg>
+                    <!-- moon icon -->
+                    <svg class="swap-on fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/></svg>
+                </label>
+            </div>
+        </header>
         
-        <!-- Overall Status -->
-        <div class="card bg-base-100 shadow-xl mb-6" :class="'bg-status-' + data.overall">
+        <!-- Overall Status Card -->
+        <div class="card bg-base-100 border shadow-sm mb-6" :class="'bg-status-' + data.overall">
             <div class="card-body text-center py-6">
                 <h2 class="text-2xl font-bold" :class="'status-' + data.overall">
                     <span x-text="statusIcon(data.overall)"></span>
                     <span x-text="data.overall?.toUpperCase() || 'LOADING'"></span>
                 </h2>
                 <p class="text-base-content/60" x-text="getSummary()"></p>
+                <p class="text-sm text-base-content/40 mt-1" x-text="'Updated ' + formatTime(data.timestamp)"></p>
             </div>
         </div>
         
         <!-- Alerts -->
         <template x-if="data.alerts && data.alerts.length > 0">
-            <div class="alert alert-error mb-6">
+            <div class="alert alert-error mb-6 border border-error/30">
                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
@@ -54,17 +97,17 @@
         
         <!-- Groups -->
         <template x-for="(group, groupId) in data.groups" :key="groupId">
-            <div class="card bg-base-100 shadow-lg mb-4">
+            <div class="card bg-base-100 border border-base-300 shadow-sm mb-4">
                 <div class="card-body p-4">
                     <!-- Group Header -->
                     <div class="flex items-center justify-between cursor-pointer" @click="toggleGroup(groupId)">
                         <div class="flex items-center gap-2">
                             <span :class="'status-' + group.status" x-text="statusIcon(group.status)"></span>
-                            <h3 class="font-bold" x-text="group.display_name"></h3>
+                            <h3 class="font-semibold" x-text="group.display_name"></h3>
                         </div>
                         <div class="flex items-center gap-3">
                             <span class="badge" :class="badgeClass(group.status)" x-text="group.passing + '/' + group.total"></span>
-                            <svg class="w-4 h-4 transition-transform" :class="expanded[groupId] ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="w-4 h-4 transition-transform text-base-content/50" :class="expanded[groupId] ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </div>
@@ -73,12 +116,12 @@
                     <!-- Components (expandable) -->
                     <div x-show="expanded[groupId]" x-collapse class="mt-4 space-y-2">
                         <template x-for="(comp, compId) in group.components" :key="compId">
-                            <div class="flex items-center justify-between py-2 px-3 rounded bg-base-200">
+                            <div class="flex items-center justify-between py-2 px-3 rounded-lg bg-base-200/50 border border-base-300/50">
                                 <div class="flex items-center gap-2">
                                     <span :class="'status-' + comp.status" x-text="statusIcon(comp.status)"></span>
-                                    <span x-text="comp.name"></span>
+                                    <span class="text-sm font-medium" x-text="comp.name"></span>
                                 </div>
-                                <span class="text-sm text-base-content/60" x-text="comp.detail"></span>
+                                <span class="text-xs text-base-content/50" x-text="comp.detail"></span>
                             </div>
                         </template>
                     </div>
@@ -87,12 +130,8 @@
         </template>
         
         <!-- Footer -->
-        <div class="text-center text-base-content/40 text-sm mt-8">
-            <p>Auto-refreshes every 60 seconds</p>
-            <p class="mt-1">
-                <a href="/cron" class="link">Cron Schedule</a> ·
-                <a href="https://dash.kos.plus" class="link">Main Dashboard</a>
-            </p>
+        <div class="text-center text-base-content/30 text-xs mt-8">
+            Auto-refreshes every 60 seconds
         </div>
     </div>
     
@@ -106,6 +145,14 @@
                     await this.fetchData();
                     // Auto-refresh every 60 seconds
                     setInterval(() => this.fetchData(), 60000);
+                    
+                    // Apply saved theme
+                    const saved = localStorage.getItem('aurora-theme');
+                    if (saved) {
+                        document.documentElement.setAttribute('data-theme', saved);
+                        const checkbox = document.querySelector('.theme-controller');
+                        if (checkbox) checkbox.checked = saved === 'light';
+                    }
                 },
                 
                 async fetchData() {
@@ -169,6 +216,12 @@
                         passing += group.passing;
                     }
                     return `${passing}/${total} checks passing`;
+                },
+                
+                toggleTheme(event) {
+                    const theme = event.target.checked ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-theme', theme);
+                    localStorage.setItem('aurora-theme', theme);
                 }
             };
         }
