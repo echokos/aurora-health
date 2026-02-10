@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-10T01:25:01",
+  "timestamp": "2026-02-10T01:30:02",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -109,7 +109,7 @@
         "memory-compact": {
           "name": "Memory Compaction (Nightly)",
           "status": "healthy",
-          "detail": "Last run: 21h ago",
+          "detail": "Last run: 22h ago",
           "type": "system_cron"
         },
         "monthly-index-generation": {
@@ -167,13 +167,13 @@
     "memory-files": {
       "display_name": "Memory Files",
       "status": "failed",
-      "passing": 6,
+      "passing": 5,
       "total": 7,
       "components": {
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "0.5h old",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -184,7 +184,7 @@
         },
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
-          "status": "healthy",
+          "status": "warning",
           "detail": "6.0h old",
           "type": "file_freshness"
         },
@@ -241,7 +241,7 @@
       "group": "memory-files",
       "component": "daily-file",
       "message": "File not found",
-      "timestamp": "2026-02-10T01:25:01"
+      "timestamp": "2026-02-10T01:30:02"
     }
   ]
 }
