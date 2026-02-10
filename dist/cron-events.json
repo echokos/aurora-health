@@ -1,10 +1,10 @@
 {
-  "generated": "2026-02-10T05:29:20.167447",
+  "generated": "2026-02-10T06:05:01.564555",
   "sources": {
     "system_cron": 14,
     "openclaw": 1,
-    "systemd": 1,
-    "total": 16
+    "systemd": 0,
+    "total": 15
   },
   "events": [
     {
@@ -214,16 +214,6 @@
       },
       "source": "OpenClaw Scheduler",
       "description": "Execute heartbeat phases every 30 minutes (memory, planning, work)"
-    },
-    {
-      "id": "timer-launchpadlib-cache-clean",
-      "name": "Launchpadlib Cache Clean",
-      "schedule": {
-        "display": "systemd timer",
-        "frequency": "timer",
-        "times": []
-      },
-      "source": "systemd timer"
     }
   ]
 }

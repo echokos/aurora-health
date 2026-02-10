@@ -234,7 +234,7 @@
                         
                         <!-- Hour Rows -->
                         <template x-for="hour in displayHours" :key="hour">
-                            <template x-fragment>
+                            <div style="display: contents">
                                 <!-- Time Label -->
                                 <div class="time-cell" x-text="formatHour(hour)"></div>
                                 
@@ -251,7 +251,7 @@
                                         </template>
                                     </div>
                                 </template>
-                            </template>
+                            </div>
                         </template>
                         
                     </div>
