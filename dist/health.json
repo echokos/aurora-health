@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-10T00:00:01",
+  "timestamp": "2026-02-10T00:05:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 19h ago",
+          "detail": "Last run: 20h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -73,13 +73,13 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 18h ago",
+          "detail": "Last run: 19h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 17h ago",
+          "detail": "Last run: 18h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 17h ago",
+          "detail": "Last run: 18h ago",
           "type": "system_cron"
         }
       }
@@ -173,7 +173,7 @@
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "0.1h old",
+          "detail": "0.2h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -185,7 +185,7 @@
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "healthy",
-          "detail": "4.5h old",
+          "detail": "4.6h old",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
@@ -241,7 +241,7 @@
       "group": "memory-files",
       "component": "daily-file",
       "message": "File not found",
-      "timestamp": "2026-02-10T00:00:01"
+      "timestamp": "2026-02-10T00:05:01"
     }
   ]
 }
