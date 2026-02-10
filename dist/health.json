@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-10T08:05:01",
-  "overall": "healthy",
+  "timestamp": "2026-02-10T08:10:01",
+  "overall": "warning",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -166,14 +166,14 @@
     },
     "memory-files": {
       "display_name": "Memory Files",
-      "status": "healthy",
-      "passing": 7,
+      "status": "warning",
+      "passing": 6,
       "total": 7,
       "components": {
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.3h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -196,8 +196,8 @@
         },
         "context-files-size": {
           "name": "Context Files Size Check",
-          "status": "healthy",
-          "detail": "AGENTS.md: 12.3KB; SOUL.md: 7.1KB; USER.md: 13.4KB; IDENTITY.md: 3.0KB; TOOLS.md: 14.6KB; HEARTBEAT.md: 3.4KB; SOUL.md: 3.0KB; USER.md: 2.0KB",
+          "status": "warning",
+          "detail": "TOOLS.md: 15.4KB",
           "type": "file_size"
         },
         "daily-file": {
