@@ -52,22 +52,40 @@
 <body class="min-h-screen bg-base-300">
     <div x-data="cronDashboard()" x-init="init()" class="container mx-auto px-4 py-8 max-w-4xl">
         
-        <!-- Top Navigation -->
-        <div class="flex justify-between items-center mb-6">
-            <a href="/" class="btn btn-ghost btn-sm">← Health Dashboard</a>
-            <a href="https://dash.kos.plus" class="btn btn-ghost btn-sm">Main Dashboard →</a>
+        <!-- Navigation Bar -->
+        <div class="navbar bg-base-100 rounded-lg shadow-lg mb-6">
+            <div class="flex-1">
+                <a href="/" class="btn btn-ghost normal-case text-xl">← Health Dashboard</a>
+            </div>
+            <div class="flex-none gap-2">
+                <a href="https://dash.kos.plus" class="btn btn-ghost btn-sm">Main Dashboard</a>
+            </div>
         </div>
         
         <!-- Header -->
-        <div class="text-center mb-8">
+        <div class="text-center mb-6">
             <h1 class="text-3xl font-bold mb-2">Cron Schedule</h1>
             <p class="text-base-content/60" x-text="'Last updated: ' + formatTime(data.generated)"></p>
         </div>
         
-        <!-- View Toggle (desktop only) -->
-        <div class="hidden md:flex justify-center mb-6 gap-2">
-            <button class="btn btn-sm" :class="view === 'list' ? 'btn-primary' : 'btn-ghost'" @click="view = 'list'">List</button>
-            <button class="btn btn-sm" :class="view === 'week' ? 'btn-primary' : 'btn-ghost'" @click="view = 'week'">Week</button>
+        <!-- View Toggle -->
+        <div class="flex justify-center mb-4 gap-2">
+            <button class="btn btn-sm" :class="view === 'list' ? 'btn-primary' : 'btn-ghost'" @click="view = 'list'">
+                📋 List<span class="hidden md:inline"> View</span>
+            </button>
+            <button class="btn btn-sm" :class="view === 'week' ? 'btn-primary' : 'btn-ghost'" @click="view = 'week'">
+                📅 Week<span class="hidden md:inline"> View</span>
+            </button>
+        </div>
+        
+        <!-- View Description -->
+        <div class="alert mb-4" x-show="view === 'list'">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span><strong>All Scheduled Jobs</strong> grouped by run time. Shows every automated task with its full schedule.</span>
+        </div>
+        <div class="alert mb-4" x-show="view === 'week'">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span><strong>This Week's Calendar</strong> showing when jobs run each day (3am-7am, when most jobs happen). High-frequency jobs listed below grid.</span>
         </div>
         
         <!-- Legend -->
@@ -80,19 +98,20 @@
         </div>
         
         <!-- List View -->
-        <div x-show="view === 'list'" class="space-y-2">
-            <div class="alert alert-info mb-4">
-                <span>Showing all scheduled jobs. Each job runs on its specified schedule (daily, weekly, hourly, etc.)</span>
-            </div>
+        <div x-show="view === 'list'" class="space-y-3">
             <template x-for="group in groupedByTime" :key="group.time">
                 <div class="card bg-base-100 shadow-lg">
                     <div class="card-body p-4">
-                        <h3 class="font-bold text-lg" x-text="group.time"></h3>
-                        <div class="space-y-2 mt-2">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-bold text-lg" x-text="group.time"></h3>
+                            <span class="badge badge-sm badge-ghost" x-text="group.events.length + ' job' + (group.events.length !== 1 ? 's' : '')"></span>
+                        </div>
+                        <div class="text-sm text-base-content/60 mb-3" x-text="getTimeGroupDescription(group.time)"></div>
+                        <div class="space-y-2">
                             <template x-for="event in group.events" :key="event.id">
                                 <div class="flex items-center justify-between py-2 px-3 rounded bg-base-200" :class="getFreqClass(event.schedule.frequency)">
                                     <div class="flex-1">
-                                        <div x-text="event.name"></div>
+                                        <div class="font-medium" x-text="event.name"></div>
                                         <div class="text-xs opacity-60 mt-1" x-text="event.schedule.display"></div>
                                     </div>
                                     <span class="badge badge-ghost text-xs" x-text="formatFrequency(event.schedule.frequency)"></span>
@@ -121,9 +140,9 @@
                     <template x-for="hour in hourSlots" :key="hour">
                         <template x-fragment>
                             <div class="week-hour" x-text="hour + ':00'"></div>
-                            <template x-for="day in weekDays" :key="day.short + hour">
+                            <template x-for="(day, dayIndex) in weekDays" :key="day.short + hour">
                                 <div class="week-cell">
-                                    <template x-for="event in getEventsForDayAndHour(day, hour)" :key="event.id">
+                                    <template x-for="event in getEventsForDayAndHour(dayIndex, day, hour)" :key="event.id">
                                         <div class="week-event" :class="getFreqClass(event.schedule.frequency).replace('freq-', 'bg-').replace('daily', 'green-500/20').replace('weekly', 'amber-500/20').replace('monthly', 'pink-500/20')" x-text="event.name"></div>
                                     </template>
                                 </div>
@@ -148,11 +167,7 @@
         
         <!-- Footer -->
         <div class="text-center text-base-content/40 text-sm mt-8">
-            <p>Auto-refreshes every 60 seconds</p>
-            <p class="mt-1">
-                <a href="/" class="link">Health Dashboard</a> ·
-                <a href="https://dash.kos.plus" class="link">Main Dashboard</a>
-            </p>
+            <p>⟳ Auto-refreshes every 60 seconds</p>
         </div>
     </div>
     
@@ -268,28 +283,49 @@
                     return labels[freq] || freq;
                 },
                 
-                getEventsForDayAndHour(day, hour) {
+                getTimeGroupDescription(timeLabel) {
+                    if (timeLabel === 'High Frequency') {
+                        return 'Runs every 5-15 minutes throughout the day';
+                    } else if (timeLabel === 'Hourly') {
+                        return 'Runs every hour at the specified minute';
+                    } else if (timeLabel.match(/^\d+:\d+$/)) {
+                        return 'Runs daily at this time';
+                    } else {
+                        return 'Various schedules';
+                    }
+                },
+                
+                getEventsForDayAndHour(dayIndex, day, hour) {
                     return (this.data.events || []).filter(e => {
-                        const time = e.schedule.times?.[0];
-                        if (!time || time === 'recurring') return false;
+                        // Skip high frequency jobs (shown separately below grid)
+                        const freq = e.schedule.frequency;
+                        if (freq?.includes('every-')) return false;
                         
-                        // Check if hour matches
-                        const h = parseInt(time.split(':')[0]);
-                        if (h !== hour) return false;
+                        // Check if event has a time
+                        const time = e.schedule.times?.[0];
+                        if (!time) return false;
+                        
+                        // Parse hour from time string (handles "HH:MM" format)
+                        const timeMatch = time.match(/(\d+):(\d+)/);
+                        if (!timeMatch) return false;
+                        
+                        const eventHour = parseInt(timeMatch[1]);
+                        if (eventHour !== hour) return false;
                         
                         // For daily/hourly jobs, show on all days
-                        if (e.schedule.frequency === 'daily' || e.schedule.frequency === 'hourly') {
+                        if (freq === 'daily' || freq === 'hourly') {
                             return true;
                         }
                         
                         // For weekly jobs, only show on matching day
-                        if (e.schedule.frequency === 'weekly' && e.schedule.display) {
-                            const dayName = e.schedule.display.toLowerCase();
-                            return dayName.includes(day.short.toLowerCase());
+                        if (freq === 'weekly' && e.schedule.day) {
+                            const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                            const eventDayIndex = days.indexOf(e.schedule.day.slice(0, 3));
+                            return eventDayIndex === dayIndex;
                         }
                         
                         // For monthly jobs, only show on day 1
-                        if (e.schedule.frequency === 'monthly') {
+                        if (freq === 'monthly') {
                             return day.date === 1;
                         }
                         
