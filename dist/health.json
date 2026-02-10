@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-02-10T10:15:01",
+  "timestamp": "2026-02-10T10:20:01",
   "overall": "warning",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
       "status": "healthy",
-      "passing": 6,
-      "total": 6,
+      "passing": 7,
+      "total": 7,
       "components": {
         "openclaw-gateway": {
           "name": "OpenClaw Gateway",
@@ -43,14 +43,20 @@
           "status": "healthy",
           "detail": "HTTP 200",
           "type": "http_endpoint"
+        },
+        "obsidian-sync": {
+          "name": "Obsidian Sync",
+          "status": "healthy",
+          "detail": "Process running",
+          "type": "process"
         }
       }
     },
     "scheduled-jobs": {
       "display_name": "Scheduled Jobs",
       "status": "healthy",
-      "passing": 13,
-      "total": 13,
+      "passing": 14,
+      "total": 14,
       "components": {
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
@@ -129,6 +135,12 @@
           "status": "healthy",
           "detail": "Last run: 4h ago",
           "type": "system_cron"
+        },
+        "obsidian-health-monitor": {
+          "name": "Obsidian Health Monitor",
+          "status": "healthy",
+          "detail": "Last run: 0h ago",
+          "type": "system_cron"
         }
       }
     },
@@ -185,7 +197,7 @@
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "healthy",
-          "detail": "5.8h old",
+          "detail": "5.9h old",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
