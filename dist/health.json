@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-10T08:55:01",
+  "timestamp": "2026-02-10T09:00:02",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -79,7 +79,7 @@
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 2h ago",
+          "detail": "Last run: 3h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 2h ago",
+          "detail": "Last run: 3h ago",
           "type": "system_cron"
         }
       }
@@ -185,7 +185,7 @@
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "healthy",
-          "detail": "4.5h old",
+          "detail": "4.6h old",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
