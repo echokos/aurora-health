@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-10T03:00:01",
+  "timestamp": "2026-02-10T03:05:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 22h ago",
+          "detail": "Last run: 23h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -73,13 +73,13 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 21h ago",
+          "detail": "Last run: 22h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 20h ago",
+          "detail": "Last run: 21h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 20h ago",
+          "detail": "Last run: 21h ago",
           "type": "system_cron"
         }
       }
@@ -179,13 +179,13 @@
         "memory-md-size": {
           "name": "MEMORY.md Size Check",
           "status": "healthy",
-          "detail": "MEMORY.md: 6.7KB",
+          "detail": "MEMORY.md: 6.0KB",
           "type": "file_size"
         },
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "warning",
-          "detail": "7.5h old",
+          "detail": "7.6h old",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
@@ -197,7 +197,7 @@
         "context-files-size": {
           "name": "Context Files Size Check",
           "status": "healthy",
-          "detail": "AGENTS.md: 12.3KB; SOUL.md: 7.1KB; USER.md: 13.4KB; IDENTITY.md: 3.0KB; TOOLS.md: 14.1KB; HEARTBEAT.md: 3.4KB; SOUL.md: 3.0KB; USER.md: 2.0KB",
+          "detail": "AGENTS.md: 12.3KB; SOUL.md: 7.1KB; USER.md: 13.4KB; IDENTITY.md: 3.0KB; TOOLS.md: 14.6KB; HEARTBEAT.md: 3.4KB; SOUL.md: 3.0KB; USER.md: 2.0KB",
           "type": "file_size"
         },
         "daily-file": {
@@ -241,7 +241,7 @@
       "group": "memory-files",
       "component": "daily-file",
       "message": "File not found",
-      "timestamp": "2026-02-10T03:00:01"
+      "timestamp": "2026-02-10T03:05:01"
     }
   ]
 }
