@@ -3,147 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurora Cron Schedule</title>
+    <title>Cron Calendar</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
     <style>
-        .freq-daily { border-left: 3px solid #22c55e; }
-        .freq-hourly { border-left: 3px solid #3b82f6; }
-        .freq-recurring { border-left: 3px solid #a855f7; }
-        .freq-weekly { border-left: 3px solid #f59e0b; }
-        .freq-monthly { border-left: 3px solid #ec4899; }
+        .event-daily { background: rgba(34, 197, 94, 0.25); border-left: 3px solid #22c55e; }
+        .event-hourly { background: rgba(59, 130, 246, 0.25); border-left: 3px solid #3b82f6; }
+        .event-recurring { background: rgba(168, 85, 247, 0.25); border-left: 3px solid #a855f7; }
+        .event-weekly { background: rgba(245, 158, 11, 0.25); border-left: 3px solid #f59e0b; }
+        .event-monthly { background: rgba(236, 72, 153, 0.25); border-left: 3px solid #ec4899; }
         
-        .week-grid {
+        .calendar-grid {
             display: grid;
-            grid-template-columns: 60px repeat(7, 1fr);
-            gap: 1px;
-            background: rgba(255,255,255,0.1);
+            grid-template-columns: 50px repeat(7, 1fr);
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        .week-header {
-            padding: 0.5rem;
+        .calendar-header {
+            padding: 0.75rem 0.5rem;
             text-align: center;
-            font-weight: bold;
-            background: var(--fallback-b1,oklch(var(--b1)/1));
+            font-weight: 600;
+            background: var(--fallback-b2,oklch(var(--b2)/1));
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-        .week-hour {
-            padding: 0.25rem;
+        .calendar-header.today {
+            background: oklch(var(--p)/0.2);
+            color: oklch(var(--p)/1);
+        }
+        .time-label {
+            padding: 0.5rem 0.25rem;
             font-size: 0.75rem;
             text-align: right;
-            background: var(--fallback-b1,oklch(var(--b1)/1));
-            color: var(--fallback-bc,oklch(var(--bc)/0.6));
+            background: var(--fallback-b2,oklch(var(--b2)/1));
+            color: var(--fallback-bc,oklch(var(--bc)/0.5));
+            border-right: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .week-cell {
-            min-height: 2rem;
+        .calendar-cell {
+            min-height: 3.5rem;
             padding: 0.25rem;
             background: var(--fallback-b1,oklch(var(--b1)/1));
-            font-size: 0.7rem;
+            border-right: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden;
         }
-        .week-event {
-            padding: 2px 4px;
-            border-radius: 2px;
-            margin-bottom: 1px;
+        .calendar-cell.today {
+            background: oklch(var(--p)/0.05);
+        }
+        .calendar-event {
+            padding: 3px 6px;
+            border-radius: 3px;
+            margin-bottom: 2px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: opacity 0.15s;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
+        .calendar-event:hover {
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body class="min-h-screen bg-base-300">
-    <div x-data="cronDashboard()" x-init="init()" class="container mx-auto px-4 py-8 max-w-4xl">
+    <div x-data="cronCalendar()" x-init="init()" class="container mx-auto px-4 py-6 max-w-6xl">
         
-        <!-- Navigation Bar -->
-        <div class="navbar bg-base-100 rounded-lg shadow-lg mb-6">
-            <div class="flex-1">
-                <a href="/" class="btn btn-ghost normal-case text-xl">← Health Dashboard</a>
-            </div>
-            <div class="flex-none gap-2">
-                <a href="https://dash.kos.plus" class="btn btn-ghost btn-sm">Main Dashboard</a>
-            </div>
+        <!-- Simple Navigation -->
+        <div class="flex items-center justify-between mb-6">
+            <a href="/" class="btn btn-ghost gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+                Health System
+            </a>
+            <span class="text-base-content/50 text-sm" x-text="'Updated ' + formatTime(data.generated)"></span>
         </div>
         
         <!-- Header -->
         <div class="text-center mb-6">
-            <h1 class="text-3xl font-bold mb-2">Cron Schedule</h1>
-            <p class="text-base-content/60" x-text="'Last updated: ' + formatTime(data.generated)"></p>
+            <h1 class="text-2xl font-bold">Cron Calendar</h1>
         </div>
         
         <!-- View Toggle -->
-        <div class="flex justify-center mb-4 gap-2">
-            <button class="btn btn-sm" :class="view === 'list' ? 'btn-primary' : 'btn-ghost'" @click="view = 'list'">
-                📋 List<span class="hidden md:inline"> View</span>
-            </button>
-            <button class="btn btn-sm" :class="view === 'week' ? 'btn-primary' : 'btn-ghost'" @click="view = 'week'">
-                📅 Week<span class="hidden md:inline"> View</span>
-            </button>
+        <div class="flex justify-center mb-6">
+            <div class="join">
+                <button class="join-item btn btn-sm" :class="view === 'week' ? 'btn-primary' : 'btn-ghost'" @click="view = 'week'">Week</button>
+                <button class="join-item btn btn-sm" :class="view === 'list' ? 'btn-primary' : 'btn-ghost'" @click="view = 'list'">List</button>
+            </div>
         </div>
         
-        <!-- View Description -->
-        <div class="alert mb-4" x-show="view === 'list'">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            <span><strong>All Scheduled Jobs</strong> grouped by run time. Shows every automated task with its full schedule.</span>
-        </div>
-        <div class="alert mb-4" x-show="view === 'week'">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            <span><strong>This Week's Calendar</strong> showing when jobs run each day (3am-7am, when most jobs happen). High-frequency jobs listed below grid.</span>
-        </div>
-        
-        <!-- Legend -->
-        <div class="flex flex-wrap gap-3 justify-center mb-6 text-sm">
-            <span class="flex items-center gap-1"><span class="w-3 h-3 bg-green-500 rounded"></span> Daily</span>
-            <span class="flex items-center gap-1"><span class="w-3 h-3 bg-blue-500 rounded"></span> Hourly</span>
-            <span class="flex items-center gap-1"><span class="w-3 h-3 bg-purple-500 rounded"></span> High Frequency</span>
-            <span class="flex items-center gap-1"><span class="w-3 h-3 bg-amber-500 rounded"></span> Weekly</span>
-            <span class="flex items-center gap-1"><span class="w-3 h-3 bg-pink-500 rounded"></span> Monthly</span>
-        </div>
-        
-        <!-- List View -->
-        <div x-show="view === 'list'" class="space-y-3">
-            <template x-for="group in groupedByTime" :key="group.time">
-                <div class="card bg-base-100 shadow-lg">
-                    <div class="card-body p-4">
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-bold text-lg" x-text="group.time"></h3>
-                            <span class="badge badge-sm badge-ghost" x-text="group.events.length + ' job' + (group.events.length !== 1 ? 's' : '')"></span>
-                        </div>
-                        <div class="text-sm text-base-content/60 mb-3" x-text="getTimeGroupDescription(group.time)"></div>
-                        <div class="space-y-2">
-                            <template x-for="event in group.events" :key="event.id">
-                                <div class="flex items-center justify-between py-2 px-3 rounded bg-base-200" :class="getFreqClass(event.schedule.frequency)">
-                                    <div class="flex-1">
-                                        <div class="font-medium" x-text="event.name"></div>
-                                        <div class="text-xs opacity-60 mt-1" x-text="event.schedule.display"></div>
-                                    </div>
-                                    <span class="badge badge-ghost text-xs" x-text="formatFrequency(event.schedule.frequency)"></span>
-                                </div>
-                            </template>
-                        </div>
-                    </div>
-                </div>
-            </template>
-        </div>
-        
-        <!-- Week View -->
-        <div x-show="view === 'week'" class="hidden md:block">
+        <!-- Week Calendar View (PRIMARY) -->
+        <div x-show="view === 'week'">
             <div class="card bg-base-100 shadow-lg overflow-x-auto">
-                <div class="week-grid min-w-[600px]">
-                    <!-- Header row -->
-                    <div class="week-header"></div>
-                    <template x-for="day in weekDays" :key="day.short">
-                        <div class="week-header" :class="day.isToday ? 'text-primary' : ''">
-                            <div x-text="day.short"></div>
-                            <div class="text-sm opacity-60" x-text="day.date"></div>
+                <div class="calendar-grid" style="min-width: 700px;">
+                    <!-- Header Row: Days of Week (Mon-Sun) -->
+                    <div class="calendar-header"></div>
+                    <template x-for="day in weekDays" :key="day.key">
+                        <div class="calendar-header" :class="day.isToday ? 'today' : ''">
+                            <div x-text="day.name"></div>
+                            <div class="text-xs opacity-60 font-normal" x-text="day.dateStr"></div>
                         </div>
                     </template>
                     
-                    <!-- Hour rows -->
-                    <template x-for="hour in hourSlots" :key="hour">
+                    <!-- Hour Rows -->
+                    <template x-for="hour in displayHours" :key="hour">
                         <template x-fragment>
-                            <div class="week-hour" x-text="hour + ':00'"></div>
-                            <template x-for="(day, dayIndex) in weekDays" :key="day.short + hour">
-                                <div class="week-cell">
-                                    <template x-for="event in getEventsForDayAndHour(dayIndex, day, hour)" :key="event.id">
-                                        <div class="week-event" :class="getFreqClass(event.schedule.frequency).replace('freq-', 'bg-').replace('daily', 'green-500/20').replace('weekly', 'amber-500/20').replace('monthly', 'pink-500/20')" x-text="event.name"></div>
+                            <!-- Time Label -->
+                            <div class="time-label" x-text="formatHour(hour)"></div>
+                            <!-- 7 Day Cells -->
+                            <template x-for="day in weekDays" :key="day.key + '-' + hour">
+                                <div class="calendar-cell" :class="day.isToday ? 'today' : ''">
+                                    <template x-for="event in getEventsForCell(day.dayOfWeek, hour)" :key="event.id">
+                                        <div 
+                                            class="calendar-event" 
+                                            :class="getEventClass(event)"
+                                            @click="showEventDetail(event)"
+                                            x-text="event.name">
+                                        </div>
                                     </template>
                                 </div>
                             </template>
@@ -152,30 +129,95 @@
                 </div>
             </div>
             
-            <!-- High frequency jobs (separate section) -->
-            <div class="card bg-base-100 shadow-lg mt-4">
+            <!-- High Frequency Jobs (below calendar) -->
+            <div class="card bg-base-100 shadow-lg mt-4" x-show="highFrequencyEvents.length > 0">
                 <div class="card-body p-4">
-                    <h3 class="font-bold">High Frequency Jobs</h3>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <template x-for="event in data.events?.filter(e => e.schedule.frequency?.includes('every')) || []" :key="event.id">
-                            <span class="badge badge-outline freq-recurring" x-text="event.name + ' (' + event.schedule.display + ')'"></span>
+                    <h3 class="font-semibold text-sm mb-2">Recurring (every 5-15 min)</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <template x-for="event in highFrequencyEvents" :key="event.id">
+                            <button 
+                                class="badge badge-outline event-recurring cursor-pointer"
+                                @click="showEventDetail(event)"
+                                x-text="event.name">
+                            </button>
                         </template>
                     </div>
                 </div>
             </div>
+            
+            <!-- Legend -->
+            <div class="flex flex-wrap gap-4 justify-center mt-4 text-xs text-base-content/60">
+                <span class="flex items-center gap-1"><span class="w-2 h-2 bg-green-500 rounded-full"></span> Daily</span>
+                <span class="flex items-center gap-1"><span class="w-2 h-2 bg-blue-500 rounded-full"></span> Hourly</span>
+                <span class="flex items-center gap-1"><span class="w-2 h-2 bg-purple-500 rounded-full"></span> Recurring</span>
+                <span class="flex items-center gap-1"><span class="w-2 h-2 bg-amber-500 rounded-full"></span> Weekly</span>
+            </div>
         </div>
         
+        <!-- List View (Mobile Fallback) -->
+        <div x-show="view === 'list'" class="space-y-3">
+            <template x-for="event in sortedEvents" :key="event.id">
+                <div 
+                    class="card bg-base-100 shadow cursor-pointer hover:shadow-lg transition-shadow"
+                    @click="showEventDetail(event)">
+                    <div class="card-body p-4">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="font-semibold" x-text="event.name"></h3>
+                                <p class="text-sm text-base-content/60" x-text="event.schedule.display"></p>
+                            </div>
+                            <span class="badge" :class="getEventClass(event)" x-text="formatFreq(event.schedule.frequency)"></span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+        
+        <!-- Event Detail Modal -->
+        <dialog id="event-modal" class="modal">
+            <div class="modal-box">
+                <h3 class="font-bold text-lg" x-text="selectedEvent?.name || ''"></h3>
+                <div class="py-4 space-y-3">
+                    <div>
+                        <span class="text-base-content/60 text-sm">Schedule</span>
+                        <p class="font-mono" x-text="selectedEvent?.schedule?.display || ''"></p>
+                    </div>
+                    <div x-show="selectedEvent?.script">
+                        <span class="text-base-content/60 text-sm">Script</span>
+                        <p class="font-mono text-sm break-all" x-text="selectedEvent?.script || ''"></p>
+                    </div>
+                    <div x-show="selectedEvent?.logfile">
+                        <span class="text-base-content/60 text-sm">Log File</span>
+                        <p class="font-mono text-sm break-all" x-text="selectedEvent?.logfile || ''"></p>
+                    </div>
+                    <div>
+                        <span class="text-base-content/60 text-sm">Frequency</span>
+                        <p x-text="formatFreq(selectedEvent?.schedule?.frequency)"></p>
+                    </div>
+                </div>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+            <form method="dialog" class="modal-backdrop">
+                <button>close</button>
+            </form>
+        </dialog>
+        
         <!-- Footer -->
-        <div class="text-center text-base-content/40 text-sm mt-8">
-            <p>⟳ Auto-refreshes every 60 seconds</p>
+        <div class="text-center text-base-content/40 text-xs mt-8">
+            Auto-refreshes every 60 seconds
         </div>
     </div>
     
     <script>
-        function cronDashboard() {
+        function cronCalendar() {
             return {
                 data: { events: [] },
-                view: 'list',
+                view: 'week',  // Week view is PRIMARY
+                selectedEvent: null,
                 
                 async init() {
                     await this.fetchData();
@@ -191,41 +233,118 @@
                     }
                 },
                 
-                get groupedByTime() {
-                    const groups = {};
-                    const order = ['03:00', '03:30', '04:00', '05:00', '05:30', '06:00', 'Hourly', 'High Frequency'];
+                // Week starts MONDAY
+                get weekDays() {
+                    const days = [];
+                    const today = new Date();
+                    const todayDay = today.getDay(); // 0=Sun, 1=Mon, ...
                     
-                    for (const event of this.data.events || []) {
-                        let key = 'Other';
-                        const freq = event.schedule.frequency;
+                    // Find Monday of this week
+                    const monday = new Date(today);
+                    const daysFromMonday = todayDay === 0 ? 6 : todayDay - 1;
+                    monday.setDate(today.getDate() - daysFromMonday);
+                    
+                    const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+                    
+                    for (let i = 0; i < 7; i++) {
+                        const d = new Date(monday);
+                        d.setDate(monday.getDate() + i);
+                        days.push({
+                            key: i,
+                            name: dayNames[i],
+                            dayOfWeek: i, // 0=Mon, 1=Tue, ..., 6=Sun
+                            date: d.getDate(),
+                            dateStr: d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+                            isToday: d.toDateString() === today.toDateString()
+                        });
+                    }
+                    return days;
+                },
+                
+                // Hours to display (most cron jobs run 3-7am)
+                get displayHours() {
+                    return [3, 4, 5, 6, 7];
+                },
+                
+                // High frequency events (shown separately)
+                get highFrequencyEvents() {
+                    return (this.data.events || []).filter(e => 
+                        e.schedule.frequency?.includes('every-')
+                    );
+                },
+                
+                // All events sorted for list view
+                get sortedEvents() {
+                    return [...(this.data.events || [])].sort((a, b) => {
+                        const timeA = a.schedule.times?.[0] || 'zz';
+                        const timeB = b.schedule.times?.[0] || 'zz';
+                        return timeA.localeCompare(timeB);
+                    });
+                },
+                
+                // Get events for a specific calendar cell
+                // dayOfWeek: 0=Mon, 1=Tue, ..., 6=Sun
+                getEventsForCell(dayOfWeek, hour) {
+                    return (this.data.events || []).filter(e => {
+                        const freq = e.schedule.frequency;
                         
-                        if (freq === 'every-5-min' || freq === 'every-10-min' || freq === 'every-15-min') {
-                            key = 'High Frequency';
-                        } else if (freq === 'hourly') {
-                            key = 'Hourly';
-                        } else if (event.schedule.times && event.schedule.times[0]) {
-                            key = event.schedule.times[0];
+                        // Skip high-frequency (shown separately)
+                        if (freq?.includes('every-')) return false;
+                        
+                        // Must have a time
+                        const time = e.schedule.times?.[0];
+                        if (!time || time === 'recurring') return false;
+                        
+                        // Parse hour
+                        const match = time.match(/^(\d+):/);
+                        if (!match) return false;
+                        const eventHour = parseInt(match[1]);
+                        if (eventHour !== hour) return false;
+                        
+                        // Daily/hourly: show every day
+                        if (freq === 'daily' || freq === 'hourly') {
+                            return true;
                         }
                         
-                        if (!groups[key]) groups[key] = [];
-                        groups[key].push(event);
-                    }
-                    
-                    // Sort by order array, then alphabetically for unlisted
-                    return Object.entries(groups)
-                        .sort((a, b) => {
-                            const idxA = order.indexOf(a[0]);
-                            const idxB = order.indexOf(b[0]);
-                            if (idxA >= 0 && idxB >= 0) return idxA - idxB;
-                            if (idxA >= 0) return -1;
-                            if (idxB >= 0) return 1;
-                            return a[0].localeCompare(b[0]);
-                        })
-                        .map(([time, events]) => ({ time, events }));
+                        // Weekly: check day matches
+                        if (freq === 'weekly') {
+                            const eventDay = e.schedule.day?.toLowerCase();
+                            const dayMap = {
+                                'monday': 0, 'mon': 0,
+                                'tuesday': 1, 'tue': 1,
+                                'wednesday': 2, 'wed': 2,
+                                'thursday': 3, 'thu': 3,
+                                'friday': 4, 'fri': 4,
+                                'saturday': 5, 'sat': 5,
+                                'sunday': 6, 'sun': 6
+                            };
+                            return dayMap[eventDay] === dayOfWeek;
+                        }
+                        
+                        // Default: show on all days
+                        return true;
+                    });
+                },
+                
+                getEventClass(event) {
+                    const freq = event?.schedule?.frequency || '';
+                    if (freq.includes('every-')) return 'event-recurring';
+                    if (freq === 'weekly') return 'event-weekly';
+                    if (freq === 'hourly') return 'event-hourly';
+                    if (freq === 'daily') return 'event-daily';
+                    if (freq === 'monthly') return 'event-monthly';
+                    return 'event-daily';
+                },
+                
+                formatHour(hour) {
+                    if (hour === 0) return '12a';
+                    if (hour < 12) return hour + 'a';
+                    if (hour === 12) return '12p';
+                    return (hour - 12) + 'p';
                 },
                 
                 formatTime(iso) {
-                    if (!iso) return 'Unknown';
+                    if (!iso) return '';
                     const d = new Date(iso);
                     return d.toLocaleTimeString('en-US', { 
                         hour: 'numeric', 
@@ -234,104 +353,22 @@
                     });
                 },
                 
-                getFreqClass(freq) {
-                    const classes = {
-                        'daily': 'freq-daily',
-                        'hourly': 'freq-hourly',
-                        'every-5-min': 'freq-recurring',
-                        'every-10-min': 'freq-recurring',
-                        'every-15-min': 'freq-recurring',
-                        'weekly': 'freq-weekly',
-                        'monthly': 'freq-monthly'
-                    };
-                    return classes[freq] || '';
-                },
-                
-                get weekDays() {
-                    const days = [];
-                    const today = new Date();
-                    const startOfWeek = new Date(today);
-                    startOfWeek.setDate(today.getDate() - today.getDay()); // Sunday
-                    
-                    for (let i = 0; i < 7; i++) {
-                        const d = new Date(startOfWeek);
-                        d.setDate(startOfWeek.getDate() + i);
-                        days.push({
-                            short: d.toLocaleDateString('en-US', { weekday: 'short' }),
-                            date: d.getDate(),
-                            isToday: d.toDateString() === today.toDateString()
-                        });
-                    }
-                    return days;
-                },
-                
-                get hourSlots() {
-                    // Only show hours 3-7 AM where most jobs run
-                    return [3, 4, 5, 6, 7];
-                },
-                
-                formatFrequency(freq) {
+                formatFreq(freq) {
                     const labels = {
                         'daily': 'Daily',
                         'hourly': 'Hourly',
-                        'every-5-min': 'Every 5min',
-                        'every-10-min': 'Every 10min',
-                        'every-15-min': 'Every 15min',
+                        'every-5-min': 'Every 5 min',
+                        'every-10-min': 'Every 10 min',
+                        'every-15-min': 'Every 15 min',
                         'weekly': 'Weekly',
                         'monthly': 'Monthly'
                     };
-                    return labels[freq] || freq;
+                    return labels[freq] || freq || 'Unknown';
                 },
                 
-                getTimeGroupDescription(timeLabel) {
-                    if (timeLabel === 'High Frequency') {
-                        return 'Runs every 5-15 minutes throughout the day';
-                    } else if (timeLabel === 'Hourly') {
-                        return 'Runs every hour at the specified minute';
-                    } else if (timeLabel.match(/^\d+:\d+$/)) {
-                        return 'Runs daily at this time';
-                    } else {
-                        return 'Various schedules';
-                    }
-                },
-                
-                getEventsForDayAndHour(dayIndex, day, hour) {
-                    return (this.data.events || []).filter(e => {
-                        // Skip high frequency jobs (shown separately below grid)
-                        const freq = e.schedule.frequency;
-                        if (freq?.includes('every-')) return false;
-                        
-                        // Check if event has a time
-                        const time = e.schedule.times?.[0];
-                        if (!time) return false;
-                        
-                        // Parse hour from time string (handles "HH:MM" format)
-                        const timeMatch = time.match(/(\d+):(\d+)/);
-                        if (!timeMatch) return false;
-                        
-                        const eventHour = parseInt(timeMatch[1]);
-                        if (eventHour !== hour) return false;
-                        
-                        // For daily/hourly jobs, show on all days
-                        if (freq === 'daily' || freq === 'hourly') {
-                            return true;
-                        }
-                        
-                        // For weekly jobs, only show on matching day
-                        if (freq === 'weekly' && e.schedule.day) {
-                            const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-                            const eventDayIndex = days.indexOf(e.schedule.day.slice(0, 3));
-                            return eventDayIndex === dayIndex;
-                        }
-                        
-                        // For monthly jobs, only show on day 1
-                        if (freq === 'monthly') {
-                            return day.date === 1;
-                        }
-                        
-                        // Default: show on all days
-                        return true;
-                    });
+                showEventDetail(event) {
+                    this.selectedEvent = event;
+                    document.getElementById('event-modal').showModal();
                 }
             };
         }
