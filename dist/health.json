@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-09T23:55:02",
-  "overall": "healthy",
+  "timestamp": "2026-02-10T00:00:01",
+  "overall": "failed",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -166,14 +166,14 @@
     },
     "memory-files": {
       "display_name": "Memory Files",
-      "status": "healthy",
-      "passing": 7,
+      "status": "failed",
+      "passing": 6,
       "total": 7,
       "components": {
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "0.5h old",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -202,8 +202,8 @@
         },
         "daily-file": {
           "name": "Daily File",
-          "status": "healthy",
-          "detail": "File exists",
+          "status": "failed",
+          "detail": "File not found",
           "type": "file_exists"
         },
         "memory-files": {
@@ -235,5 +235,13 @@
       }
     }
   },
-  "alerts": []
+  "alerts": [
+    {
+      "severity": "critical",
+      "group": "memory-files",
+      "component": "daily-file",
+      "message": "File not found",
+      "timestamp": "2026-02-10T00:00:01"
+    }
+  ]
 }
