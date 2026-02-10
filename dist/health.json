@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-10T07:30:01",
+  "timestamp": "2026-02-10T07:35:02",
   "overall": "healthy",
   "groups": {
     "core-services": {
@@ -109,7 +109,7 @@
         "memory-compact": {
           "name": "Memory Compaction (Nightly)",
           "status": "healthy",
-          "detail": "Last run: 3h ago",
+          "detail": "Last run: 4h ago",
           "type": "system_cron"
         },
         "monthly-index-generation": {
@@ -185,7 +185,7 @@
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "healthy",
-          "detail": "3.1h old",
+          "detail": "3.2h old",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
