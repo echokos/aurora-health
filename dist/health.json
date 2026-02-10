@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-10T12:25:01",
+  "timestamp": "2026-02-10T12:30:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -146,8 +146,8 @@
     },
     "apis": {
       "display_name": "API Connections",
-      "status": "failed",
-      "passing": 3,
+      "status": "healthy",
+      "passing": 4,
       "total": 4,
       "components": {
         "gmail-api": {
@@ -170,22 +170,22 @@
         },
         "todoist-api": {
           "name": "Todoist API",
-          "status": "failed",
-          "detail": "HTTPSConnectionPool(host='api.todoist.com', port=443): Max retries exceeded with url: /rest/v2/projects (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x701f26d04710>: Failed to resolve 'api.todoist.com' (Name or service not known: api.todoist.com using 1 resolver(s))\"))",
+          "status": "healthy",
+          "detail": "API responding",
           "type": "api_key"
         }
       }
     },
     "memory-files": {
       "display_name": "Memory Files",
-      "status": "warning",
+      "status": "failed",
       "passing": 5,
       "total": 7,
       "components": {
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "0.3h old",
+          "detail": "0.4h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -196,8 +196,8 @@
         },
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
-          "status": "warning",
-          "detail": "8.0h old",
+          "status": "failed",
+          "detail": "8.1h old (max: 8h)",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
@@ -229,19 +229,19 @@
     "dashboards": {
       "display_name": "Dashboards",
       "status": "failed",
-      "passing": 0,
+      "passing": 1,
       "total": 2,
       "components": {
         "aurora-dash": {
           "name": "Aurora Dashboard",
           "status": "failed",
-          "detail": "HTTPSConnectionPool(host='dash.kos.plus', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x701f263688f0>: Failed to resolve 'dash.kos.plus' (Name or service not known: dash.kos.plus using 1 resolver(s))\"))",
+          "detail": "HTTPSConnectionPool(host='kosella.cloudflareaccess.com', port=443): Read timed out. (read timeout=10)",
           "type": "http_endpoint"
         },
         "health-dash": {
           "name": "Health Dashboard",
-          "status": "failed",
-          "detail": "HTTPSConnectionPool(host='health.kos.plus', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x701f263691c0>: Failed to resolve 'health.kos.plus' (Name or service not known: health.kos.plus using 1 resolver(s))\"))",
+          "status": "healthy",
+          "detail": "HTTP 200",
           "type": "http_endpoint"
         }
       }
@@ -249,25 +249,18 @@
   },
   "alerts": [
     {
-      "severity": "warning",
-      "group": "apis",
-      "component": "todoist-api",
-      "message": "HTTPSConnectionPool(host='api.todoist.com', port=443): Max retries exceeded with url: /rest/v2/projects (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x701f26d04710>: Failed to resolve 'api.todoist.com' (Name or service not known: api.todoist.com using 1 resolver(s))\"))",
-      "timestamp": "2026-02-10T12:25:01"
+      "severity": "critical",
+      "group": "memory-files",
+      "component": "memory-md-private",
+      "message": "8.1h old (max: 8h)",
+      "timestamp": "2026-02-10T12:30:01"
     },
     {
       "severity": "warning",
       "group": "dashboards",
       "component": "aurora-dash",
-      "message": "HTTPSConnectionPool(host='dash.kos.plus', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x701f263688f0>: Failed to resolve 'dash.kos.plus' (Name or service not known: dash.kos.plus using 1 resolver(s))\"))",
-      "timestamp": "2026-02-10T12:25:01"
-    },
-    {
-      "severity": "warning",
-      "group": "dashboards",
-      "component": "health-dash",
-      "message": "HTTPSConnectionPool(host='health.kos.plus', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x701f263691c0>: Failed to resolve 'health.kos.plus' (Name or service not known: health.kos.plus using 1 resolver(s))\"))",
-      "timestamp": "2026-02-10T12:25:01"
+      "message": "HTTPSConnectionPool(host='kosella.cloudflareaccess.com', port=443): Read timed out. (read timeout=10)",
+      "timestamp": "2026-02-10T12:30:01"
     }
   ]
 }
