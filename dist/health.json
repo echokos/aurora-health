@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-10T11:05:01",
-  "overall": "failed",
+  "timestamp": "2026-02-10T11:10:01",
+  "overall": "warning",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -146,8 +146,8 @@
     },
     "apis": {
       "display_name": "API Connections",
-      "status": "failed",
-      "passing": 3,
+      "status": "healthy",
+      "passing": 4,
       "total": 4,
       "components": {
         "gmail-api": {
@@ -170,8 +170,8 @@
         },
         "todoist-api": {
           "name": "Todoist API",
-          "status": "failed",
-          "detail": "HTTPSConnectionPool(host='api.todoist.com', port=443): Max retries exceeded with url: /rest/v2/projects (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7e41501f2840>: Failed to resolve 'api.todoist.com' (Name or service not known: api.todoist.com using 1 resolver(s))\"))",
+          "status": "healthy",
+          "detail": "API responding",
           "type": "api_key"
         }
       }
@@ -185,7 +185,7 @@
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "0.8h old",
+          "detail": "0.0h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -228,14 +228,14 @@
     },
     "dashboards": {
       "display_name": "Dashboards",
-      "status": "failed",
-      "passing": 1,
+      "status": "healthy",
+      "passing": 2,
       "total": 2,
       "components": {
         "aurora-dash": {
           "name": "Aurora Dashboard",
-          "status": "failed",
-          "detail": "HTTPSConnectionPool(host='dash.kos.plus', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7e414f500b60>: Failed to resolve 'dash.kos.plus' (Name or service not known: dash.kos.plus using 1 resolver(s))\"))",
+          "status": "healthy",
+          "detail": "HTTP 200",
           "type": "http_endpoint"
         },
         "health-dash": {
@@ -247,20 +247,5 @@
       }
     }
   },
-  "alerts": [
-    {
-      "severity": "warning",
-      "group": "apis",
-      "component": "todoist-api",
-      "message": "HTTPSConnectionPool(host='api.todoist.com', port=443): Max retries exceeded with url: /rest/v2/projects (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7e41501f2840>: Failed to resolve 'api.todoist.com' (Name or service not known: api.todoist.com using 1 resolver(s))\"))",
-      "timestamp": "2026-02-10T11:05:01"
-    },
-    {
-      "severity": "warning",
-      "group": "dashboards",
-      "component": "aurora-dash",
-      "message": "HTTPSConnectionPool(host='dash.kos.plus', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7e414f500b60>: Failed to resolve 'dash.kos.plus' (Name or service not known: dash.kos.plus using 1 resolver(s))\"))",
-      "timestamp": "2026-02-10T11:05:01"
-    }
-  ]
+  "alerts": []
 }
