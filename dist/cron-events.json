@@ -1,0 +1,186 @@
+{
+  "generated": "2026-02-09T20:34:26.272106",
+  "events": [
+    {
+      "id": "oauth-refresh",
+      "name": "OAuth Token Refresh",
+      "schedule": {
+        "display": "daily 4am",
+        "frequency": "daily",
+        "times": [
+          "04:00"
+        ]
+      },
+      "logfile": "~/aurora/logs/oauth-refresh.log",
+      "script": "/usr/bin/python3 /home/elliott/aurora/scripts/refresh-oauth-tokens.py"
+    },
+    {
+      "id": "dashboard-sync",
+      "name": "Dashboard Sync",
+      "schedule": {
+        "display": "hourly :05",
+        "frequency": "hourly",
+        "times": [
+          ":05"
+        ]
+      },
+      "logfile": "~/aurora/logs/dashboard-sync.log",
+      "script": "/home/elliott/aurora/scripts/dashboard-sync.sh"
+    },
+    {
+      "id": "session-archive",
+      "name": "Session Archive",
+      "schedule": {
+        "display": "weekly Sunday 3am",
+        "frequency": "weekly",
+        "times": [
+          "03:00"
+        ],
+        "day": "Sunday"
+      },
+      "logfile": "~/.openclaw/logs/archive.log",
+      "script": "COMPRESS_BLOATED=true /home/elliott/.openclaw/scripts/archive-sessions-v2.sh"
+    },
+    {
+      "id": "daily-note",
+      "name": "Daily Note",
+      "schedule": {
+        "display": "daily 5am",
+        "frequency": "daily",
+        "times": [
+          "05:00"
+        ]
+      },
+      "logfile": "~/aurora/logs/daily-note.log",
+      "script": "/usr/bin/python3 /home/elliott/aurora/scripts/create-daily-note.py"
+    },
+    {
+      "id": "wardrobe-selection",
+      "name": "Wardrobe Selection",
+      "schedule": {
+        "display": "daily 6am",
+        "frequency": "daily",
+        "times": [
+          "06:00"
+        ]
+      },
+      "logfile": "~/aurora/logs/wardrobe-selection.log",
+      "script": "cd /home/elliott/aurora/skills/aurora-photo && python3 scripts/daily_wardrobe_selection.py"
+    },
+    {
+      "id": "phone-memory-sync",
+      "name": "Phone Memory Sync",
+      "schedule": {
+        "display": "every 15 min",
+        "frequency": "every-15-min",
+        "times": [
+          "recurring"
+        ]
+      },
+      "logfile": "~/aurora/logs/sync-phone-memory.log",
+      "script": "/usr/bin/python3 /home/elliott/aurora/scripts/sync-phone-memory.py"
+    },
+    {
+      "id": "morning-message",
+      "name": "Morning Message",
+      "schedule": {
+        "display": "daily 6am",
+        "frequency": "daily",
+        "times": [
+          "06:00"
+        ]
+      },
+      "logfile": "~/aurora/logs/cron-aurora-morning.log",
+      "script": "/home/elliott/aurora/scripts/cron-aurora-morning.sh"
+    },
+    {
+      "id": "nightly-memory",
+      "name": "Nightly Memory Organization",
+      "schedule": {
+        "display": "daily 3am",
+        "frequency": "daily",
+        "times": [
+          "03:00"
+        ]
+      },
+      "logfile": "~/aurora/logs/cron-aurora-nightly.log",
+      "script": "/home/elliott/aurora/scripts/cron-aurora-nightly.sh"
+    },
+    {
+      "id": "work-cycle",
+      "name": "Work Cycle (Self-Heal)",
+      "schedule": {
+        "display": "every 10 min",
+        "frequency": "every-10-min",
+        "times": [
+          "recurring"
+        ]
+      },
+      "logfile": "~/aurora/logs/cron-aurora-selfheal.log",
+      "script": "/home/elliott/aurora/scripts/cron-aurora-selfheal.sh"
+    },
+    {
+      "id": "memory-compact",
+      "name": "Memory Compaction (Nightly)",
+      "schedule": {
+        "display": "daily 3:30am",
+        "frequency": "daily",
+        "times": [
+          "03:30"
+        ]
+      },
+      "logfile": "~/aurora/logs/memory-compact.log",
+      "script": "/usr/bin/python3 /home/elliott/aurora/scripts/memory-compact.py"
+    },
+    {
+      "id": "monthly-index-generation",
+      "name": "Monthly Index Generation",
+      "schedule": {
+        "display": "monthly (1st at 4am)",
+        "frequency": "monthly",
+        "times": [
+          "04:00"
+        ]
+      },
+      "logfile": "~/aurora/logs/monthly-index.log",
+      "script": "/home/elliott/aurora/scripts/generate-monthly-index.sh"
+    },
+    {
+      "id": "yearly-index-generation",
+      "name": "Yearly Index Generation",
+      "schedule": {
+        "display": "yearly (Jan 1 at 4am)",
+        "frequency": "unknown",
+        "times": []
+      },
+      "logfile": "~/aurora/logs/yearly-index.log",
+      "script": "/home/elliott/aurora/scripts/generate-yearly-index.sh"
+    },
+    {
+      "id": "mem0-verification",
+      "name": "mem0 Memory System",
+      "schedule": {
+        "display": "daily 6am",
+        "frequency": "daily",
+        "times": [
+          "06:00"
+        ]
+      },
+      "logfile": "~/aurora/logs/mem0-verify.log",
+      "script": "/home/elliott/aurora/scripts/verify-mem0.sh"
+    },
+    {
+      "id": "vt-chat-monitor",
+      "name": "VT Chat Monitor",
+      "schedule": {
+        "display": "every 5 min",
+        "frequency": "every-5-min",
+        "times": [
+          "recurring"
+        ]
+      },
+      "logfile": "~/aurora/logs/vt-chat-monitor.log",
+      "script": "cd ~/aurora/integrations/vt-chat-monitor && node vt-chat-monitor.js"
+    }
+  ]
+}

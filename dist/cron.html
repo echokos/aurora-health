@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora Cron Schedule</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+    <style>
+        .freq-daily { border-left: 3px solid #22c55e; }
+        .freq-hourly { border-left: 3px solid #3b82f6; }
+        .freq-recurring { border-left: 3px solid #a855f7; }
+        .freq-weekly { border-left: 3px solid #f59e0b; }
+        .freq-monthly { border-left: 3px solid #ec4899; }
+    </style>
+</head>
+<body class="min-h-screen bg-base-300">
+    <div x-data="cronDashboard()" x-init="init()" class="container mx-auto px-4 py-8 max-w-4xl">
+        
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold mb-2">Cron Schedule</h1>
+            <p class="text-base-content/60" x-text="'Last updated: ' + formatTime(data.generated)"></p>
+        </div>
+        
+        <!-- View Toggle (desktop only) -->
+        <div class="hidden md:flex justify-center mb-6 gap-2">
+            <button class="btn btn-sm" :class="view === 'list' ? 'btn-primary' : 'btn-ghost'" @click="view = 'list'">List</button>
+            <button class="btn btn-sm" :class="view === 'week' ? 'btn-primary' : 'btn-ghost'" @click="view = 'week'">Week</button>
+        </div>
+        
+        <!-- Legend -->
+        <div class="flex flex-wrap gap-3 justify-center mb-6 text-sm">
+            <span class="flex items-center gap-1"><span class="w-3 h-3 bg-green-500 rounded"></span> Daily</span>
+            <span class="flex items-center gap-1"><span class="w-3 h-3 bg-blue-500 rounded"></span> Hourly</span>
+            <span class="flex items-center gap-1"><span class="w-3 h-3 bg-purple-500 rounded"></span> High Frequency</span>
+            <span class="flex items-center gap-1"><span class="w-3 h-3 bg-amber-500 rounded"></span> Weekly</span>
+            <span class="flex items-center gap-1"><span class="w-3 h-3 bg-pink-500 rounded"></span> Monthly</span>
+        </div>
+        
+        <!-- List View -->
+        <div x-show="view === 'list'" class="space-y-2">
+            <template x-for="group in groupedByTime" :key="group.time">
+                <div class="card bg-base-100 shadow-lg">
+                    <div class="card-body p-4">
+                        <h3 class="font-bold text-lg" x-text="group.time"></h3>
+                        <div class="space-y-2 mt-2">
+                            <template x-for="event in group.events" :key="event.id">
+                                <div class="flex items-center justify-between py-2 px-3 rounded bg-base-200" :class="getFreqClass(event.schedule.frequency)">
+                                    <span x-text="event.name"></span>
+                                    <span class="badge badge-ghost text-xs" x-text="event.schedule.display"></span>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+        
+        <!-- Week View (Phase 3 placeholder) -->
+        <div x-show="view === 'week'" class="hidden md:block">
+            <p class="text-center text-base-content/60">Week view coming soon...</p>
+        </div>
+        
+        <!-- Footer -->
+        <div class="text-center text-base-content/40 text-sm mt-8">
+            <p>Auto-refreshes every 60 seconds</p>
+            <p class="mt-1">
+                <a href="/" class="link">Health Dashboard</a> ·
+                <a href="https://dash.kos.plus" class="link">Main Dashboard</a>
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        function cronDashboard() {
+            return {
+                data: { events: [] },
+                view: 'list',
+                
+                async init() {
+                    await this.fetchData();
+                    setInterval(() => this.fetchData(), 60000);
+                },
+                
+                async fetchData() {
+                    try {
+                        const resp = await fetch('cron-events.json?t=' + Date.now());
+                        this.data = await resp.json();
+                    } catch (e) {
+                        console.error('Failed to fetch cron data:', e);
+                    }
+                },
+                
+                get groupedByTime() {
+                    const groups = {};
+                    const order = ['03:00', '03:30', '04:00', '05:00', '05:30', '06:00', 'Hourly', 'High Frequency'];
+                    
+                    for (const event of this.data.events || []) {
+                        let key = 'Other';
+                        const freq = event.schedule.frequency;
+                        
+                        if (freq === 'every-5-min' || freq === 'every-10-min' || freq === 'every-15-min') {
+                            key = 'High Frequency';
+                        } else if (freq === 'hourly') {
+                            key = 'Hourly';
+                        } else if (event.schedule.times && event.schedule.times[0]) {
+                            key = event.schedule.times[0];
+                        }
+                        
+                        if (!groups[key]) groups[key] = [];
+                        groups[key].push(event);
+                    }
+                    
+                    // Sort by order array, then alphabetically for unlisted
+                    return Object.entries(groups)
+                        .sort((a, b) => {
+                            const idxA = order.indexOf(a[0]);
+                            const idxB = order.indexOf(b[0]);
+                            if (idxA >= 0 && idxB >= 0) return idxA - idxB;
+                            if (idxA >= 0) return -1;
+                            if (idxB >= 0) return 1;
+                            return a[0].localeCompare(b[0]);
+                        })
+                        .map(([time, events]) => ({ time, events }));
+                },
+                
+                formatTime(iso) {
+                    if (!iso) return 'Unknown';
+                    const d = new Date(iso);
+                    return d.toLocaleTimeString('en-US', { 
+                        hour: 'numeric', 
+                        minute: '2-digit',
+                        hour12: true 
+                    });
+                },
+                
+                getFreqClass(freq) {
+                    const classes = {
+                        'daily': 'freq-daily',
+                        'hourly': 'freq-hourly',
+                        'every-5-min': 'freq-recurring',
+                        'every-10-min': 'freq-recurring',
+                        'every-15-min': 'freq-recurring',
+                        'weekly': 'freq-weekly',
+                        'monthly': 'freq-monthly'
+                    };
+                    return classes[freq] || '';
+                }
+            };
+        }
+    </script>
+</body>
+</html>
