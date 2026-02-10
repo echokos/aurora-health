@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-10T10:00:01",
+  "timestamp": "2026-02-10T10:05:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 5h ago",
+          "detail": "Last run: 6h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -73,7 +73,7 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 4h ago",
+          "detail": "Last run: 5h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -173,7 +173,7 @@
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "0.4h old",
+          "detail": "0.0h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -185,7 +185,7 @@
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "healthy",
-          "detail": "5.6h old",
+          "detail": "5.7h old",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
