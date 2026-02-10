@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-10T03:55:01",
+  "timestamp": "2026-02-10T04:00:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -173,7 +173,7 @@
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "0.5h old",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -241,14 +241,14 @@
       "group": "memory-files",
       "component": "memory-md-private",
       "message": "8.5h old (max: 8h)",
-      "timestamp": "2026-02-10T03:55:01"
+      "timestamp": "2026-02-10T04:00:01"
     },
     {
       "severity": "critical",
       "group": "memory-files",
       "component": "daily-file",
       "message": "File not found",
-      "timestamp": "2026-02-10T03:55:01"
+      "timestamp": "2026-02-10T04:00:01"
     }
   ]
 }
