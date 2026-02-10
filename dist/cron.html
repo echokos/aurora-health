@@ -167,15 +167,13 @@
             background: var(--color-base-300);
         }
         
-        /* Mobile: hide week view, show list */
+        /* Mobile: hide week view, force list view */
         @media (max-width: 767px) {
             .week-view-only { display: none !important; }
-            .mobile-list-default { display: block !important; }
+            .list-view { display: block !important; }
         }
         
-        @media (min-width: 768px) {
-            .mobile-list-default { display: none; }
-        }
+        /* Desktop: Alpine handles show/hide via x-show */
     </style>
 </head>
 <body class="min-h-screen">
@@ -302,7 +300,7 @@
         </div>
         
         <!-- ==================== LIST VIEW ==================== -->
-        <div x-show="view === 'list'" class="mobile-list-default">
+        <div x-show="view === 'list'" class="list-view">
             
             <!-- Date Header -->
             <h2 class="text-lg font-semibold mb-4" x-text="todayDisplay"></h2>
