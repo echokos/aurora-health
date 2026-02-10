@@ -11,19 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
     <style>
-        :root {
-            --color-base-100: oklch(25.33% .016 252.42);
-            --color-base-200: oklch(23.26% .014 253.1);
-            --color-base-300: oklch(21.15% .012 254.09);
-            --color-base-content: oklch(97.807% .029 256.847);
-            --color-primary: oklch(58% .233 277.117);
-        }
-        
         body {
             font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-            background: var(--color-base-200);
         }
         
+        /* Status colors - work in both themes */
         .status-healthy { color: oklch(76% .15 163); }
         .status-warning { color: oklch(80% .15 85); }
         .status-failed { color: oklch(70% .15 25); }
@@ -34,7 +26,7 @@
         .bg-status-failed { background: oklch(70% .15 25 / 0.1); border-color: oklch(70% .15 25 / 0.3); }
     </style>
 </head>
-<body class="min-h-screen">
+<body class="min-h-screen bg-base-200">
     <div x-data="healthDashboard()" x-init="init()" class="container mx-auto px-4 py-6 max-w-4xl">
         
         <!-- Unified Header -->

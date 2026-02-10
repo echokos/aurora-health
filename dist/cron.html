@@ -12,13 +12,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
     <style>
         :root {
-            --color-base-100: oklch(25.33% .016 252.42);
-            --color-base-200: oklch(23.26% .014 253.1);
-            --color-base-300: oklch(21.15% .012 254.09);
-            --color-base-content: oklch(97.807% .029 256.847);
-            --color-primary: oklch(58% .233 277.117);
-            
-            /* Event colors */
+            /* Event colors - same in both themes */
             --event-daily: oklch(76% .15 163);
             --event-hourly: oklch(70% .15 240);
             --event-weekly: oklch(80% .15 85);
@@ -28,7 +22,6 @@
         
         body {
             font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-            background: var(--color-base-200);
         }
         
         /* Event pill styling */
@@ -52,27 +45,27 @@
         }
         
         .event-pill.daily {
-            background: oklch(from var(--event-daily) l c h / 0.2);
+            background: oklch(76% .15 163 / 0.2);
             color: var(--event-daily);
             border-left: 3px solid var(--event-daily);
         }
         .event-pill.hourly {
-            background: oklch(from var(--event-hourly) l c h / 0.2);
+            background: oklch(70% .15 240 / 0.2);
             color: var(--event-hourly);
             border-left: 3px solid var(--event-hourly);
         }
         .event-pill.weekly {
-            background: oklch(from var(--event-weekly) l c h / 0.2);
+            background: oklch(80% .15 85 / 0.2);
             color: var(--event-weekly);
             border-left: 3px solid var(--event-weekly);
         }
         .event-pill.monthly {
-            background: oklch(from var(--event-monthly) l c h / 0.2);
+            background: oklch(70% .15 350 / 0.2);
             color: var(--event-monthly);
             border-left: 3px solid var(--event-monthly);
         }
         .event-pill.recurring {
-            background: oklch(from var(--event-recurring) l c h / 0.2);
+            background: oklch(65% .15 300 / 0.2);
             color: var(--event-recurring);
             border-left: 3px solid var(--event-recurring);
         }
@@ -85,12 +78,12 @@
             font-weight: 500;
             cursor: pointer;
             transition: all 0.15s ease;
-            background: oklch(from var(--event-recurring) l c h / 0.15);
+            background: oklch(65% .15 300 / 0.15);
             color: var(--event-recurring);
-            border: 1px solid oklch(from var(--event-recurring) l c h / 0.3);
+            border: 1px solid oklch(65% .15 300 / 0.3);
         }
         .recurring-badge:hover {
-            background: oklch(from var(--event-recurring) l c h / 0.25);
+            background: oklch(65% .15 300 / 0.25);
         }
         
         /* Calendar grid */
@@ -102,12 +95,12 @@
         .calendar-header-cell {
             padding: 0.75rem 0.25rem;
             text-align: center;
-            background: var(--color-base-200);
-            border-bottom: 1px solid var(--color-base-300);
+            background: oklch(var(--b2));
+            border-bottom: 1px solid oklch(var(--b3));
         }
         
         .calendar-header-cell.today {
-            background: oklch(58% .233 277.117 / 0.1);
+            background: oklch(var(--p) / 0.1);
         }
         
         .calendar-header-cell .day-name {
@@ -125,9 +118,9 @@
             font-size: 0.75rem;
             font-weight: 500;
             text-align: right;
-            color: oklch(97.807% .029 256.847 / 0.5);
-            background: var(--color-base-200);
-            border-right: 1px solid var(--color-base-300);
+            color: oklch(var(--bc) / 0.5);
+            background: oklch(var(--b2));
+            border-right: 1px solid oklch(var(--b3));
             display: flex;
             align-items: flex-start;
             justify-content: flex-end;
@@ -138,9 +131,9 @@
         .day-cell {
             min-height: 70px;
             padding: 0.35rem;
-            background: var(--color-base-100);
-            border-right: 1px solid var(--color-base-300);
-            border-bottom: 1px solid var(--color-base-300);
+            background: oklch(var(--b1));
+            border-right: 1px solid oklch(var(--b3));
+            border-bottom: 1px solid oklch(var(--b3));
         }
         
         .day-cell:last-child {
@@ -148,7 +141,7 @@
         }
         
         .day-cell.today {
-            background: oklch(58% .233 277.117 / 0.05);
+            background: oklch(var(--p) / 0.05);
         }
         
         /* Timeline list view */
@@ -164,7 +157,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: var(--color-base-300);
+            background: oklch(var(--b3));
         }
         
         /* Mobile: hide week view, force list view */
@@ -176,7 +169,7 @@
         /* Desktop: Alpine handles show/hide via x-show */
     </style>
 </head>
-<body class="min-h-screen">
+<body class="min-h-screen bg-base-200">
     <div x-data="cronCalendar()" x-init="init()" class="container mx-auto px-4 py-6 max-w-6xl">
         
         <!-- Unified Header -->
