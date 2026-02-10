@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-10T10:50:02",
-  "overall": "failed",
+  "timestamp": "2026-02-10T10:55:01",
+  "overall": "warning",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -197,7 +197,7 @@
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "warning",
-          "detail": "6.4h old",
+          "detail": "6.5h old",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
@@ -228,39 +228,24 @@
     },
     "dashboards": {
       "display_name": "Dashboards",
-      "status": "failed",
-      "passing": 0,
+      "status": "healthy",
+      "passing": 2,
       "total": 2,
       "components": {
         "aurora-dash": {
           "name": "Aurora Dashboard",
-          "status": "failed",
-          "detail": "HTTPSConnectionPool(host='dash.kos.plus', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7405662f2de0>: Failed to establish a new connection: [Errno 101] Network is unreachable'))",
+          "status": "healthy",
+          "detail": "HTTP 200",
           "type": "http_endpoint"
         },
         "health-dash": {
           "name": "Health Dashboard",
-          "status": "failed",
-          "detail": "HTTPSConnectionPool(host='health.kos.plus', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x74056555e5d0>: Failed to resolve 'health.kos.plus' (Name or service not known: health.kos.plus using 1 resolver(s))\"))",
+          "status": "healthy",
+          "detail": "HTTP 200",
           "type": "http_endpoint"
         }
       }
     }
   },
-  "alerts": [
-    {
-      "severity": "warning",
-      "group": "dashboards",
-      "component": "aurora-dash",
-      "message": "HTTPSConnectionPool(host='dash.kos.plus', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7405662f2de0>: Failed to establish a new connection: [Errno 101] Network is unreachable'))",
-      "timestamp": "2026-02-10T10:50:02"
-    },
-    {
-      "severity": "warning",
-      "group": "dashboards",
-      "component": "health-dash",
-      "message": "HTTPSConnectionPool(host='health.kos.plus', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x74056555e5d0>: Failed to resolve 'health.kos.plus' (Name or service not known: health.kos.plus using 1 resolver(s))\"))",
-      "timestamp": "2026-02-10T10:50:02"
-    }
-  ]
+  "alerts": []
 }
