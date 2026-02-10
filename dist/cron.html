@@ -13,6 +13,40 @@
         .freq-recurring { border-left: 3px solid #a855f7; }
         .freq-weekly { border-left: 3px solid #f59e0b; }
         .freq-monthly { border-left: 3px solid #ec4899; }
+        
+        .week-grid {
+            display: grid;
+            grid-template-columns: 60px repeat(7, 1fr);
+            gap: 1px;
+            background: rgba(255,255,255,0.1);
+        }
+        .week-header {
+            padding: 0.5rem;
+            text-align: center;
+            font-weight: bold;
+            background: var(--fallback-b1,oklch(var(--b1)/1));
+        }
+        .week-hour {
+            padding: 0.25rem;
+            font-size: 0.75rem;
+            text-align: right;
+            background: var(--fallback-b1,oklch(var(--b1)/1));
+            color: var(--fallback-bc,oklch(var(--bc)/0.6));
+        }
+        .week-cell {
+            min-height: 2rem;
+            padding: 0.25rem;
+            background: var(--fallback-b1,oklch(var(--b1)/1));
+            font-size: 0.7rem;
+        }
+        .week-event {
+            padding: 2px 4px;
+            border-radius: 2px;
+            margin-bottom: 1px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     </style>
 </head>
 <body class="min-h-screen bg-base-300">
@@ -58,9 +92,46 @@
             </template>
         </div>
         
-        <!-- Week View (Phase 3 placeholder) -->
+        <!-- Week View -->
         <div x-show="view === 'week'" class="hidden md:block">
-            <p class="text-center text-base-content/60">Week view coming soon...</p>
+            <div class="card bg-base-100 shadow-lg overflow-x-auto">
+                <div class="week-grid min-w-[600px]">
+                    <!-- Header row -->
+                    <div class="week-header"></div>
+                    <template x-for="day in weekDays" :key="day.short">
+                        <div class="week-header" :class="day.isToday ? 'text-primary' : ''">
+                            <div x-text="day.short"></div>
+                            <div class="text-sm opacity-60" x-text="day.date"></div>
+                        </div>
+                    </template>
+                    
+                    <!-- Hour rows -->
+                    <template x-for="hour in hourSlots" :key="hour">
+                        <template x-fragment>
+                            <div class="week-hour" x-text="hour + ':00'"></div>
+                            <template x-for="day in weekDays" :key="day.short + hour">
+                                <div class="week-cell">
+                                    <template x-for="event in getEventsForHour(hour)" :key="event.id">
+                                        <div class="week-event" :class="getFreqClass(event.schedule.frequency).replace('freq-', 'bg-').replace('daily', 'green-500/20').replace('weekly', 'amber-500/20').replace('monthly', 'pink-500/20')" x-text="event.name"></div>
+                                    </template>
+                                </div>
+                            </template>
+                        </template>
+                    </template>
+                </div>
+            </div>
+            
+            <!-- High frequency jobs (separate section) -->
+            <div class="card bg-base-100 shadow-lg mt-4">
+                <div class="card-body p-4">
+                    <h3 class="font-bold">High Frequency Jobs</h3>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <template x-for="event in data.events?.filter(e => e.schedule.frequency?.includes('every')) || []" :key="event.id">
+                            <span class="badge badge-outline freq-recurring" x-text="event.name + ' (' + event.schedule.display + ')'"></span>
+                        </template>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <!-- Footer -->
@@ -147,6 +218,38 @@
                         'monthly': 'freq-monthly'
                     };
                     return classes[freq] || '';
+                },
+                
+                get weekDays() {
+                    const days = [];
+                    const today = new Date();
+                    const startOfWeek = new Date(today);
+                    startOfWeek.setDate(today.getDate() - today.getDay()); // Sunday
+                    
+                    for (let i = 0; i < 7; i++) {
+                        const d = new Date(startOfWeek);
+                        d.setDate(startOfWeek.getDate() + i);
+                        days.push({
+                            short: d.toLocaleDateString('en-US', { weekday: 'short' }),
+                            date: d.getDate(),
+                            isToday: d.toDateString() === today.toDateString()
+                        });
+                    }
+                    return days;
+                },
+                
+                get hourSlots() {
+                    // Only show hours 3-7 AM where most jobs run
+                    return [3, 4, 5, 6, 7];
+                },
+                
+                getEventsForHour(hour) {
+                    return (this.data.events || []).filter(e => {
+                        const time = e.schedule.times?.[0];
+                        if (!time || time === 'recurring') return false;
+                        const h = parseInt(time.split(':')[0]);
+                        return h === hour;
+                    });
                 }
             };
         }
