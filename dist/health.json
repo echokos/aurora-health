@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-02-09T18:00:01",
-  "overall": "warning",
+  "timestamp": "2026-02-09T18:05:02",
+  "overall": "healthy",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
-      "status": "warning",
+      "status": "healthy",
       "passing": 6,
-      "total": 7,
+      "total": 6,
       "components": {
         "openclaw-gateway": {
           "name": "OpenClaw Gateway",
@@ -26,16 +26,10 @@
           "detail": "Process running",
           "type": "process"
         },
-        "vt-monitor": {
-          "name": "VT Signal Monitor",
+        "vt-signal-monitor": {
+          "name": "VT Signal Email Monitor",
           "status": "healthy",
           "detail": "Active",
-          "type": "systemd_service"
-        },
-        "vt-signal-monitor": {
-          "name": "VT Swing Signal Monitor",
-          "status": "warning",
-          "detail": "Activating (may be restarting)",
           "type": "systemd_service"
         },
         "vt-chat-monitor": {
@@ -79,7 +73,7 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 12h ago",
+          "detail": "Last run: 13h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -191,7 +185,7 @@
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "healthy",
-          "detail": "1.2h old",
+          "detail": "1.3h old",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
