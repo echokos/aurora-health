@@ -132,7 +132,7 @@
             <!-- High Frequency Jobs (below calendar) -->
             <div class="card bg-base-100 shadow-lg mt-4" x-show="highFrequencyEvents.length > 0">
                 <div class="card-body p-4">
-                    <h3 class="font-semibold text-sm mb-2">Recurring (every 5-15 min)</h3>
+                    <h3 class="font-semibold text-sm mb-2">Recurring Jobs</h3>
                     <div class="flex flex-wrap gap-2">
                         <template x-for="event in highFrequencyEvents" :key="event.id">
                             <button 
@@ -266,11 +266,12 @@
                     return [3, 4, 5, 6, 7];
                 },
                 
-                // High frequency events (shown separately)
+                // High frequency/recurring events (shown separately below calendar)
                 get highFrequencyEvents() {
-                    return (this.data.events || []).filter(e => 
-                        e.schedule.frequency?.includes('every-')
-                    );
+                    return (this.data.events || []).filter(e => {
+                        const freq = e.schedule.frequency;
+                        return freq?.includes('every-') || freq === 'hourly';
+                    });
                 },
                 
                 // All events sorted for list view
@@ -288,8 +289,8 @@
                     return (this.data.events || []).filter(e => {
                         const freq = e.schedule.frequency;
                         
-                        // Skip high-frequency (shown separately)
-                        if (freq?.includes('every-')) return false;
+                        // Skip high-frequency and hourly (shown separately in recurring section)
+                        if (freq?.includes('every-') || freq === 'hourly') return false;
                         
                         // Must have a time
                         const time = e.schedule.times?.[0];
