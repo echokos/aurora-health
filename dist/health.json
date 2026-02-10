@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-10T10:25:01",
+  "timestamp": "2026-02-10T10:30:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -115,7 +115,7 @@
         "memory-compact": {
           "name": "Memory Compaction (Nightly)",
           "status": "healthy",
-          "detail": "Last run: 6h ago",
+          "detail": "Last run: 7h ago",
           "type": "system_cron"
         },
         "monthly-index-generation": {
@@ -179,13 +179,13 @@
     "memory-files": {
       "display_name": "Memory Files",
       "status": "warning",
-      "passing": 6,
+      "passing": 5,
       "total": 7,
       "components": {
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "0.1h old",
+          "detail": "0.2h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -196,8 +196,8 @@
         },
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
-          "status": "healthy",
-          "detail": "6.0h old",
+          "status": "warning",
+          "detail": "6.1h old",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
