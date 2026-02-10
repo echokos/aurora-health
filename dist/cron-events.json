@@ -1,5 +1,11 @@
 {
-  "generated": "2026-02-09T20:34:26.272106",
+  "generated": "2026-02-10T05:28:00.827736",
+  "sources": {
+    "system_cron": 14,
+    "openclaw": 1,
+    "systemd": 1,
+    "total": 16
+  },
   "events": [
     {
       "id": "oauth-refresh",
@@ -12,7 +18,8 @@
         ]
       },
       "logfile": "~/aurora/logs/oauth-refresh.log",
-      "script": "/usr/bin/python3 /home/elliott/aurora/scripts/refresh-oauth-tokens.py"
+      "script": "/usr/bin/python3 /home/elliott/aurora/scripts/refresh-oauth-tokens.py",
+      "source": "system cron"
     },
     {
       "id": "dashboard-sync",
@@ -25,7 +32,8 @@
         ]
       },
       "logfile": "~/aurora/logs/dashboard-sync.log",
-      "script": "/home/elliott/aurora/scripts/dashboard-sync.sh"
+      "script": "/home/elliott/aurora/scripts/dashboard-sync.sh",
+      "source": "system cron"
     },
     {
       "id": "session-archive",
@@ -39,7 +47,8 @@
         "day": "Sunday"
       },
       "logfile": "~/.openclaw/logs/archive.log",
-      "script": "COMPRESS_BLOATED=true /home/elliott/.openclaw/scripts/archive-sessions-v2.sh"
+      "script": "COMPRESS_BLOATED=true /home/elliott/.openclaw/scripts/archive-sessions-v2.sh",
+      "source": "system cron"
     },
     {
       "id": "daily-note",
@@ -52,7 +61,8 @@
         ]
       },
       "logfile": "~/aurora/logs/daily-note.log",
-      "script": "/usr/bin/python3 /home/elliott/aurora/scripts/create-daily-note.py"
+      "script": "/usr/bin/python3 /home/elliott/aurora/scripts/create-daily-note.py",
+      "source": "system cron"
     },
     {
       "id": "wardrobe-selection",
@@ -65,7 +75,8 @@
         ]
       },
       "logfile": "~/aurora/logs/wardrobe-selection.log",
-      "script": "cd /home/elliott/aurora/skills/aurora-photo && python3 scripts/daily_wardrobe_selection.py"
+      "script": "cd /home/elliott/aurora/skills/aurora-photo && python3 scripts/daily_wardrobe_selection.py",
+      "source": "system cron"
     },
     {
       "id": "phone-memory-sync",
@@ -78,7 +89,8 @@
         ]
       },
       "logfile": "~/aurora/logs/sync-phone-memory.log",
-      "script": "/usr/bin/python3 /home/elliott/aurora/scripts/sync-phone-memory.py"
+      "script": "/usr/bin/python3 /home/elliott/aurora/scripts/sync-phone-memory.py",
+      "source": "system cron"
     },
     {
       "id": "morning-message",
@@ -91,7 +103,8 @@
         ]
       },
       "logfile": "~/aurora/logs/cron-aurora-morning.log",
-      "script": "/home/elliott/aurora/scripts/cron-aurora-morning.sh"
+      "script": "/home/elliott/aurora/scripts/cron-aurora-morning.sh",
+      "source": "system cron"
     },
     {
       "id": "nightly-memory",
@@ -104,7 +117,8 @@
         ]
       },
       "logfile": "~/aurora/logs/cron-aurora-nightly.log",
-      "script": "/home/elliott/aurora/scripts/cron-aurora-nightly.sh"
+      "script": "/home/elliott/aurora/scripts/cron-aurora-nightly.sh",
+      "source": "system cron"
     },
     {
       "id": "work-cycle",
@@ -117,7 +131,8 @@
         ]
       },
       "logfile": "~/aurora/logs/cron-aurora-selfheal.log",
-      "script": "/home/elliott/aurora/scripts/cron-aurora-selfheal.sh"
+      "script": "/home/elliott/aurora/scripts/cron-aurora-selfheal.sh",
+      "source": "system cron"
     },
     {
       "id": "memory-compact",
@@ -130,7 +145,8 @@
         ]
       },
       "logfile": "~/aurora/logs/memory-compact.log",
-      "script": "/usr/bin/python3 /home/elliott/aurora/scripts/memory-compact.py"
+      "script": "/usr/bin/python3 /home/elliott/aurora/scripts/memory-compact.py",
+      "source": "system cron"
     },
     {
       "id": "monthly-index-generation",
@@ -143,7 +159,8 @@
         ]
       },
       "logfile": "~/aurora/logs/monthly-index.log",
-      "script": "/home/elliott/aurora/scripts/generate-monthly-index.sh"
+      "script": "/home/elliott/aurora/scripts/generate-monthly-index.sh",
+      "source": "system cron"
     },
     {
       "id": "yearly-index-generation",
@@ -154,7 +171,8 @@
         "times": []
       },
       "logfile": "~/aurora/logs/yearly-index.log",
-      "script": "/home/elliott/aurora/scripts/generate-yearly-index.sh"
+      "script": "/home/elliott/aurora/scripts/generate-yearly-index.sh",
+      "source": "system cron"
     },
     {
       "id": "mem0-verification",
@@ -167,7 +185,8 @@
         ]
       },
       "logfile": "~/aurora/logs/mem0-verify.log",
-      "script": "/home/elliott/aurora/scripts/verify-mem0.sh"
+      "script": "/home/elliott/aurora/scripts/verify-mem0.sh",
+      "source": "system cron"
     },
     {
       "id": "vt-chat-monitor",
@@ -180,7 +199,31 @@
         ]
       },
       "logfile": "~/aurora/logs/vt-chat-monitor.log",
-      "script": "cd ~/aurora/integrations/vt-chat-monitor && node vt-chat-monitor.js"
+      "script": "cd ~/aurora/integrations/vt-chat-monitor && node vt-chat-monitor.js",
+      "source": "system cron"
+    },
+    {
+      "id": "openclaw-25dadee4",
+      "name": "work-cycle-executor",
+      "schedule": {
+        "display": "every 30 min",
+        "frequency": "every-30-min",
+        "times": [
+          "recurring"
+        ]
+      },
+      "source": "OpenClaw Scheduler",
+      "description": "Execute heartbeat phases every 30 minutes (memory, planning, work)"
+    },
+    {
+      "id": "timer-launchpadlib-cache-clean",
+      "name": "Launchpadlib Cache Clean",
+      "schedule": {
+        "display": "systemd timer",
+        "frequency": "timer",
+        "times": []
+      },
+      "source": "systemd timer"
     }
   ]
 }

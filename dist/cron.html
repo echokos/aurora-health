@@ -83,6 +83,12 @@
         <!-- Header -->
         <div class="text-center mb-6">
             <h1 class="text-2xl font-bold">Cron Calendar</h1>
+            <p class="text-sm text-base-content/60 mt-2" x-show="data.sources">
+                <span x-text="data.sources?.total || 0"></span> scheduled jobs from 
+                <span x-text="data.sources?.system_cron || 0"></span> cron, 
+                <span x-text="data.sources?.openclaw || 0"></span> OpenClaw, 
+                <span x-text="data.sources?.systemd || 0"></span> systemd
+            </p>
         </div>
         
         <!-- View Toggle -->
@@ -162,8 +168,11 @@
                     @click="showEventDetail(event)">
                     <div class="card-body p-4">
                         <div class="flex items-start justify-between">
-                            <div>
-                                <h3 class="font-semibold" x-text="event.name"></h3>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <h3 class="font-semibold" x-text="event.name"></h3>
+                                    <span class="badge badge-xs badge-ghost" x-text="event.source || 'system cron'" x-show="event.source"></span>
+                                </div>
                                 <p class="text-sm text-base-content/60" x-text="event.schedule.display"></p>
                             </div>
                             <span class="badge" :class="getEventClass(event)" x-text="formatFreq(event.schedule.frequency)"></span>
@@ -176,8 +185,15 @@
         <!-- Event Detail Modal -->
         <dialog id="event-modal" class="modal">
             <div class="modal-box">
-                <h3 class="font-bold text-lg" x-text="selectedEvent?.name || ''"></h3>
+                <div class="flex items-start justify-between mb-2">
+                    <h3 class="font-bold text-lg" x-text="selectedEvent?.name || ''"></h3>
+                    <span class="badge badge-sm" x-text="selectedEvent?.source || 'system cron'" x-show="selectedEvent?.source"></span>
+                </div>
                 <div class="py-4 space-y-3">
+                    <div x-show="selectedEvent?.description">
+                        <span class="text-base-content/60 text-sm">Description</span>
+                        <p class="text-sm" x-text="selectedEvent?.description || ''"></p>
+                    </div>
                     <div>
                         <span class="text-base-content/60 text-sm">Schedule</span>
                         <p class="font-mono" x-text="selectedEvent?.schedule?.display || ''"></p>
