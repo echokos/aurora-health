@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-10T17:20:02",
+  "timestamp": "2026-02-10T17:25:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -146,8 +146,8 @@
     },
     "apis": {
       "display_name": "API Connections",
-      "status": "failed",
-      "passing": 3,
+      "status": "healthy",
+      "passing": 4,
       "total": 4,
       "components": {
         "gmail-api": {
@@ -170,8 +170,8 @@
         },
         "todoist-api": {
           "name": "Todoist API",
-          "status": "failed",
-          "detail": "HTTPSConnectionPool(host='api.todoist.com', port=443): Max retries exceeded with url: /rest/v2/projects (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7d84d9142db0>: Failed to resolve 'api.todoist.com' (Name or service not known: api.todoist.com using 1 resolver(s))\"))",
+          "status": "healthy",
+          "detail": "API responding",
           "type": "api_key"
         }
       }
@@ -185,19 +185,19 @@
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "0.5h old",
+          "detail": "0.0h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
           "name": "MEMORY.md Size Check",
           "status": "healthy",
-          "detail": "MEMORY.md: 6.8KB",
+          "detail": "MEMORY.md: 7.0KB",
           "type": "file_size"
         },
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "failed",
-          "detail": "12.9h old (max: 8h)",
+          "detail": "13.0h old (max: 8h)",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
@@ -249,18 +249,11 @@
   },
   "alerts": [
     {
-      "severity": "warning",
-      "group": "apis",
-      "component": "todoist-api",
-      "message": "HTTPSConnectionPool(host='api.todoist.com', port=443): Max retries exceeded with url: /rest/v2/projects (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7d84d9142db0>: Failed to resolve 'api.todoist.com' (Name or service not known: api.todoist.com using 1 resolver(s))\"))",
-      "timestamp": "2026-02-10T17:20:02"
-    },
-    {
       "severity": "critical",
       "group": "memory-files",
       "component": "memory-md-private",
-      "message": "12.9h old (max: 8h)",
-      "timestamp": "2026-02-10T17:20:02"
+      "message": "13.0h old (max: 8h)",
+      "timestamp": "2026-02-10T17:25:01"
     }
   ]
 }
