@@ -52,6 +52,12 @@
 <body class="min-h-screen bg-base-300">
     <div x-data="cronDashboard()" x-init="init()" class="container mx-auto px-4 py-8 max-w-4xl">
         
+        <!-- Top Navigation -->
+        <div class="flex justify-between items-center mb-6">
+            <a href="/" class="btn btn-ghost btn-sm">← Health Dashboard</a>
+            <a href="https://dash.kos.plus" class="btn btn-ghost btn-sm">Main Dashboard →</a>
+        </div>
+        
         <!-- Header -->
         <div class="text-center mb-8">
             <h1 class="text-3xl font-bold mb-2">Cron Schedule</h1>
@@ -75,6 +81,9 @@
         
         <!-- List View -->
         <div x-show="view === 'list'" class="space-y-2">
+            <div class="alert alert-info mb-4">
+                <span>Showing all scheduled jobs. Each job runs on its specified schedule (daily, weekly, hourly, etc.)</span>
+            </div>
             <template x-for="group in groupedByTime" :key="group.time">
                 <div class="card bg-base-100 shadow-lg">
                     <div class="card-body p-4">
@@ -82,8 +91,11 @@
                         <div class="space-y-2 mt-2">
                             <template x-for="event in group.events" :key="event.id">
                                 <div class="flex items-center justify-between py-2 px-3 rounded bg-base-200" :class="getFreqClass(event.schedule.frequency)">
-                                    <span x-text="event.name"></span>
-                                    <span class="badge badge-ghost text-xs" x-text="event.schedule.display"></span>
+                                    <div class="flex-1">
+                                        <div x-text="event.name"></div>
+                                        <div class="text-xs opacity-60 mt-1" x-text="event.schedule.display"></div>
+                                    </div>
+                                    <span class="badge badge-ghost text-xs" x-text="formatFrequency(event.schedule.frequency)"></span>
                                 </div>
                             </template>
                         </div>
@@ -111,7 +123,7 @@
                             <div class="week-hour" x-text="hour + ':00'"></div>
                             <template x-for="day in weekDays" :key="day.short + hour">
                                 <div class="week-cell">
-                                    <template x-for="event in getEventsForHour(hour)" :key="event.id">
+                                    <template x-for="event in getEventsForDayAndHour(day, hour)" :key="event.id">
                                         <div class="week-event" :class="getFreqClass(event.schedule.frequency).replace('freq-', 'bg-').replace('daily', 'green-500/20').replace('weekly', 'amber-500/20').replace('monthly', 'pink-500/20')" x-text="event.name"></div>
                                     </template>
                                 </div>
@@ -243,12 +255,46 @@
                     return [3, 4, 5, 6, 7];
                 },
                 
-                getEventsForHour(hour) {
+                formatFrequency(freq) {
+                    const labels = {
+                        'daily': 'Daily',
+                        'hourly': 'Hourly',
+                        'every-5-min': 'Every 5min',
+                        'every-10-min': 'Every 10min',
+                        'every-15-min': 'Every 15min',
+                        'weekly': 'Weekly',
+                        'monthly': 'Monthly'
+                    };
+                    return labels[freq] || freq;
+                },
+                
+                getEventsForDayAndHour(day, hour) {
                     return (this.data.events || []).filter(e => {
                         const time = e.schedule.times?.[0];
                         if (!time || time === 'recurring') return false;
+                        
+                        // Check if hour matches
                         const h = parseInt(time.split(':')[0]);
-                        return h === hour;
+                        if (h !== hour) return false;
+                        
+                        // For daily/hourly jobs, show on all days
+                        if (e.schedule.frequency === 'daily' || e.schedule.frequency === 'hourly') {
+                            return true;
+                        }
+                        
+                        // For weekly jobs, only show on matching day
+                        if (e.schedule.frequency === 'weekly' && e.schedule.display) {
+                            const dayName = e.schedule.display.toLowerCase();
+                            return dayName.includes(day.short.toLowerCase());
+                        }
+                        
+                        // For monthly jobs, only show on day 1
+                        if (e.schedule.frequency === 'monthly') {
+                            return day.date === 1;
+                        }
+                        
+                        // Default: show on all days
+                        return true;
                     });
                 }
             };
