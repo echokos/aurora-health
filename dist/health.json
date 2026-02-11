@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-11T17:00:01",
+  "timestamp": "2026-02-11T17:05:02",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -91,7 +91,7 @@
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 10h ago",
+          "detail": "Last run: 11h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -169,7 +169,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 10h ago",
+          "detail": "Last run: 11h ago",
           "type": "system_cron"
         }
       }
@@ -215,7 +215,7 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.0h old",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
         "working-md-private": {
@@ -265,14 +265,14 @@
       "group": "core-services",
       "component": "vt-signal-monitor",
       "message": "Not active",
-      "timestamp": "2026-02-11T17:00:01"
+      "timestamp": "2026-02-11T17:05:02"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "ms365-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-11T17:00:01"
+      "timestamp": "2026-02-11T17:05:02"
     }
   ]
 }
