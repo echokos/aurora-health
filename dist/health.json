@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-11T08:50:01",
+  "timestamp": "2026-02-11T08:55:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -146,8 +146,8 @@
     },
     "apis": {
       "display_name": "API Connections",
-      "status": "healthy",
-      "passing": 4,
+      "status": "warning",
+      "passing": 3,
       "total": 4,
       "components": {
         "gmail-api": {
@@ -170,8 +170,8 @@
         },
         "todoist-api": {
           "name": "Todoist API",
-          "status": "healthy",
-          "detail": "API responding",
+          "status": "warning",
+          "detail": "API returned 410",
           "type": "api_key"
         }
       }
@@ -185,19 +185,19 @@
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "0.5h old",
+          "detail": "0.0h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
           "name": "MEMORY.md Size Check",
           "status": "healthy",
-          "detail": "MEMORY.md: 7.6KB",
+          "detail": "MEMORY.md: 7.8KB",
           "type": "file_size"
         },
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "healthy",
-          "detail": "0.5h old",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
