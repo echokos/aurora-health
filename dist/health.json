@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-11T16:50:01",
+  "timestamp": "2026-02-11T16:55:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -208,8 +208,8 @@
     },
     "memory-files": {
       "display_name": "Memory Files",
-      "status": "failed",
-      "passing": 2,
+      "status": "healthy",
+      "passing": 4,
       "total": 4,
       "components": {
         "working-md": {
@@ -220,8 +220,8 @@
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
-          "status": "failed",
-          "detail": "File not found",
+          "status": "healthy",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -232,8 +232,8 @@
         },
         "memory-files": {
           "name": "Core Memory Files",
-          "status": "warning",
-          "detail": "Missing: WORKING.md, RECENT.md",
+          "status": "healthy",
+          "detail": "All 6 files present",
           "type": "files_exist"
         }
       }
@@ -265,14 +265,7 @@
       "group": "core-services",
       "component": "vt-signal-monitor",
       "message": "Not active",
-      "timestamp": "2026-02-11T16:50:01"
-    },
-    {
-      "severity": "critical",
-      "group": "memory-files",
-      "component": "working-md-private",
-      "message": "File not found",
-      "timestamp": "2026-02-11T16:50:01"
+      "timestamp": "2026-02-11T16:55:01"
     }
   ]
 }
