@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-11T07:30:01",
+  "timestamp": "2026-02-11T07:35:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -115,7 +115,7 @@
         "memory-compact": {
           "name": "Memory Compaction (Nightly)",
           "status": "healthy",
-          "detail": "Last run: 3h ago",
+          "detail": "Last run: 4h ago",
           "type": "system_cron"
         },
         "monthly-index-generation": {
@@ -253,7 +253,7 @@
       "group": "memory-files",
       "component": "daily-file",
       "message": "File not found",
-      "timestamp": "2026-02-11T07:30:01"
+      "timestamp": "2026-02-11T07:35:01"
     }
   ]
 }
