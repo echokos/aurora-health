@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-02-10T19:00:01",
+  "timestamp": "2026-02-10T19:05:01",
   "overall": "failed",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
-      "status": "failed",
-      "passing": 6,
+      "status": "healthy",
+      "passing": 7,
       "total": 7,
       "components": {
         "openclaw-gateway": {
@@ -46,8 +46,8 @@
         },
         "obsidian-sync": {
           "name": "Obsidian Sync",
-          "status": "failed",
-          "detail": "Process not found",
+          "status": "healthy",
+          "detail": "Process running",
           "type": "process"
         }
       }
@@ -61,7 +61,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 14h ago",
+          "detail": "Last run: 15h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -79,7 +79,7 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 13h ago",
+          "detail": "Last run: 14h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -185,7 +185,7 @@
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "0.1h old",
+          "detail": "0.2h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -197,7 +197,7 @@
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "failed",
-          "detail": "14.6h old (max: 8h)",
+          "detail": "14.7h old (max: 8h)",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
@@ -250,17 +250,10 @@
   "alerts": [
     {
       "severity": "critical",
-      "group": "core-services",
-      "component": "obsidian-sync",
-      "message": "Process not found",
-      "timestamp": "2026-02-10T19:00:01"
-    },
-    {
-      "severity": "critical",
       "group": "memory-files",
       "component": "memory-md-private",
-      "message": "14.6h old (max: 8h)",
-      "timestamp": "2026-02-10T19:00:01"
+      "message": "14.7h old (max: 8h)",
+      "timestamp": "2026-02-10T19:05:01"
     }
   ]
 }
