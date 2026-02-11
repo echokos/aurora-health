@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-02-11T16:35:01",
-  "overall": "warning",
+  "timestamp": "2026-02-11T16:40:01",
+  "overall": "failed",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
-      "status": "healthy",
-      "passing": 7,
+      "status": "failed",
+      "passing": 6,
       "total": 7,
       "components": {
         "openclaw-gateway": {
@@ -26,10 +26,16 @@
           "detail": "Process running",
           "type": "process"
         },
-        "vt-signal-monitor": {
-          "name": "VT Signal Email Monitor",
+        "vt-monitor": {
+          "name": "VT Signal Monitor",
           "status": "healthy",
           "detail": "Active",
+          "type": "systemd_service"
+        },
+        "vt-signal-monitor": {
+          "name": "VT Swing Signal Monitor",
+          "status": "failed",
+          "detail": "Not active",
           "type": "systemd_service"
         },
         "vt-chat-monitor": {
@@ -43,25 +49,19 @@
           "status": "healthy",
           "detail": "HTTP 200",
           "type": "http_endpoint"
-        },
-        "obsidian-sync": {
-          "name": "Obsidian Sync",
-          "status": "healthy",
-          "detail": "Process running",
-          "type": "process"
         }
       }
     },
     "scheduled-jobs": {
       "display_name": "Scheduled Jobs",
-      "status": "healthy",
-      "passing": 14,
-      "total": 14,
+      "status": "warning",
+      "passing": 12,
+      "total": 19,
       "components": {
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 12h ago",
+          "detail": "Last run: 0h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -76,10 +76,16 @@
           "detail": "Last run: 3d ago",
           "type": "system_cron"
         },
+        "daily-brief": {
+          "name": "Daily Brief",
+          "status": "warning",
+          "detail": "Last run: 3d ago (stale)",
+          "type": "system_cron"
+        },
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 11h ago",
+          "detail": "Last run: 0h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -92,6 +98,12 @@
           "name": "Phone Memory Sync",
           "status": "healthy",
           "detail": "Last run: 0h ago",
+          "type": "system_cron"
+        },
+        "session-memory-sync": {
+          "name": "Session Memory Sync",
+          "status": "warning",
+          "detail": "Last run: 3d ago (stale)",
           "type": "system_cron"
         },
         "morning-message": {
@@ -112,10 +124,34 @@
           "detail": "Script ready (no runs yet)",
           "type": "system_cron"
         },
-        "memory-compact": {
-          "name": "Memory Compaction (Nightly)",
-          "status": "healthy",
-          "detail": "Last run: 13h ago",
+        "daily-standup": {
+          "name": "Daily Standup",
+          "status": "warning",
+          "detail": "No logfile or script found",
+          "type": "system_cron"
+        },
+        "memory-automation-public": {
+          "name": "Public WORKING.md Automation",
+          "status": "warning",
+          "detail": "Last run: 2d ago (stale)",
+          "type": "system_cron"
+        },
+        "memory-automation-private": {
+          "name": "Private WORKING.md Automation",
+          "status": "warning",
+          "detail": "Last run: 2d ago (stale)",
+          "type": "system_cron"
+        },
+        "memory-sweep": {
+          "name": "Memory Sweep (Nightly)",
+          "status": "warning",
+          "detail": "Last run: 3d ago (stale)",
+          "type": "system_cron"
+        },
+        "recent-memory-updates": {
+          "name": "RECENT.md Updates (4x Daily)",
+          "status": "warning",
+          "detail": "Last run: 2d ago (stale)",
           "type": "system_cron"
         },
         "monthly-index-generation": {
@@ -135,19 +171,13 @@
           "status": "healthy",
           "detail": "Last run: 10h ago",
           "type": "system_cron"
-        },
-        "obsidian-health-monitor": {
-          "name": "Obsidian Health Monitor",
-          "status": "healthy",
-          "detail": "Last run: 0h ago",
-          "type": "system_cron"
         }
       }
     },
     "apis": {
       "display_name": "API Connections",
-      "status": "healthy",
-      "passing": 4,
+      "status": "warning",
+      "passing": 3,
       "total": 4,
       "components": {
         "gmail-api": {
@@ -170,47 +200,29 @@
         },
         "todoist-api": {
           "name": "Todoist API",
-          "status": "healthy",
-          "detail": "API responding",
+          "status": "warning",
+          "detail": "API returned 410",
           "type": "api_key"
         }
       }
     },
     "memory-files": {
       "display_name": "Memory Files",
-      "status": "warning",
-      "passing": 6,
-      "total": 7,
+      "status": "failed",
+      "passing": 2,
+      "total": 4,
       "components": {
-        "memory-md": {
-          "name": "MEMORY.md (Public)",
+        "working-md": {
+          "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "1.3h old",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
-        "memory-md-size": {
-          "name": "MEMORY.md Size Check",
-          "status": "healthy",
-          "detail": "MEMORY.md: 8.3KB",
-          "type": "file_size"
-        },
-        "memory-md-private": {
-          "name": "MEMORY.md (Private)",
-          "status": "healthy",
-          "detail": "0.2h old",
+        "working-md-private": {
+          "name": "WORKING.md (Private)",
+          "status": "failed",
+          "detail": "File not found",
           "type": "file_freshness"
-        },
-        "memory-md-private-size": {
-          "name": "Private MEMORY.md Size Check",
-          "status": "healthy",
-          "detail": "MEMORY.md: 4.8KB",
-          "type": "file_size"
-        },
-        "context-files-size": {
-          "name": "Context Files Size Check",
-          "status": "warning",
-          "detail": "TOOLS.md: 17.0KB",
-          "type": "file_size"
         },
         "daily-file": {
           "name": "Daily File",
@@ -220,8 +232,8 @@
         },
         "memory-files": {
           "name": "Core Memory Files",
-          "status": "healthy",
-          "detail": "All 2 files present",
+          "status": "warning",
+          "detail": "Missing: WORKING.md, RECENT.md",
           "type": "files_exist"
         }
       }
@@ -247,5 +259,20 @@
       }
     }
   },
-  "alerts": []
+  "alerts": [
+    {
+      "severity": "critical",
+      "group": "core-services",
+      "component": "vt-signal-monitor",
+      "message": "Not active",
+      "timestamp": "2026-02-11T16:40:01"
+    },
+    {
+      "severity": "critical",
+      "group": "memory-files",
+      "component": "working-md-private",
+      "message": "File not found",
+      "timestamp": "2026-02-11T16:40:01"
+    }
+  ]
 }
