@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-11T16:55:01",
+  "timestamp": "2026-02-11T17:00:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -176,8 +176,8 @@
     },
     "apis": {
       "display_name": "API Connections",
-      "status": "warning",
-      "passing": 3,
+      "status": "failed",
+      "passing": 2,
       "total": 4,
       "components": {
         "gmail-api": {
@@ -188,8 +188,8 @@
         },
         "ms365-api": {
           "name": "MS365 API",
-          "status": "healthy",
-          "detail": "Token 0d old",
+          "status": "failed",
+          "detail": "Token file not found",
           "type": "oauth_token"
         },
         "quickbooks-api": {
@@ -215,13 +215,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.1h old",
+          "detail": "0.0h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.1h old",
+          "detail": "0.2h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -265,7 +265,14 @@
       "group": "core-services",
       "component": "vt-signal-monitor",
       "message": "Not active",
-      "timestamp": "2026-02-11T16:55:01"
+      "timestamp": "2026-02-11T17:00:01"
+    },
+    {
+      "severity": "warning",
+      "group": "apis",
+      "component": "ms365-api",
+      "message": "Token file not found",
+      "timestamp": "2026-02-11T17:00:01"
     }
   ]
 }
