@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-11T03:00:02",
+  "timestamp": "2026-02-11T03:05:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -61,7 +61,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 22h ago",
+          "detail": "Last run: 23h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -79,7 +79,7 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 21h ago",
+          "detail": "Last run: 22h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -197,7 +197,7 @@
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "failed",
-          "detail": "22.6h old (max: 8h)",
+          "detail": "22.7h old (max: 8h)",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
@@ -209,7 +209,7 @@
         "context-files-size": {
           "name": "Context Files Size Check",
           "status": "warning",
-          "detail": "TOOLS.md: 16.1KB",
+          "detail": "TOOLS.md: 16.2KB",
           "type": "file_size"
         },
         "daily-file": {
@@ -252,15 +252,15 @@
       "severity": "critical",
       "group": "memory-files",
       "component": "memory-md-private",
-      "message": "22.6h old (max: 8h)",
-      "timestamp": "2026-02-11T03:00:02"
+      "message": "22.7h old (max: 8h)",
+      "timestamp": "2026-02-11T03:05:01"
     },
     {
       "severity": "critical",
       "group": "memory-files",
       "component": "daily-file",
       "message": "File not found",
-      "timestamp": "2026-02-11T03:00:02"
+      "timestamp": "2026-02-11T03:05:01"
     }
   ]
 }
