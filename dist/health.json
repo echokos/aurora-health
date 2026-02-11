@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-02-11T17:30:01",
+  "timestamp": "2026-02-11T17:35:01",
   "overall": "failed",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
       "status": "failed",
-      "passing": 6,
+      "passing": 5,
       "total": 7,
       "components": {
         "openclaw-gateway": {
           "name": "OpenClaw Gateway",
-          "status": "healthy",
-          "detail": "Active",
+          "status": "warning",
+          "detail": "Activating (may be restarting)",
           "type": "systemd_service"
         },
         "modem-daemon": {
@@ -215,7 +215,7 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.4h old",
+          "detail": "0.5h old",
           "type": "file_freshness"
         },
         "working-md-private": {
@@ -265,21 +265,21 @@
       "group": "core-services",
       "component": "vt-signal-monitor",
       "message": "Not active",
-      "timestamp": "2026-02-11T17:30:01"
+      "timestamp": "2026-02-11T17:35:01"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "ms365-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-11T17:30:01"
+      "timestamp": "2026-02-11T17:35:01"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "quickbooks-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-11T17:30:01"
+      "timestamp": "2026-02-11T17:35:01"
     }
   ]
 }
