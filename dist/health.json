@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-10T18:05:01",
+  "timestamp": "2026-02-10T18:10:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -185,7 +185,7 @@
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.3h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -253,7 +253,7 @@
       "group": "memory-files",
       "component": "memory-md-private",
       "message": "13.7h old (max: 8h)",
-      "timestamp": "2026-02-10T18:05:01"
+      "timestamp": "2026-02-10T18:10:01"
     }
   ]
 }
