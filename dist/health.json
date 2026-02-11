@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-11T03:25:01",
+  "timestamp": "2026-02-11T03:30:02",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -115,7 +115,7 @@
         "memory-compact": {
           "name": "Memory Compaction (Nightly)",
           "status": "healthy",
-          "detail": "Last run: 23h ago",
+          "detail": "Last run: 0h ago",
           "type": "system_cron"
         },
         "monthly-index-generation": {
@@ -185,7 +185,7 @@
         "memory-md": {
           "name": "MEMORY.md (Public)",
           "status": "healthy",
-          "detail": "0.0h old",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
         "memory-md-size": {
@@ -197,7 +197,7 @@
         "memory-md-private": {
           "name": "MEMORY.md (Private)",
           "status": "failed",
-          "detail": "23.0h old (max: 8h)",
+          "detail": "23.1h old (max: 8h)",
           "type": "file_freshness"
         },
         "memory-md-private-size": {
@@ -252,15 +252,15 @@
       "severity": "critical",
       "group": "memory-files",
       "component": "memory-md-private",
-      "message": "23.0h old (max: 8h)",
-      "timestamp": "2026-02-11T03:25:01"
+      "message": "23.1h old (max: 8h)",
+      "timestamp": "2026-02-11T03:30:02"
     },
     {
       "severity": "critical",
       "group": "memory-files",
       "component": "daily-file",
       "message": "File not found",
-      "timestamp": "2026-02-11T03:25:01"
+      "timestamp": "2026-02-11T03:30:02"
     }
   ]
 }
