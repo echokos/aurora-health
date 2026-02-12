@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-12T13:00:02",
+  "timestamp": "2026-02-12T13:05:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -61,7 +61,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 8h ago",
+          "detail": "Last run: 9h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -247,21 +247,21 @@
       "group": "core-services",
       "component": "vt-signal-monitor",
       "message": "Not active",
-      "timestamp": "2026-02-12T13:00:02"
+      "timestamp": "2026-02-12T13:05:01"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "ms365-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-12T13:00:02"
+      "timestamp": "2026-02-12T13:05:01"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "quickbooks-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-12T13:00:02"
+      "timestamp": "2026-02-12T13:05:01"
     }
   ]
 }
