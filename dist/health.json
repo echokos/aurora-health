@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-12T03:25:01",
+  "timestamp": "2026-02-12T03:30:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
     "scheduled-jobs": {
       "display_name": "Scheduled Jobs",
       "status": "warning",
-      "passing": 12,
+      "passing": 13,
       "total": 16,
       "components": {
         "oauth-refresh": {
@@ -132,8 +132,8 @@
         },
         "memory-sweep": {
           "name": "Memory Sweep (2-tier)",
-          "status": "warning",
-          "detail": "Last run: 3d ago (stale)",
+          "status": "healthy",
+          "detail": "Last run: 0h ago",
           "type": "system_cron"
         },
         "monthly-index-generation": {
@@ -197,13 +197,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "1.7h old",
+          "detail": "1.8h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "5.9h old",
+          "detail": "6.0h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -247,28 +247,28 @@
       "group": "core-services",
       "component": "vt-signal-monitor",
       "message": "Not active",
-      "timestamp": "2026-02-12T03:25:01"
+      "timestamp": "2026-02-12T03:30:01"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "ms365-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-12T03:25:01"
+      "timestamp": "2026-02-12T03:30:01"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "quickbooks-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-12T03:25:01"
+      "timestamp": "2026-02-12T03:30:01"
     },
     {
       "severity": "critical",
       "group": "memory-files",
       "component": "daily-file",
       "message": "File not found",
-      "timestamp": "2026-02-12T03:25:01"
+      "timestamp": "2026-02-12T03:30:01"
     }
   ]
 }
