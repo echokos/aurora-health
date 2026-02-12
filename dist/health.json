@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-02-12T17:20:01",
-  "overall": "failed",
+  "timestamp": "2026-02-12T17:25:01",
+  "overall": "warning",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
-      "status": "failed",
+      "status": "healthy",
       "passing": 6,
-      "total": 7,
+      "total": 6,
       "components": {
         "openclaw-gateway": {
           "name": "OpenClaw Gateway",
@@ -32,12 +32,6 @@
           "detail": "Active",
           "type": "systemd_service"
         },
-        "vt-signal-monitor": {
-          "name": "VT Swing Signal Monitor",
-          "status": "failed",
-          "detail": "Not active",
-          "type": "systemd_service"
-        },
         "vt-chat-monitor": {
           "name": "VT Chat Monitor",
           "status": "healthy",
@@ -54,9 +48,9 @@
     },
     "scheduled-jobs": {
       "display_name": "Scheduled Jobs",
-      "status": "warning",
+      "status": "healthy",
       "passing": 13,
-      "total": 16,
+      "total": 13,
       "components": {
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
@@ -74,12 +68,6 @@
           "name": "Session Archive",
           "status": "healthy",
           "detail": "Last run: 4d ago",
-          "type": "system_cron"
-        },
-        "daily-brief": {
-          "name": "Daily Brief",
-          "status": "warning",
-          "detail": "Last run: 4d ago (stale)",
           "type": "system_cron"
         },
         "daily-note": {
@@ -100,12 +88,6 @@
           "detail": "Last run: 0h ago",
           "type": "system_cron"
         },
-        "session-memory-sync": {
-          "name": "Session Memory Sync",
-          "status": "warning",
-          "detail": "Last run: 4d ago (stale)",
-          "type": "system_cron"
-        },
         "morning-message": {
           "name": "Morning Message",
           "status": "healthy",
@@ -122,12 +104,6 @@
           "name": "Work Cycle (Self-Heal)",
           "status": "healthy",
           "detail": "Script ready (no runs yet)",
-          "type": "system_cron"
-        },
-        "daily-standup": {
-          "name": "Daily Standup",
-          "status": "warning",
-          "detail": "No logfile or script found",
           "type": "system_cron"
         },
         "memory-sweep": {
@@ -158,9 +134,9 @@
     },
     "apis": {
       "display_name": "API Connections",
-      "status": "failed",
-      "passing": 1,
-      "total": 4,
+      "status": "warning",
+      "passing": 2,
+      "total": 3,
       "components": {
         "gmail-api": {
           "name": "Gmail API",
@@ -170,14 +146,8 @@
         },
         "ms365-api": {
           "name": "MS365 API",
-          "status": "failed",
-          "detail": "Token file not found",
-          "type": "oauth_token"
-        },
-        "quickbooks-api": {
-          "name": "QuickBooks API",
-          "status": "failed",
-          "detail": "Token file not found",
+          "status": "healthy",
+          "detail": "Token 0d old",
           "type": "oauth_token"
         },
         "todoist-api": {
@@ -257,32 +227,11 @@
   },
   "alerts": [
     {
-      "severity": "critical",
-      "group": "core-services",
-      "component": "vt-signal-monitor",
-      "message": "Not active",
-      "timestamp": "2026-02-12T17:20:01"
-    },
-    {
-      "severity": "warning",
-      "group": "apis",
-      "component": "ms365-api",
-      "message": "Token file not found",
-      "timestamp": "2026-02-12T17:20:01"
-    },
-    {
-      "severity": "warning",
-      "group": "apis",
-      "component": "quickbooks-api",
-      "message": "Token file not found",
-      "timestamp": "2026-02-12T17:20:01"
-    },
-    {
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Low: 26% remaining (resets in 1d)",
-      "timestamp": "2026-02-12T17:20:01"
+      "timestamp": "2026-02-12T17:25:01"
     }
   ]
 }
