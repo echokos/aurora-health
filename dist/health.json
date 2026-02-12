@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-12T03:35:01",
+  "timestamp": "2026-02-12T03:40:02",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -61,7 +61,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 10h ago",
+          "detail": "Last run: 11h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -85,7 +85,7 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 10h ago",
+          "detail": "Last run: 11h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -197,13 +197,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "1.9h old",
+          "detail": "2.0h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "warning",
-          "detail": "6.1h old",
+          "detail": "6.2h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -247,28 +247,28 @@
       "group": "core-services",
       "component": "vt-signal-monitor",
       "message": "Not active",
-      "timestamp": "2026-02-12T03:35:01"
+      "timestamp": "2026-02-12T03:40:02"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "ms365-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-12T03:35:01"
+      "timestamp": "2026-02-12T03:40:02"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "quickbooks-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-12T03:35:01"
+      "timestamp": "2026-02-12T03:40:02"
     },
     {
       "severity": "critical",
       "group": "memory-files",
       "component": "daily-file",
       "message": "File not found",
-      "timestamp": "2026-02-12T03:35:01"
+      "timestamp": "2026-02-12T03:40:02"
     }
   ]
 }
