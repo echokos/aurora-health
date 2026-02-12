@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-12T03:30:01",
+  "timestamp": "2026-02-12T03:35:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -191,19 +191,19 @@
     "memory-files": {
       "display_name": "Memory Files",
       "status": "failed",
-      "passing": 3,
+      "passing": 2,
       "total": 4,
       "components": {
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "1.8h old",
+          "detail": "1.9h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
-          "status": "healthy",
-          "detail": "6.0h old",
+          "status": "warning",
+          "detail": "6.1h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -247,28 +247,28 @@
       "group": "core-services",
       "component": "vt-signal-monitor",
       "message": "Not active",
-      "timestamp": "2026-02-12T03:30:01"
+      "timestamp": "2026-02-12T03:35:01"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "ms365-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-12T03:30:01"
+      "timestamp": "2026-02-12T03:35:01"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "quickbooks-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-12T03:30:01"
+      "timestamp": "2026-02-12T03:35:01"
     },
     {
       "severity": "critical",
       "group": "memory-files",
       "component": "daily-file",
       "message": "File not found",
-      "timestamp": "2026-02-12T03:30:01"
+      "timestamp": "2026-02-12T03:35:01"
     }
   ]
 }
