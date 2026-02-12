@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-11T18:00:02",
+  "timestamp": "2026-02-11T18:05:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -103,7 +103,7 @@
         "session-memory-sync": {
           "name": "Session Memory Sync",
           "status": "warning",
-          "detail": "Last run: 3d ago (stale)",
+          "detail": "Last run: 4d ago (stale)",
           "type": "system_cron"
         },
         "morning-message": {
@@ -215,7 +215,7 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.1h old",
+          "detail": "0.2h old",
           "type": "file_freshness"
         },
         "working-md-private": {
@@ -265,21 +265,21 @@
       "group": "core-services",
       "component": "vt-signal-monitor",
       "message": "Not active",
-      "timestamp": "2026-02-11T18:00:02"
+      "timestamp": "2026-02-11T18:05:01"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "ms365-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-11T18:00:02"
+      "timestamp": "2026-02-11T18:05:01"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "quickbooks-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-11T18:00:02"
+      "timestamp": "2026-02-11T18:05:01"
     }
   ]
 }
