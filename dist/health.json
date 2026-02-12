@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-12T10:55:01",
+  "timestamp": "2026-02-12T11:00:02",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -85,13 +85,13 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 5h ago",
+          "detail": "Last run: 6h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 4h ago",
+          "detail": "Last run: 5h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -151,7 +151,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 4h ago",
+          "detail": "Last run: 5h ago",
           "type": "system_cron"
         }
       }
@@ -197,13 +197,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.5h old",
+          "detail": "0.6h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.8h old",
+          "detail": "0.9h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -247,21 +247,21 @@
       "group": "core-services",
       "component": "vt-signal-monitor",
       "message": "Not active",
-      "timestamp": "2026-02-12T10:55:01"
+      "timestamp": "2026-02-12T11:00:02"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "ms365-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-12T10:55:01"
+      "timestamp": "2026-02-12T11:00:02"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "quickbooks-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-12T10:55:01"
+      "timestamp": "2026-02-12T11:00:02"
     }
   ]
 }
