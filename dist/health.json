@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-12T01:35:01",
+  "timestamp": "2026-02-12T01:40:02",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -61,7 +61,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 8h ago",
+          "detail": "Last run: 9h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -85,7 +85,7 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 8h ago",
+          "detail": "Last run: 9h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -197,13 +197,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "failed",
-          "detail": "4.1h old (max: 4h)",
+          "detail": "4.2h old (max: 4h)",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "4.1h old",
+          "detail": "4.2h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -247,35 +247,35 @@
       "group": "core-services",
       "component": "vt-signal-monitor",
       "message": "Not active",
-      "timestamp": "2026-02-12T01:35:01"
+      "timestamp": "2026-02-12T01:40:02"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "ms365-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-12T01:35:01"
+      "timestamp": "2026-02-12T01:40:02"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "quickbooks-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-12T01:35:01"
+      "timestamp": "2026-02-12T01:40:02"
     },
     {
       "severity": "critical",
       "group": "memory-files",
       "component": "working-md",
-      "message": "4.1h old (max: 4h)",
-      "timestamp": "2026-02-12T01:35:01"
+      "message": "4.2h old (max: 4h)",
+      "timestamp": "2026-02-12T01:40:02"
     },
     {
       "severity": "critical",
       "group": "memory-files",
       "component": "daily-file",
       "message": "File not found",
-      "timestamp": "2026-02-12T01:35:01"
+      "timestamp": "2026-02-12T01:40:02"
     }
   ]
 }
