@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-12T16:00:01",
+  "timestamp": "2026-02-12T16:05:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -61,7 +61,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 11h ago",
+          "detail": "Last run: 12h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -197,13 +197,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.0h old",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.0h old",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -247,21 +247,21 @@
       "group": "core-services",
       "component": "vt-signal-monitor",
       "message": "Not active",
-      "timestamp": "2026-02-12T16:00:01"
+      "timestamp": "2026-02-12T16:05:01"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "ms365-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-12T16:00:01"
+      "timestamp": "2026-02-12T16:05:01"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "quickbooks-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-12T16:00:01"
+      "timestamp": "2026-02-12T16:05:01"
     }
   ]
 }
