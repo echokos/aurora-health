@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-12T17:15:01",
+  "timestamp": "2026-02-12T17:20:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -197,13 +197,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.1h old",
+          "detail": "0.2h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.1h old",
+          "detail": "0.2h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -239,6 +239,20 @@
           "type": "http_endpoint"
         }
       }
+    },
+    "resource-usage": {
+      "display_name": "Resource Usage",
+      "status": "warning",
+      "passing": 0,
+      "total": 1,
+      "components": {
+        "claude-weekly-usage": {
+          "name": "Claude Weekly Usage",
+          "status": "warning",
+          "detail": "Low: 26% remaining (resets in 1d)",
+          "type": "claude_usage"
+        }
+      }
     }
   },
   "alerts": [
@@ -247,21 +261,28 @@
       "group": "core-services",
       "component": "vt-signal-monitor",
       "message": "Not active",
-      "timestamp": "2026-02-12T17:15:01"
+      "timestamp": "2026-02-12T17:20:01"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "ms365-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-12T17:15:01"
+      "timestamp": "2026-02-12T17:20:01"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "quickbooks-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-12T17:15:01"
+      "timestamp": "2026-02-12T17:20:01"
+    },
+    {
+      "severity": "warning",
+      "group": "resource-usage",
+      "component": "claude-weekly-usage",
+      "message": "Low: 26% remaining (resets in 1d)",
+      "timestamp": "2026-02-12T17:20:01"
     }
   ]
 }
