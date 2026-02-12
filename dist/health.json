@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-12T11:15:01",
+  "timestamp": "2026-02-12T11:20:02",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -197,13 +197,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.8h old",
+          "detail": "0.9h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "1.1h old",
+          "detail": "1.2h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -247,21 +247,21 @@
       "group": "core-services",
       "component": "vt-signal-monitor",
       "message": "Not active",
-      "timestamp": "2026-02-12T11:15:01"
+      "timestamp": "2026-02-12T11:20:02"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "ms365-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-12T11:15:01"
+      "timestamp": "2026-02-12T11:20:02"
     },
     {
       "severity": "warning",
       "group": "apis",
       "component": "quickbooks-api",
       "message": "Token file not found",
-      "timestamp": "2026-02-12T11:15:01"
+      "timestamp": "2026-02-12T11:20:02"
     }
   ]
 }
