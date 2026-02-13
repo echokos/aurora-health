@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-12T18:10:02",
-  "overall": "warning",
+  "timestamp": "2026-02-12T18:15:01",
+  "overall": "failed",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -134,7 +134,7 @@
     },
     "apis": {
       "display_name": "API Connections",
-      "status": "warning",
+      "status": "failed",
       "passing": 2,
       "total": 3,
       "components": {
@@ -152,8 +152,8 @@
         },
         "todoist-api": {
           "name": "Todoist API",
-          "status": "warning",
-          "detail": "API returned 401",
+          "status": "failed",
+          "detail": "Auth failed (HTTP 401)",
           "type": "api_key"
         }
       }
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.3h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.3h old",
+          "detail": "0.4h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -219,7 +219,7 @@
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
           "status": "warning",
-          "detail": "Low: 25% remaining (resets in 1d)",
+          "detail": "Low: 25% remaining (resets in 1d 21h)",
           "type": "claude_usage"
         }
       }
@@ -228,10 +228,17 @@
   "alerts": [
     {
       "severity": "warning",
+      "group": "apis",
+      "component": "todoist-api",
+      "message": "Auth failed (HTTP 401)",
+      "timestamp": "2026-02-12T18:15:01"
+    },
+    {
+      "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
-      "message": "Low: 25% remaining (resets in 1d)",
-      "timestamp": "2026-02-12T18:10:02"
+      "message": "Low: 25% remaining (resets in 1d 21h)",
+      "timestamp": "2026-02-12T18:15:01"
     }
   ]
 }
