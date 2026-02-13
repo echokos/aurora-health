@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-12T19:40:01",
+  "timestamp": "2026-02-12T19:45:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "1.2h old",
+          "detail": "1.3h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "1.2h old",
+          "detail": "1.3h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -231,14 +231,14 @@
       "group": "core-services",
       "component": "openclaw-gateway",
       "message": "Not active",
-      "timestamp": "2026-02-12T19:40:01"
+      "timestamp": "2026-02-12T19:45:01"
     },
     {
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Low: 24% remaining (resets in 1d 20h)",
-      "timestamp": "2026-02-12T19:40:01"
+      "timestamp": "2026-02-12T19:45:01"
     }
   ]
 }
