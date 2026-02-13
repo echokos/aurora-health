@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-12T22:40:01",
+  "timestamp": "2026-02-12T22:45:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -160,20 +160,20 @@
     },
     "memory-files": {
       "display_name": "Memory Files",
-      "status": "failed",
-      "passing": 3,
+      "status": "healthy",
+      "passing": 4,
       "total": 4,
       "components": {
         "working-md": {
           "name": "WORKING.md (Public)",
-          "status": "failed",
-          "detail": "4.2h old (max: 4h)",
+          "status": "healthy",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "4.2h old",
+          "detail": "4.3h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -231,21 +231,14 @@
       "group": "core-services",
       "component": "openclaw-gateway",
       "message": "Not active",
-      "timestamp": "2026-02-12T22:40:01"
-    },
-    {
-      "severity": "critical",
-      "group": "memory-files",
-      "component": "working-md",
-      "message": "4.2h old (max: 4h)",
-      "timestamp": "2026-02-12T22:40:01"
+      "timestamp": "2026-02-12T22:45:01"
     },
     {
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Low: 24% remaining (resets in 1d 17h)",
-      "timestamp": "2026-02-12T22:40:01"
+      "timestamp": "2026-02-12T22:45:01"
     }
   ]
 }
