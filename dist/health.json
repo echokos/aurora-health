@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-12T21:55:01",
+  "timestamp": "2026-02-12T22:00:02",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -73,13 +73,13 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 16h ago",
+          "detail": "Last run: 17h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 15h ago",
+          "detail": "Last run: 16h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 15h ago",
+          "detail": "Last run: 16h ago",
           "type": "system_cron"
         }
       }
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "warning",
-          "detail": "3.5h old",
+          "detail": "3.6h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "3.5h old",
+          "detail": "3.6h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -219,7 +219,7 @@
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
           "status": "warning",
-          "detail": "Low: 24% remaining (resets in 1d 18h)",
+          "detail": "Low: 24% remaining (resets in 1d 17h)",
           "type": "claude_usage"
         }
       }
@@ -231,21 +231,21 @@
       "group": "core-services",
       "component": "openclaw-gateway",
       "message": "Not active",
-      "timestamp": "2026-02-12T21:55:01"
+      "timestamp": "2026-02-12T22:00:02"
     },
     {
       "severity": "warning",
       "group": "memory-files",
       "component": "working-md",
-      "message": "3.5h old",
-      "timestamp": "2026-02-12T21:55:01"
+      "message": "3.6h old",
+      "timestamp": "2026-02-12T22:00:02"
     },
     {
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
-      "message": "Low: 24% remaining (resets in 1d 18h)",
-      "timestamp": "2026-02-12T21:55:01"
+      "message": "Low: 24% remaining (resets in 1d 17h)",
+      "timestamp": "2026-02-12T22:00:02"
     }
   ]
 }
