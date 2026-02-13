@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-13T17:00:01",
+  "timestamp": "2026-02-13T17:05:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -73,7 +73,7 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 11h ago",
+          "detail": "Last run: 12h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -219,7 +219,7 @@
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
           "status": "failed",
-          "detail": "CRITICAL: 18% remaining (resets in 22h 59m)",
+          "detail": "CRITICAL: 18% remaining (resets in 22h 54m)",
           "type": "claude_usage"
         }
       }
@@ -230,8 +230,8 @@
       "severity": "critical",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
-      "message": "CRITICAL: 18% remaining (resets in 22h 59m)",
-      "timestamp": "2026-02-13T17:00:01"
+      "message": "CRITICAL: 18% remaining (resets in 22h 54m)",
+      "timestamp": "2026-02-13T17:05:01"
     }
   ]
 }
