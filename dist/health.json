@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-12T20:30:01",
+  "timestamp": "2026-02-12T20:35:02",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -231,14 +231,14 @@
       "group": "core-services",
       "component": "openclaw-gateway",
       "message": "Not active",
-      "timestamp": "2026-02-12T20:30:01"
+      "timestamp": "2026-02-12T20:35:02"
     },
     {
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Low: 24% remaining (resets in 1d 19h)",
-      "timestamp": "2026-02-12T20:30:01"
+      "timestamp": "2026-02-12T20:35:02"
     }
   ]
 }
