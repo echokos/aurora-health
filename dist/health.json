@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-12T21:00:02",
+  "timestamp": "2026-02-12T21:05:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 16h ago",
+          "detail": "Last run: 17h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -231,14 +231,14 @@
       "group": "core-services",
       "component": "openclaw-gateway",
       "message": "Not active",
-      "timestamp": "2026-02-12T21:00:02"
+      "timestamp": "2026-02-12T21:05:01"
     },
     {
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Low: 24% remaining (resets in 1d 18h)",
-      "timestamp": "2026-02-12T21:00:02"
+      "timestamp": "2026-02-12T21:05:01"
     }
   ]
 }
