@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-12T18:15:01",
-  "overall": "failed",
+  "timestamp": "2026-02-12T18:17:25",
+  "overall": "warning",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -134,8 +134,8 @@
     },
     "apis": {
       "display_name": "API Connections",
-      "status": "failed",
-      "passing": 2,
+      "status": "healthy",
+      "passing": 3,
       "total": 3,
       "components": {
         "gmail-api": {
@@ -152,8 +152,8 @@
         },
         "todoist-api": {
           "name": "Todoist API",
-          "status": "failed",
-          "detail": "Auth failed (HTTP 401)",
+          "status": "healthy",
+          "detail": "API responding",
           "type": "api_key"
         }
       }
@@ -173,7 +173,7 @@
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.4h old",
+          "detail": "0.5h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -228,17 +228,10 @@
   "alerts": [
     {
       "severity": "warning",
-      "group": "apis",
-      "component": "todoist-api",
-      "message": "Auth failed (HTTP 401)",
-      "timestamp": "2026-02-12T18:15:01"
-    },
-    {
-      "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Low: 25% remaining (resets in 1d 21h)",
-      "timestamp": "2026-02-12T18:15:01"
+      "timestamp": "2026-02-12T18:17:25"
     }
   ]
 }
