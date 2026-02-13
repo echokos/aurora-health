@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-02-13T17:25:01",
+  "timestamp": "2026-02-13T17:30:01",
   "overall": "failed",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
       "status": "healthy",
-      "passing": 5,
+      "passing": 6,
       "total": 6,
       "components": {
         "openclaw-gateway": {
@@ -34,9 +34,9 @@
         },
         "vt-chat-monitor": {
           "name": "VT Chat Monitor",
-          "status": "unknown",
-          "detail": "Unknown check type: custom_script",
-          "type": "custom_script"
+          "status": "healthy",
+          "detail": "0.1h old",
+          "type": "file_freshness"
         },
         "qdrant": {
           "name": "Qdrant Vector DB",
@@ -109,7 +109,7 @@
         "memory-sweep": {
           "name": "Memory Sweep (2-tier)",
           "status": "healthy",
-          "detail": "Last run: 13h ago",
+          "detail": "Last run: 14h ago",
           "type": "system_cron"
         },
         "monthly-index-generation": {
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.9h old",
+          "detail": "1.0h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "1.0h old",
+          "detail": "1.1h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -219,7 +219,7 @@
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
           "status": "failed",
-          "detail": "CRITICAL: 18% remaining (resets in 22h 34m)",
+          "detail": "CRITICAL: 18% remaining (resets in 22h 29m)",
           "type": "claude_usage"
         }
       }
@@ -230,8 +230,8 @@
       "severity": "critical",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
-      "message": "CRITICAL: 18% remaining (resets in 22h 34m)",
-      "timestamp": "2026-02-13T17:25:01"
+      "message": "CRITICAL: 18% remaining (resets in 22h 29m)",
+      "timestamp": "2026-02-13T17:30:01"
     }
   ]
 }
