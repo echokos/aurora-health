@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-12T18:30:01",
+  "timestamp": "2026-02-12T18:35:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -231,7 +231,7 @@
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Low: 25% remaining (resets in 1d 21h)",
-      "timestamp": "2026-02-12T18:30:01"
+      "timestamp": "2026-02-12T18:35:01"
     }
   ]
 }
