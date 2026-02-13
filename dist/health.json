@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-12T23:55:01",
+  "timestamp": "2026-02-13T00:00:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -73,13 +73,13 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 18h ago",
+          "detail": "Last run: 19h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 17h ago",
+          "detail": "Last run: 18h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 17h ago",
+          "detail": "Last run: 18h ago",
           "type": "system_cron"
         }
       }
@@ -160,26 +160,26 @@
     },
     "memory-files": {
       "display_name": "Memory Files",
-      "status": "healthy",
-      "passing": 4,
+      "status": "failed",
+      "passing": 3,
       "total": 4,
       "components": {
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "1.2h old",
+          "detail": "1.3h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "5.5h old",
+          "detail": "5.6h old",
           "type": "file_freshness"
         },
         "daily-file": {
           "name": "Daily File",
-          "status": "healthy",
-          "detail": "File exists",
+          "status": "failed",
+          "detail": "File not found",
           "type": "file_exists"
         },
         "memory-files": {
@@ -219,7 +219,7 @@
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
           "status": "warning",
-          "detail": "Low: 24% remaining (resets in 1d 16h)",
+          "detail": "Low: 24% remaining (resets in 1d 15h)",
           "type": "claude_usage"
         }
       }
@@ -231,14 +231,21 @@
       "group": "core-services",
       "component": "openclaw-gateway",
       "message": "Not active",
-      "timestamp": "2026-02-12T23:55:01"
+      "timestamp": "2026-02-13T00:00:01"
+    },
+    {
+      "severity": "critical",
+      "group": "memory-files",
+      "component": "daily-file",
+      "message": "File not found",
+      "timestamp": "2026-02-13T00:00:01"
     },
     {
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
-      "message": "Low: 24% remaining (resets in 1d 16h)",
-      "timestamp": "2026-02-12T23:55:01"
+      "message": "Low: 24% remaining (resets in 1d 15h)",
+      "timestamp": "2026-02-13T00:00:01"
     }
   ]
 }
