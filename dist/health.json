@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-13T00:00:01",
+  "timestamp": "2026-02-13T00:05:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 19h ago",
+          "detail": "Last run: 20h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -167,7 +167,7 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "1.3h old",
+          "detail": "1.4h old",
           "type": "file_freshness"
         },
         "working-md-private": {
@@ -231,21 +231,21 @@
       "group": "core-services",
       "component": "openclaw-gateway",
       "message": "Not active",
-      "timestamp": "2026-02-13T00:00:01"
+      "timestamp": "2026-02-13T00:05:01"
     },
     {
       "severity": "critical",
       "group": "memory-files",
       "component": "daily-file",
       "message": "File not found",
-      "timestamp": "2026-02-13T00:00:01"
+      "timestamp": "2026-02-13T00:05:01"
     },
     {
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Low: 24% remaining (resets in 1d 15h)",
-      "timestamp": "2026-02-13T00:00:01"
+      "timestamp": "2026-02-13T00:05:01"
     }
   ]
 }
