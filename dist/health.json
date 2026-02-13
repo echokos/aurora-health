@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-12T19:55:02",
+  "timestamp": "2026-02-12T20:00:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -73,13 +73,13 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 14h ago",
+          "detail": "Last run: 15h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 13h ago",
+          "detail": "Last run: 14h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 13h ago",
+          "detail": "Last run: 14h ago",
           "type": "system_cron"
         }
       }
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "1.5h old",
+          "detail": "1.6h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "1.5h old",
+          "detail": "1.6h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -219,7 +219,7 @@
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
           "status": "warning",
-          "detail": "Low: 24% remaining (resets in 1d 20h)",
+          "detail": "Low: 24% remaining (resets in 1d 19h)",
           "type": "claude_usage"
         }
       }
@@ -231,14 +231,14 @@
       "group": "core-services",
       "component": "openclaw-gateway",
       "message": "Not active",
-      "timestamp": "2026-02-12T19:55:02"
+      "timestamp": "2026-02-12T20:00:01"
     },
     {
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
-      "message": "Low: 24% remaining (resets in 1d 20h)",
-      "timestamp": "2026-02-12T19:55:02"
+      "message": "Low: 24% remaining (resets in 1d 19h)",
+      "timestamp": "2026-02-12T20:00:01"
     }
   ]
 }
