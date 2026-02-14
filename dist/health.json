@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-14T00:10:01",
+  "timestamp": "2026-02-14T00:15:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -160,8 +160,8 @@
     },
     "memory-files": {
       "display_name": "Memory Files",
-      "status": "failed",
-      "passing": 3,
+      "status": "healthy",
+      "passing": 4,
       "total": 4,
       "components": {
         "working-md": {
@@ -173,13 +173,13 @@
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "1.2h old",
+          "detail": "1.3h old",
           "type": "file_freshness"
         },
         "daily-file": {
           "name": "Daily File",
-          "status": "failed",
-          "detail": "File not found",
+          "status": "healthy",
+          "detail": "File exists",
           "type": "file_exists"
         },
         "memory-files": {
@@ -228,17 +228,10 @@
   "alerts": [
     {
       "severity": "critical",
-      "group": "memory-files",
-      "component": "daily-file",
-      "message": "File not found",
-      "timestamp": "2026-02-14T00:10:01"
-    },
-    {
-      "severity": "critical",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "CRITICAL: 12% remaining (resets in 15h)",
-      "timestamp": "2026-02-14T00:10:01"
+      "timestamp": "2026-02-14T00:15:01"
     }
   ]
 }
