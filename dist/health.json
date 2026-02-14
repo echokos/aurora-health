@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-13T22:30:01",
+  "timestamp": "2026-02-13T22:35:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -219,7 +219,7 @@
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
           "status": "failed",
-          "detail": "CRITICAL: 14% remaining (resets in 17h 29m)",
+          "detail": "CRITICAL: 14% remaining (resets in 17h 24m)",
           "type": "claude_usage"
         }
       }
@@ -230,8 +230,8 @@
       "severity": "critical",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
-      "message": "CRITICAL: 14% remaining (resets in 17h 29m)",
-      "timestamp": "2026-02-13T22:30:01"
+      "message": "CRITICAL: 14% remaining (resets in 17h 24m)",
+      "timestamp": "2026-02-13T22:35:01"
     }
   ]
 }
