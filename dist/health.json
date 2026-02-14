@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-14T16:25:01",
+  "timestamp": "2026-02-14T16:30:01",
   "overall": "healthy",
   "groups": {
     "core-services": {
@@ -109,7 +109,7 @@
         "memory-sweep": {
           "name": "Memory Sweep (2-tier)",
           "status": "healthy",
-          "detail": "Last run: 12h ago",
+          "detail": "Last run: 13h ago",
           "type": "system_cron"
         },
         "monthly-index-generation": {
