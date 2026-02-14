@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-14T01:55:02",
+  "timestamp": "2026-02-14T02:00:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.7h old",
+          "detail": "0.8h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "1.2h old",
+          "detail": "1.3h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -219,7 +219,7 @@
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
           "status": "failed",
-          "detail": "CRITICAL: 12% remaining (resets in 14h)",
+          "detail": "CRITICAL: 12% remaining (resets in 13h)",
           "type": "claude_usage"
         }
       }
@@ -230,8 +230,8 @@
       "severity": "critical",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
-      "message": "CRITICAL: 12% remaining (resets in 14h)",
-      "timestamp": "2026-02-14T01:55:02"
+      "message": "CRITICAL: 12% remaining (resets in 13h)",
+      "timestamp": "2026-02-14T02:00:01"
     }
   ]
 }
