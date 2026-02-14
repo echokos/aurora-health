@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-13T23:05:01",
+  "timestamp": "2026-02-13T23:10:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 19h ago",
+          "detail": "Last run: 0h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -73,7 +73,7 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 18h ago",
+          "detail": "Last run: 0h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -134,8 +134,8 @@
     },
     "apis": {
       "display_name": "API Connections",
-      "status": "healthy",
-      "passing": 3,
+      "status": "warning",
+      "passing": 2,
       "total": 3,
       "components": {
         "gmail-api": {
@@ -152,8 +152,8 @@
         },
         "todoist-api": {
           "name": "Todoist API",
-          "status": "healthy",
-          "detail": "API responding",
+          "status": "warning",
+          "detail": "API returned 401",
           "type": "api_key"
         }
       }
@@ -173,7 +173,7 @@
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.1h old",
+          "detail": "0.2h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -219,7 +219,7 @@
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
           "status": "failed",
-          "detail": "CRITICAL: 14% remaining (resets in 16h 54m)",
+          "detail": "CRITICAL: 14% remaining (resets in 16h)",
           "type": "claude_usage"
         }
       }
@@ -230,8 +230,8 @@
       "severity": "critical",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
-      "message": "CRITICAL: 14% remaining (resets in 16h 54m)",
-      "timestamp": "2026-02-13T23:05:01"
+      "message": "CRITICAL: 14% remaining (resets in 16h)",
+      "timestamp": "2026-02-13T23:10:01"
     }
   ]
 }
