@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-13T23:30:01",
+  "timestamp": "2026-02-13T23:35:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -231,14 +231,14 @@
       "group": "apis",
       "component": "todoist-api",
       "message": "Wrapper failed: Error: Could not read Todoist token\n",
-      "timestamp": "2026-02-13T23:30:01"
+      "timestamp": "2026-02-13T23:35:01"
     },
     {
       "severity": "critical",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "CRITICAL: 13% remaining (resets in 16h)",
-      "timestamp": "2026-02-13T23:30:01"
+      "timestamp": "2026-02-13T23:35:01"
     }
   ]
 }
