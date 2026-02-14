@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-14T07:25:01",
+  "timestamp": "2026-02-14T07:30:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -109,7 +109,7 @@
         "memory-sweep": {
           "name": "Memory Sweep (2-tier)",
           "status": "healthy",
-          "detail": "Last run: 3h ago",
+          "detail": "Last run: 4h ago",
           "type": "system_cron"
         },
         "monthly-index-generation": {
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.3h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.3h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -231,7 +231,7 @@
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "CRITICAL: 11% remaining (resets in 8h)",
-      "timestamp": "2026-02-14T07:25:01"
+      "timestamp": "2026-02-14T07:30:01"
     }
   ]
 }
