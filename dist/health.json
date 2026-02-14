@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-14T10:00:01",
+  "timestamp": "2026-02-14T10:05:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 5h ago",
+          "detail": "Last run: 6h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -73,7 +73,7 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 4h ago",
+          "detail": "Last run: 5h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -167,7 +167,7 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.3h old",
           "type": "file_freshness"
         },
         "working-md-private": {
@@ -231,7 +231,7 @@
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "CRITICAL: 10% remaining (resets in 5h)",
-      "timestamp": "2026-02-14T10:00:01"
+      "timestamp": "2026-02-14T10:05:01"
     }
   ]
 }
