@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-14T03:15:01",
+  "timestamp": "2026-02-14T03:20:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "2.0h old",
+          "detail": "2.1h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "2.5h old",
+          "detail": "2.6h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -231,7 +231,7 @@
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "CRITICAL: 11% remaining (resets in 12h)",
-      "timestamp": "2026-02-14T03:15:01"
+      "timestamp": "2026-02-14T03:20:01"
     }
   ]
 }
