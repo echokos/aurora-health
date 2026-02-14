@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-14T12:55:02",
+  "timestamp": "2026-02-14T13:00:02",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 8h ago",
+          "detail": "Last run: 9h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -73,13 +73,13 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 7h ago",
+          "detail": "Last run: 8h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 6h ago",
+          "detail": "Last run: 7h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 6h ago",
+          "detail": "Last run: 7h ago",
           "type": "system_cron"
         }
       }
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.3h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.3h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -219,7 +219,7 @@
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
           "status": "failed",
-          "detail": "CRITICAL: 10% remaining (resets in 3h)",
+          "detail": "CRITICAL: 10% remaining (resets in 2h)",
           "type": "claude_usage"
         }
       }
@@ -230,8 +230,8 @@
       "severity": "critical",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
-      "message": "CRITICAL: 10% remaining (resets in 3h)",
-      "timestamp": "2026-02-14T12:55:02"
+      "message": "CRITICAL: 10% remaining (resets in 2h)",
+      "timestamp": "2026-02-14T13:00:02"
     }
   ]
 }
