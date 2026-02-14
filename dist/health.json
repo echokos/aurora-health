@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-13T18:55:01",
+  "timestamp": "2026-02-13T19:00:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -79,7 +79,7 @@
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 12h ago",
+          "detail": "Last run: 13h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -219,7 +219,7 @@
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
           "status": "failed",
-          "detail": "CRITICAL: 15% remaining (resets in 21h 4m)",
+          "detail": "CRITICAL: 15% remaining (resets in 20h 59m)",
           "type": "claude_usage"
         }
       }
@@ -230,8 +230,8 @@
       "severity": "critical",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
-      "message": "CRITICAL: 15% remaining (resets in 21h 4m)",
-      "timestamp": "2026-02-13T18:55:01"
+      "message": "CRITICAL: 15% remaining (resets in 20h 59m)",
+      "timestamp": "2026-02-13T19:00:01"
     }
   ]
 }
