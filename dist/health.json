@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-13T19:25:01",
+  "timestamp": "2026-02-13T19:30:02",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -109,7 +109,7 @@
         "memory-sweep": {
           "name": "Memory Sweep (2-tier)",
           "status": "healthy",
-          "detail": "Last run: 15h ago",
+          "detail": "Last run: 16h ago",
           "type": "system_cron"
         },
         "monthly-index-generation": {
@@ -219,7 +219,7 @@
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
           "status": "failed",
-          "detail": "CRITICAL: 15% remaining (resets in 20h 34m)",
+          "detail": "CRITICAL: 15% remaining (resets in 20h 29m)",
           "type": "claude_usage"
         }
       }
@@ -230,8 +230,8 @@
       "severity": "critical",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
-      "message": "CRITICAL: 15% remaining (resets in 20h 34m)",
-      "timestamp": "2026-02-13T19:25:01"
+      "message": "CRITICAL: 15% remaining (resets in 20h 29m)",
+      "timestamp": "2026-02-13T19:30:02"
     }
   ]
 }
