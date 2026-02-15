@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-15T15:00:01",
+  "timestamp": "2026-02-15T15:05:01",
   "overall": "healthy",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 10h ago",
+          "detail": "Last run: 11h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
