@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-15T03:55:01",
+  "timestamp": "2026-02-15T04:00:01",
   "overall": "healthy",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 3h ago",
+          "detail": "Last run: 4h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -67,19 +67,19 @@
         "session-archive": {
           "name": "Session Archive",
           "status": "healthy",
-          "detail": "Last run: 0h ago",
+          "detail": "Last run: 1h ago",
           "type": "system_cron"
         },
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 3h ago",
+          "detail": "Last run: 4h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 3h ago",
+          "detail": "Last run: 4h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 3h ago",
+          "detail": "Last run: 4h ago",
           "type": "system_cron"
         }
       }
