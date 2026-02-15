@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-14T23:55:01",
-  "overall": "healthy",
+  "timestamp": "2026-02-15T00:00:02",
+  "overall": "failed",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 19h ago",
+          "detail": "Last run: 0h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -73,13 +73,13 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 18h ago",
+          "detail": "Last run: 0h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 17h ago",
+          "detail": "Last run: 0h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -109,7 +109,7 @@
         "memory-sweep": {
           "name": "Memory Sweep (2-tier)",
           "status": "healthy",
-          "detail": "Last run: 20h ago",
+          "detail": "Last run: 0h ago",
           "type": "system_cron"
         },
         "monthly-index-generation": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 17h ago",
+          "detail": "Last run: 0h ago",
           "type": "system_cron"
         }
       }
@@ -160,26 +160,26 @@
     },
     "memory-files": {
       "display_name": "Memory Files",
-      "status": "healthy",
-      "passing": 4,
+      "status": "failed",
+      "passing": 3,
       "total": 4,
       "components": {
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.3h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.3h old",
           "type": "file_freshness"
         },
         "daily-file": {
           "name": "Daily File",
-          "status": "healthy",
-          "detail": "File exists",
+          "status": "failed",
+          "detail": "File not found",
           "type": "file_exists"
         },
         "memory-files": {
@@ -225,5 +225,13 @@
       }
     }
   },
-  "alerts": []
+  "alerts": [
+    {
+      "severity": "critical",
+      "group": "memory-files",
+      "component": "daily-file",
+      "message": "File not found",
+      "timestamp": "2026-02-15T00:00:02"
+    }
+  ]
 }
