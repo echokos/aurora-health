@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-16T01:50:01",
-  "overall": "healthy",
+  "timestamp": "2026-02-16T01:55:02",
+  "overall": "warning",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -173,7 +173,7 @@
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "3.6h old",
+          "detail": "3.7h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -212,18 +212,26 @@
     },
     "resource-usage": {
       "display_name": "Resource Usage",
-      "status": "healthy",
-      "passing": 1,
+      "status": "warning",
+      "passing": 0,
       "total": 1,
       "components": {
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
-          "status": "healthy",
-          "detail": "92% remaining (resets in 5d)",
+          "status": "warning",
+          "detail": "Could not parse weekly usage",
           "type": "claude_usage"
         }
       }
     }
   },
-  "alerts": []
+  "alerts": [
+    {
+      "severity": "warning",
+      "group": "resource-usage",
+      "component": "claude-weekly-usage",
+      "message": "Could not parse weekly usage",
+      "timestamp": "2026-02-16T01:55:02"
+    }
+  ]
 }
