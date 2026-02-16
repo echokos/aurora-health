@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-15T18:00:01",
-  "overall": "failed",
+  "timestamp": "2026-02-15T18:05:01",
+  "overall": "healthy",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 13h ago",
+          "detail": "Last run: 14h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -134,8 +134,8 @@
     },
     "apis": {
       "display_name": "API Connections",
-      "status": "failed",
-      "passing": 2,
+      "status": "healthy",
+      "passing": 3,
       "total": 3,
       "components": {
         "gmail-api": {
@@ -152,8 +152,8 @@
         },
         "todoist-api": {
           "name": "Todoist API",
-          "status": "failed",
-          "detail": "Command '['/home/elliott/aurora/scripts/todoist-api.sh', 'projects']' timed out after 10 seconds",
+          "status": "healthy",
+          "detail": "API responding",
           "type": "api_key"
         }
       }
@@ -225,13 +225,5 @@
       }
     }
   },
-  "alerts": [
-    {
-      "severity": "warning",
-      "group": "apis",
-      "component": "todoist-api",
-      "message": "Command '['/home/elliott/aurora/scripts/todoist-api.sh', 'projects']' timed out after 10 seconds",
-      "timestamp": "2026-02-15T18:00:01"
-    }
-  ]
+  "alerts": []
 }
