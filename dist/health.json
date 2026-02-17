@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-16T22:15:01",
-  "overall": "failed",
+  "timestamp": "2026-02-16T22:20:02",
+  "overall": "healthy",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -173,7 +173,7 @@
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.4h old",
+          "detail": "0.5h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -192,14 +192,14 @@
     },
     "dashboards": {
       "display_name": "Dashboards",
-      "status": "failed",
-      "passing": 1,
+      "status": "healthy",
+      "passing": 2,
       "total": 2,
       "components": {
         "aurora-dash": {
           "name": "Aurora Dashboard",
-          "status": "failed",
-          "detail": "HTTPSConnectionPool(host='kosella.cloudflareaccess.com', port=443): Read timed out. (read timeout=10)",
+          "status": "healthy",
+          "detail": "HTTP 200",
           "type": "http_endpoint"
         },
         "health-dash": {
@@ -219,19 +219,11 @@
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
           "status": "healthy",
-          "detail": "71% remaining (resets in 4d)",
+          "detail": "70% remaining (resets in 4d)",
           "type": "claude_usage"
         }
       }
     }
   },
-  "alerts": [
-    {
-      "severity": "warning",
-      "group": "dashboards",
-      "component": "aurora-dash",
-      "message": "HTTPSConnectionPool(host='kosella.cloudflareaccess.com', port=443): Read timed out. (read timeout=10)",
-      "timestamp": "2026-02-16T22:15:01"
-    }
-  ]
+  "alerts": []
 }
