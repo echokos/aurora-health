@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-02-16T19:09:39",
-  "overall": "failed",
+  "timestamp": "2026-02-16T19:15:01",
+  "overall": "healthy",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
-      "status": "warning",
-      "passing": 5,
+      "status": "healthy",
+      "passing": 6,
       "total": 6,
       "components": {
         "openclaw-gateway": {
@@ -34,8 +34,8 @@
         },
         "vt-chat-monitor": {
           "name": "VT Chat Monitor",
-          "status": "warning",
-          "detail": "0.2h old",
+          "status": "healthy",
+          "detail": "0.0h old",
           "type": "file_freshness"
         },
         "qdrant": {
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.4h old",
+          "detail": "0.5h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.7h old",
+          "detail": "0.8h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -212,33 +212,18 @@
     },
     "resource-usage": {
       "display_name": "Resource Usage",
-      "status": "failed",
-      "passing": 0,
+      "status": "healthy",
+      "passing": 1,
       "total": 1,
       "components": {
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
-          "status": "failed",
-          "detail": "Error: Command '['/usr/local/bin/openclaw', 'models', 'status']' timed out after 30 seconds",
+          "status": "healthy",
+          "detail": "79% remaining (resets in 4d)",
           "type": "claude_usage"
         }
       }
     }
   },
-  "alerts": [
-    {
-      "severity": "warning",
-      "group": "core-services",
-      "component": "vt-chat-monitor",
-      "message": "0.2h old",
-      "timestamp": "2026-02-16T19:09:39"
-    },
-    {
-      "severity": "critical",
-      "group": "resource-usage",
-      "component": "claude-weekly-usage",
-      "message": "Error: Command '['/usr/local/bin/openclaw', 'models', 'status']' timed out after 30 seconds",
-      "timestamp": "2026-02-16T19:09:39"
-    }
-  ]
+  "alerts": []
 }
