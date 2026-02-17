@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-16T23:55:01",
-  "overall": "healthy",
+  "timestamp": "2026-02-17T00:00:01",
+  "overall": "failed",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 14h ago",
+          "detail": "Last run: 15h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -73,13 +73,13 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 14h ago",
+          "detail": "Last run: 15h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 17h ago",
+          "detail": "Last run: 18h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 17h ago",
+          "detail": "Last run: 18h ago",
           "type": "system_cron"
         }
       }
@@ -160,26 +160,26 @@
     },
     "memory-files": {
       "display_name": "Memory Files",
-      "status": "healthy",
-      "passing": 4,
+      "status": "failed",
+      "passing": 3,
       "total": 4,
       "components": {
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.9h old",
+          "detail": "1.0h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.9h old",
+          "detail": "1.0h old",
           "type": "file_freshness"
         },
         "daily-file": {
           "name": "Daily File",
-          "status": "healthy",
-          "detail": "File exists",
+          "status": "failed",
+          "detail": "File not found",
           "type": "file_exists"
         },
         "memory-files": {
@@ -225,5 +225,13 @@
       }
     }
   },
-  "alerts": []
+  "alerts": [
+    {
+      "severity": "critical",
+      "group": "memory-files",
+      "component": "daily-file",
+      "message": "File not found",
+      "timestamp": "2026-02-17T00:00:01"
+    }
+  ]
 }
