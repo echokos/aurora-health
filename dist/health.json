@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-17T00:30:02",
+  "timestamp": "2026-02-17T00:35:01",
   "overall": "healthy",
   "groups": {
     "core-services": {
@@ -219,7 +219,7 @@
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
           "status": "healthy",
-          "detail": "60% remaining (resets in 4d)",
+          "detail": "59% remaining (resets in 4d)",
           "type": "claude_usage"
         }
       }
