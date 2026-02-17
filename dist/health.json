@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-17T10:22:16",
+  "timestamp": "2026-02-17T11:00:19",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -10,8 +10,8 @@
       "components": {
         "openclaw-gateway": {
           "name": "OpenClaw Gateway",
-          "status": "warning",
-          "detail": "Deactivating (shutting down)",
+          "status": "healthy",
+          "detail": "Active",
           "type": "systemd_service"
         },
         "modem-daemon": {
@@ -28,14 +28,14 @@
         },
         "vt-monitor": {
           "name": "VT Signal Monitor",
-          "status": "healthy",
-          "detail": "Active",
+          "status": "warning",
+          "detail": "Activating (may be restarting)",
           "type": "systemd_service"
         },
         "vt-chat-monitor": {
           "name": "VT Chat Monitor",
           "status": "failed",
-          "detail": "0.4h old (max: 0.25h)",
+          "detail": "0.6h old (max: 0.25h)",
           "type": "file_freshness"
         },
         "qdrant": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 6h ago",
+          "detail": "Last run: 7h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -73,13 +73,13 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 5h ago",
+          "detail": "Last run: 6h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 4h ago",
+          "detail": "Last run: 5h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -109,7 +109,7 @@
         "memory-sweep": {
           "name": "Memory Sweep (2-tier)",
           "status": "healthy",
-          "detail": "Last run: 6h ago",
+          "detail": "Last run: 7h ago",
           "type": "system_cron"
         },
         "monthly-index-generation": {
@@ -127,15 +127,15 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 4h ago",
+          "detail": "Last run: 5h ago",
           "type": "system_cron"
         }
       }
     },
     "apis": {
       "display_name": "API Connections",
-      "status": "healthy",
-      "passing": 3,
+      "status": "failed",
+      "passing": 2,
       "total": 3,
       "components": {
         "gmail-api": {
@@ -152,8 +152,8 @@
         },
         "todoist-api": {
           "name": "Todoist API",
-          "status": "healthy",
-          "detail": "API responding",
+          "status": "failed",
+          "detail": "Command '['/home/elliott/aurora/scripts/todoist-api.sh', 'projects']' timed out after 10 seconds",
           "type": "api_key"
         }
       }
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.5h old",
+          "detail": "1.1h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.5h old",
+          "detail": "1.1h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -192,20 +192,20 @@
     },
     "dashboards": {
       "display_name": "Dashboards",
-      "status": "healthy",
-      "passing": 2,
+      "status": "failed",
+      "passing": 0,
       "total": 2,
       "components": {
         "aurora-dash": {
           "name": "Aurora Dashboard",
-          "status": "healthy",
-          "detail": "HTTP 200",
+          "status": "failed",
+          "detail": "HTTPSConnectionPool(host='dash.kos.plus', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))",
           "type": "http_endpoint"
         },
         "health-dash": {
           "name": "Health Dashboard",
-          "status": "healthy",
-          "detail": "HTTP 200",
+          "status": "failed",
+          "detail": "('Connection aborted.', OSError(107, 'Transport endpoint is not connected'))",
           "type": "http_endpoint"
         }
       }
@@ -229,23 +229,44 @@
     {
       "severity": "warning",
       "group": "core-services",
-      "component": "openclaw-gateway",
-      "message": "Deactivating (shutting down)",
-      "timestamp": "2026-02-17T10:22:16"
+      "component": "vt-monitor",
+      "message": "Activating (may be restarting)",
+      "timestamp": "2026-02-17T11:00:19"
     },
     {
       "severity": "critical",
       "group": "core-services",
       "component": "vt-chat-monitor",
-      "message": "0.4h old (max: 0.25h)",
-      "timestamp": "2026-02-17T10:22:16"
+      "message": "0.6h old (max: 0.25h)",
+      "timestamp": "2026-02-17T11:00:19"
+    },
+    {
+      "severity": "warning",
+      "group": "apis",
+      "component": "todoist-api",
+      "message": "Command '['/home/elliott/aurora/scripts/todoist-api.sh', 'projects']' timed out after 10 seconds",
+      "timestamp": "2026-02-17T11:00:19"
+    },
+    {
+      "severity": "warning",
+      "group": "dashboards",
+      "component": "aurora-dash",
+      "message": "HTTPSConnectionPool(host='dash.kos.plus', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))",
+      "timestamp": "2026-02-17T11:00:19"
+    },
+    {
+      "severity": "warning",
+      "group": "dashboards",
+      "component": "health-dash",
+      "message": "('Connection aborted.', OSError(107, 'Transport endpoint is not connected'))",
+      "timestamp": "2026-02-17T11:00:19"
     },
     {
       "severity": "critical",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Error: Command '['/home/elliott/.local/share/fnm/node-versions/v22.22.0/installation/bin/openclaw', 'models', 'status']' timed out after 30 seconds",
-      "timestamp": "2026-02-17T10:22:16"
+      "timestamp": "2026-02-17T11:00:19"
     }
   ]
 }
