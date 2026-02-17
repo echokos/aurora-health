@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-17T08:20:01",
+  "timestamp": "2026-02-17T08:25:02",
   "overall": "healthy",
   "groups": {
     "core-services": {
@@ -147,7 +147,7 @@
         "ms365-api": {
           "name": "MS365 API",
           "status": "healthy",
-          "detail": "Token 0d old",
+          "detail": "Token 1d old",
           "type": "oauth_token"
         },
         "todoist-api": {
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.3h old",
+          "detail": "0.4h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.3h old",
+          "detail": "0.4h old",
           "type": "file_freshness"
         },
         "daily-file": {
