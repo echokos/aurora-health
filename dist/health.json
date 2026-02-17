@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-17T01:25:02",
-  "overall": "warning",
+  "timestamp": "2026-02-17T01:30:02",
+  "overall": "healthy",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -109,7 +109,7 @@
         "memory-sweep": {
           "name": "Memory Sweep (2-tier)",
           "status": "healthy",
-          "detail": "Last run: 21h ago",
+          "detail": "Last run: 22h ago",
           "type": "system_cron"
         },
         "monthly-index-generation": {
@@ -173,7 +173,7 @@
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.3h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -212,26 +212,18 @@
     },
     "resource-usage": {
       "display_name": "Resource Usage",
-      "status": "warning",
-      "passing": 0,
+      "status": "healthy",
+      "passing": 1,
       "total": 1,
       "components": {
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
-          "status": "warning",
-          "detail": "Could not parse weekly usage",
+          "status": "healthy",
+          "detail": "59% remaining (resets in 4d)",
           "type": "claude_usage"
         }
       }
     }
   },
-  "alerts": [
-    {
-      "severity": "warning",
-      "group": "resource-usage",
-      "component": "claude-weekly-usage",
-      "message": "Could not parse weekly usage",
-      "timestamp": "2026-02-17T01:25:02"
-    }
-  ]
+  "alerts": []
 }
