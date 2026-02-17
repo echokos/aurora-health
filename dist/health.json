@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-17T17:25:02",
+  "timestamp": "2026-02-17T17:30:01",
   "overall": "healthy",
   "groups": {
     "core-services": {
@@ -109,7 +109,7 @@
         "memory-sweep": {
           "name": "Memory Sweep (2-tier)",
           "status": "healthy",
-          "detail": "Last run: 13h ago",
+          "detail": "Last run: 14h ago",
           "type": "system_cron"
         },
         "monthly-index-generation": {
@@ -173,7 +173,7 @@
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.6h old",
+          "detail": "0.7h old",
           "type": "file_freshness"
         },
         "daily-file": {
