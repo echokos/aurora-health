@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-16T22:10:01",
-  "overall": "healthy",
+  "timestamp": "2026-02-16T22:15:01",
+  "overall": "failed",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -167,7 +167,7 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.1h old",
+          "detail": "0.2h old",
           "type": "file_freshness"
         },
         "working-md-private": {
@@ -192,14 +192,14 @@
     },
     "dashboards": {
       "display_name": "Dashboards",
-      "status": "healthy",
-      "passing": 2,
+      "status": "failed",
+      "passing": 1,
       "total": 2,
       "components": {
         "aurora-dash": {
           "name": "Aurora Dashboard",
-          "status": "healthy",
-          "detail": "HTTP 200",
+          "status": "failed",
+          "detail": "HTTPSConnectionPool(host='kosella.cloudflareaccess.com', port=443): Read timed out. (read timeout=10)",
           "type": "http_endpoint"
         },
         "health-dash": {
@@ -225,5 +225,13 @@
       }
     }
   },
-  "alerts": []
+  "alerts": [
+    {
+      "severity": "warning",
+      "group": "dashboards",
+      "component": "aurora-dash",
+      "message": "HTTPSConnectionPool(host='kosella.cloudflareaccess.com', port=443): Read timed out. (read timeout=10)",
+      "timestamp": "2026-02-16T22:15:01"
+    }
+  ]
 }
