@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-16T22:05:01",
+  "timestamp": "2026-02-16T22:10:01",
   "overall": "healthy",
   "groups": {
     "core-services": {
@@ -173,7 +173,7 @@
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.3h old",
+          "detail": "0.4h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -219,7 +219,7 @@
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
           "status": "healthy",
-          "detail": "72% remaining (resets in 4d)",
+          "detail": "71% remaining (resets in 4d)",
           "type": "claude_usage"
         }
       }
