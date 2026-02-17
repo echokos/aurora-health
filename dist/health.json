@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-02-17T10:00:02",
-  "overall": "healthy",
+  "timestamp": "2026-02-17T10:22:16",
+  "overall": "failed",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
-      "status": "healthy",
-      "passing": 6,
+      "status": "failed",
+      "passing": 4,
       "total": 6,
       "components": {
         "openclaw-gateway": {
           "name": "OpenClaw Gateway",
-          "status": "healthy",
-          "detail": "Active",
+          "status": "warning",
+          "detail": "Deactivating (shutting down)",
           "type": "systemd_service"
         },
         "modem-daemon": {
@@ -34,8 +34,8 @@
         },
         "vt-chat-monitor": {
           "name": "VT Chat Monitor",
-          "status": "healthy",
-          "detail": "0.1h old",
+          "status": "failed",
+          "detail": "0.4h old (max: 0.25h)",
           "type": "file_freshness"
         },
         "qdrant": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 5h ago",
+          "detail": "Last run: 6h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.1h old",
+          "detail": "0.5h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.1h old",
+          "detail": "0.5h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -212,18 +212,40 @@
     },
     "resource-usage": {
       "display_name": "Resource Usage",
-      "status": "healthy",
-      "passing": 1,
+      "status": "failed",
+      "passing": 0,
       "total": 1,
       "components": {
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
-          "status": "healthy",
-          "detail": "54% remaining (resets in 4d)",
+          "status": "failed",
+          "detail": "Error: Command '['/home/elliott/.local/share/fnm/node-versions/v22.22.0/installation/bin/openclaw', 'models', 'status']' timed out after 30 seconds",
           "type": "claude_usage"
         }
       }
     }
   },
-  "alerts": []
+  "alerts": [
+    {
+      "severity": "warning",
+      "group": "core-services",
+      "component": "openclaw-gateway",
+      "message": "Deactivating (shutting down)",
+      "timestamp": "2026-02-17T10:22:16"
+    },
+    {
+      "severity": "critical",
+      "group": "core-services",
+      "component": "vt-chat-monitor",
+      "message": "0.4h old (max: 0.25h)",
+      "timestamp": "2026-02-17T10:22:16"
+    },
+    {
+      "severity": "critical",
+      "group": "resource-usage",
+      "component": "claude-weekly-usage",
+      "message": "Error: Command '['/home/elliott/.local/share/fnm/node-versions/v22.22.0/installation/bin/openclaw', 'models', 'status']' timed out after 30 seconds",
+      "timestamp": "2026-02-17T10:22:16"
+    }
+  ]
 }
