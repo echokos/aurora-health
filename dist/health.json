@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-17T00:00:01",
+  "timestamp": "2026-02-17T00:05:02",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "1.0h old",
+          "detail": "1.1h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "1.0h old",
+          "detail": "1.1h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -219,7 +219,7 @@
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
           "status": "healthy",
-          "detail": "64% remaining (resets in 4d)",
+          "detail": "63% remaining (resets in 4d)",
           "type": "claude_usage"
         }
       }
@@ -231,7 +231,7 @@
       "group": "memory-files",
       "component": "daily-file",
       "message": "File not found",
-      "timestamp": "2026-02-17T00:00:01"
+      "timestamp": "2026-02-17T00:05:02"
     }
   ]
 }
