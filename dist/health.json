@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-17T13:45:01",
+  "timestamp": "2026-02-17T13:50:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -85,7 +85,7 @@
         "phone-memory-sync": {
           "name": "Phone Memory Sync",
           "status": "healthy",
-          "detail": "Last run: 1h ago",
+          "detail": "Last run: 0h ago",
           "type": "system_cron"
         },
         "morning-message": {
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "warning",
-          "detail": "3.8h old",
+          "detail": "3.9h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "3.8h old",
+          "detail": "3.9h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -230,8 +230,8 @@
       "severity": "warning",
       "group": "memory-files",
       "component": "working-md",
-      "message": "3.8h old",
-      "timestamp": "2026-02-17T13:45:01"
+      "message": "3.9h old",
+      "timestamp": "2026-02-17T13:50:01"
     }
   ]
 }
