@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-17T01:10:02",
-  "overall": "healthy",
+  "timestamp": "2026-02-17T01:15:01",
+  "overall": "warning",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.0h old",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.5h old",
+          "detail": "0.1h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -212,18 +212,26 @@
     },
     "resource-usage": {
       "display_name": "Resource Usage",
-      "status": "healthy",
-      "passing": 1,
+      "status": "warning",
+      "passing": 0,
       "total": 1,
       "components": {
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
-          "status": "healthy",
-          "detail": "59% remaining (resets in 4d)",
+          "status": "warning",
+          "detail": "Could not parse weekly usage",
           "type": "claude_usage"
         }
       }
     }
   },
-  "alerts": []
+  "alerts": [
+    {
+      "severity": "warning",
+      "group": "resource-usage",
+      "component": "claude-weekly-usage",
+      "message": "Could not parse weekly usage",
+      "timestamp": "2026-02-17T01:15:01"
+    }
+  ]
 }
