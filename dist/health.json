@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-18T02:00:01",
+  "timestamp": "2026-02-18T02:05:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 21h ago",
+          "detail": "Last run: 22h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -73,7 +73,7 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 20h ago",
+          "detail": "Last run: 21h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "warning",
-          "detail": "3.1h old",
+          "detail": "3.2h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "3.1h old",
+          "detail": "3.2h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -230,15 +230,15 @@
       "severity": "warning",
       "group": "memory-files",
       "component": "working-md",
-      "message": "3.1h old",
-      "timestamp": "2026-02-18T02:00:01"
+      "message": "3.2h old",
+      "timestamp": "2026-02-18T02:05:01"
     },
     {
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Low: 38% remaining (resets in 3d)",
-      "timestamp": "2026-02-18T02:00:01"
+      "timestamp": "2026-02-18T02:05:01"
     }
   ]
 }
