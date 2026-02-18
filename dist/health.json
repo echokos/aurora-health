@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-18T00:00:01",
+  "timestamp": "2026-02-18T00:05:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 19h ago",
+          "detail": "Last run: 20h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -73,7 +73,7 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 18h ago",
+          "detail": "Last run: 19h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "1.1h old",
+          "detail": "1.2h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "1.1h old",
+          "detail": "1.2h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -231,14 +231,14 @@
       "group": "memory-files",
       "component": "daily-file",
       "message": "File not found",
-      "timestamp": "2026-02-18T00:00:01"
+      "timestamp": "2026-02-18T00:05:01"
     },
     {
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Low: 39% remaining (resets in 3d)",
-      "timestamp": "2026-02-18T00:00:01"
+      "timestamp": "2026-02-18T00:05:01"
     }
   ]
 }
