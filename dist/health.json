@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-17T18:00:01",
+  "timestamp": "2026-02-17T18:05:01",
   "overall": "healthy",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 13h ago",
+          "detail": "Last run: 14h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -73,7 +73,7 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 12h ago",
+          "detail": "Last run: 13h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 11h ago",
+          "detail": "Last run: 12h ago",
           "type": "system_cron"
         }
       }
@@ -167,7 +167,7 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "1.1h old",
+          "detail": "1.2h old",
           "type": "file_freshness"
         },
         "working-md-private": {
