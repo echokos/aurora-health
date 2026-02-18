@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-17T21:40:01",
+  "timestamp": "2026-02-17T21:45:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -167,7 +167,7 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.2h old",
+          "detail": "0.3h old",
           "type": "file_freshness"
         },
         "working-md-private": {
@@ -219,7 +219,7 @@
         "claude-weekly-usage": {
           "name": "Claude Weekly Usage",
           "status": "warning",
-          "detail": "Could not parse weekly usage",
+          "detail": "Low: 39% remaining (resets in 3d)",
           "type": "claude_usage"
         }
       }
@@ -230,8 +230,8 @@
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
-      "message": "Could not parse weekly usage",
-      "timestamp": "2026-02-17T21:40:01"
+      "message": "Low: 39% remaining (resets in 3d)",
+      "timestamp": "2026-02-17T21:45:01"
     }
   ]
 }
