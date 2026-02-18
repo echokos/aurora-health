@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-18T03:00:01",
+  "timestamp": "2026-02-18T03:05:02",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 22h ago",
+          "detail": "Last run: 23h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -67,19 +67,19 @@
         "session-archive": {
           "name": "Session Archive",
           "status": "healthy",
-          "detail": "Last run: 2d ago",
+          "detail": "Last run: 3d ago",
           "type": "system_cron"
         },
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 21h ago",
+          "detail": "Last run: 22h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 20h ago",
+          "detail": "Last run: 21h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 20h ago",
+          "detail": "Last run: 21h ago",
           "type": "system_cron"
         }
       }
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "failed",
-          "detail": "4.1h old (max: 4h)",
+          "detail": "4.2h old (max: 4h)",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "4.1h old",
+          "detail": "4.2h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -230,15 +230,15 @@
       "severity": "critical",
       "group": "memory-files",
       "component": "working-md",
-      "message": "4.1h old (max: 4h)",
-      "timestamp": "2026-02-18T03:00:01"
+      "message": "4.2h old (max: 4h)",
+      "timestamp": "2026-02-18T03:05:02"
     },
     {
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Low: 38% remaining (resets in 3d)",
-      "timestamp": "2026-02-18T03:00:01"
+      "timestamp": "2026-02-18T03:05:02"
     }
   ]
 }
