@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-18T23:40:02",
+  "timestamp": "2026-02-18T23:45:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -173,7 +173,7 @@
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "3.3h old",
+          "detail": "3.4h old",
           "type": "file_freshness"
         },
         "daily-file": {
@@ -231,7 +231,7 @@
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Low: 34% remaining (resets in 2d)",
-      "timestamp": "2026-02-18T23:40:02"
+      "timestamp": "2026-02-18T23:45:01"
     }
   ]
 }
