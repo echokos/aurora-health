@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-02-19T11:45:01",
+  "timestamp": "2026-02-19T11:50:01",
   "overall": "warning",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
-      "status": "warning",
-      "passing": 5,
+      "status": "healthy",
+      "passing": 6,
       "total": 6,
       "components": {
         "openclaw-gateway": {
           "name": "OpenClaw Gateway",
-          "status": "warning",
-          "detail": "Activating (may be restarting)",
+          "status": "healthy",
+          "detail": "Active",
           "type": "systemd_service"
         },
         "modem-daemon": {
@@ -173,7 +173,7 @@
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "2.3h old",
+          "detail": "2.4h old",
           "type": "file_freshness"
         },
         "memory-files": {
@@ -222,17 +222,10 @@
   "alerts": [
     {
       "severity": "warning",
-      "group": "core-services",
-      "component": "openclaw-gateway",
-      "message": "Activating (may be restarting)",
-      "timestamp": "2026-02-19T11:45:01"
-    },
-    {
-      "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Low: 29% remaining (resets in 2d)",
-      "timestamp": "2026-02-19T11:45:01"
+      "timestamp": "2026-02-19T11:50:01"
     }
   ]
 }
