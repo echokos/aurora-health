@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-20T13:00:01",
+  "timestamp": "2026-02-20T13:05:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 8h ago",
+          "detail": "Last run: 9h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -73,7 +73,7 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 7h ago",
+          "detail": "Last run: 8h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.9h old",
+          "detail": "1.0h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "2.3h old",
+          "detail": "2.4h old",
           "type": "file_freshness"
         },
         "memory-files": {
@@ -225,7 +225,7 @@
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Could not parse weekly usage",
-      "timestamp": "2026-02-20T13:00:01"
+      "timestamp": "2026-02-20T13:05:01"
     }
   ]
 }
