@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-20T08:20:01",
+  "timestamp": "2026-02-20T08:25:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -147,7 +147,7 @@
         "ms365-api": {
           "name": "MS365 API",
           "status": "healthy",
-          "detail": "Token 3d old",
+          "detail": "Token 4d old",
           "type": "oauth_token"
         },
         "todoist-api": {
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.3h old",
+          "detail": "0.0h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "0.3h old",
+          "detail": "0.0h old",
           "type": "file_freshness"
         },
         "memory-files": {
@@ -225,7 +225,7 @@
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Could not parse weekly usage",
-      "timestamp": "2026-02-20T08:20:01"
+      "timestamp": "2026-02-20T08:25:01"
     }
   ]
 }
