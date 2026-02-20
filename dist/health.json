@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-20T14:55:01",
+  "timestamp": "2026-02-20T15:00:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -79,7 +79,7 @@
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 8h ago",
+          "detail": "Last run: 9h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 8h ago",
+          "detail": "Last run: 9h ago",
           "type": "system_cron"
         }
       }
@@ -225,7 +225,7 @@
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Could not parse weekly usage",
-      "timestamp": "2026-02-20T14:55:01"
+      "timestamp": "2026-02-20T15:00:01"
     }
   ]
 }
