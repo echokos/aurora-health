@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-20T13:25:01",
+  "timestamp": "2026-02-20T13:30:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -109,7 +109,7 @@
         "memory-sweep": {
           "name": "Memory Sweep (2-tier)",
           "status": "healthy",
-          "detail": "Last run: 9h ago",
+          "detail": "Last run: 10h ago",
           "type": "system_cron"
         },
         "monthly-index-generation": {
@@ -167,7 +167,7 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "1.3h old",
+          "detail": "1.4h old",
           "type": "file_freshness"
         },
         "working-md-private": {
@@ -225,7 +225,7 @@
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Could not parse weekly usage",
-      "timestamp": "2026-02-20T13:25:01"
+      "timestamp": "2026-02-20T13:30:01"
     }
   ]
 }
