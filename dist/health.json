@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-21T13:00:01",
+  "timestamp": "2026-02-21T13:05:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 8h ago",
+          "detail": "Last run: 9h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -73,7 +73,7 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 7h ago",
+          "detail": "Last run: 8h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "failed",
-          "detail": "4.0h old (max: 4h)",
+          "detail": "4.1h old (max: 4h)",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "warning",
-          "detail": "6.6h old",
+          "detail": "6.7h old",
           "type": "file_freshness"
         },
         "memory-files": {
@@ -224,22 +224,22 @@
       "severity": "critical",
       "group": "memory-files",
       "component": "working-md",
-      "message": "4.0h old (max: 4h)",
-      "timestamp": "2026-02-21T13:00:01"
+      "message": "4.1h old (max: 4h)",
+      "timestamp": "2026-02-21T13:05:01"
     },
     {
       "severity": "warning",
       "group": "memory-files",
       "component": "working-md-private",
-      "message": "6.6h old",
-      "timestamp": "2026-02-21T13:00:01"
+      "message": "6.7h old",
+      "timestamp": "2026-02-21T13:05:01"
     },
     {
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Could not parse weekly usage",
-      "timestamp": "2026-02-21T13:00:01"
+      "timestamp": "2026-02-21T13:05:01"
     }
   ]
 }
