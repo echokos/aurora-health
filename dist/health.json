@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-21T11:00:01",
+  "timestamp": "2026-02-21T11:05:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 6h ago",
+          "detail": "Last run: 7h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -73,7 +73,7 @@
         "daily-note": {
           "name": "Daily Note",
           "status": "healthy",
-          "detail": "Last run: 5h ago",
+          "detail": "Last run: 6h ago",
           "type": "system_cron"
         },
         "wardrobe-selection": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 4h ago",
+          "detail": "Last run: 5h ago",
           "type": "system_cron"
         }
       }
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "2.0h old",
+          "detail": "2.1h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "4.6h old",
+          "detail": "4.7h old",
           "type": "file_freshness"
         },
         "memory-files": {
@@ -225,7 +225,7 @@
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Could not parse weekly usage",
-      "timestamp": "2026-02-21T11:00:01"
+      "timestamp": "2026-02-21T11:05:01"
     }
   ]
 }
