@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-20T21:55:02",
+  "timestamp": "2026-02-20T22:00:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -79,7 +79,7 @@
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 15h ago",
+          "detail": "Last run: 16h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 15h ago",
+          "detail": "Last run: 16h ago",
           "type": "system_cron"
         }
       }
@@ -167,7 +167,7 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "failed",
-          "detail": "4.3h old (max: 4h)",
+          "detail": "4.4h old (max: 4h)",
           "type": "file_freshness"
         },
         "working-md-private": {
@@ -224,22 +224,22 @@
       "severity": "critical",
       "group": "memory-files",
       "component": "working-md",
-      "message": "4.3h old (max: 4h)",
-      "timestamp": "2026-02-20T21:55:02"
+      "message": "4.4h old (max: 4h)",
+      "timestamp": "2026-02-20T22:00:01"
     },
     {
       "severity": "warning",
       "group": "memory-files",
       "component": "working-md-private",
       "message": "7.2h old",
-      "timestamp": "2026-02-20T21:55:02"
+      "timestamp": "2026-02-20T22:00:01"
     },
     {
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Could not parse weekly usage",
-      "timestamp": "2026-02-20T21:55:02"
+      "timestamp": "2026-02-20T22:00:01"
     }
   ]
 }
