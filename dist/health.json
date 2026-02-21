@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-20T21:35:01",
-  "overall": "warning",
+  "timestamp": "2026-02-20T21:40:01",
+  "overall": "failed",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -160,20 +160,20 @@
     },
     "memory-files": {
       "display_name": "Memory Files",
-      "status": "warning",
+      "status": "failed",
       "passing": 1,
       "total": 3,
       "components": {
         "working-md": {
           "name": "WORKING.md (Public)",
-          "status": "warning",
-          "detail": "4.0h old",
+          "status": "failed",
+          "detail": "4.1h old (max: 4h)",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "warning",
-          "detail": "6.8h old",
+          "detail": "6.9h old",
           "type": "file_freshness"
         },
         "memory-files": {
@@ -221,25 +221,25 @@
   },
   "alerts": [
     {
-      "severity": "warning",
+      "severity": "critical",
       "group": "memory-files",
       "component": "working-md",
-      "message": "4.0h old",
-      "timestamp": "2026-02-20T21:35:01"
+      "message": "4.1h old (max: 4h)",
+      "timestamp": "2026-02-20T21:40:01"
     },
     {
       "severity": "warning",
       "group": "memory-files",
       "component": "working-md-private",
-      "message": "6.8h old",
-      "timestamp": "2026-02-20T21:35:01"
+      "message": "6.9h old",
+      "timestamp": "2026-02-20T21:40:01"
     },
     {
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Could not parse weekly usage",
-      "timestamp": "2026-02-20T21:35:01"
+      "timestamp": "2026-02-20T21:40:01"
     }
   ]
 }
