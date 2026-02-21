@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-21T13:15:01",
+  "timestamp": "2026-02-21T13:20:02",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -173,7 +173,7 @@
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "warning",
-          "detail": "6.8h old",
+          "detail": "6.9h old",
           "type": "file_freshness"
         },
         "memory-files": {
@@ -225,21 +225,21 @@
       "group": "memory-files",
       "component": "working-md",
       "message": "4.3h old (max: 4h)",
-      "timestamp": "2026-02-21T13:15:01"
+      "timestamp": "2026-02-21T13:20:02"
     },
     {
       "severity": "warning",
       "group": "memory-files",
       "component": "working-md-private",
-      "message": "6.8h old",
-      "timestamp": "2026-02-21T13:15:01"
+      "message": "6.9h old",
+      "timestamp": "2026-02-21T13:20:02"
     },
     {
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Could not parse weekly usage",
-      "timestamp": "2026-02-21T13:15:01"
+      "timestamp": "2026-02-21T13:20:02"
     }
   ]
 }
