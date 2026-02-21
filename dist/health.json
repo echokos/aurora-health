@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-21T14:55:01",
+  "timestamp": "2026-02-21T15:00:01",
   "overall": "failed",
   "groups": {
     "core-services": {
@@ -79,7 +79,7 @@
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 8h ago",
+          "detail": "Last run: 9h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 8h ago",
+          "detail": "Last run: 9h ago",
           "type": "system_cron"
         }
       }
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "failed",
-          "detail": "5.9h old (max: 4h)",
+          "detail": "6.0h old (max: 4h)",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "failed",
-          "detail": "8.5h old (max: 8h)",
+          "detail": "8.6h old (max: 8h)",
           "type": "file_freshness"
         },
         "memory-files": {
@@ -224,22 +224,22 @@
       "severity": "critical",
       "group": "memory-files",
       "component": "working-md",
-      "message": "5.9h old (max: 4h)",
-      "timestamp": "2026-02-21T14:55:01"
+      "message": "6.0h old (max: 4h)",
+      "timestamp": "2026-02-21T15:00:01"
     },
     {
       "severity": "critical",
       "group": "memory-files",
       "component": "working-md-private",
-      "message": "8.5h old (max: 8h)",
-      "timestamp": "2026-02-21T14:55:01"
+      "message": "8.6h old (max: 8h)",
+      "timestamp": "2026-02-21T15:00:01"
     },
     {
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Could not parse weekly usage",
-      "timestamp": "2026-02-21T14:55:01"
+      "timestamp": "2026-02-21T15:00:01"
     }
   ]
 }
