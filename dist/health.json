@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-21T08:05:01",
+  "timestamp": "2026-02-21T08:10:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -225,7 +225,7 @@
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Could not parse weekly usage",
-      "timestamp": "2026-02-21T08:05:01"
+      "timestamp": "2026-02-21T08:10:01"
     }
   ]
 }
