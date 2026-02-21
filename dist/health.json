@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-21T11:55:01",
+  "timestamp": "2026-02-21T12:00:02",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -55,7 +55,7 @@
         "oauth-refresh": {
           "name": "OAuth Token Refresh",
           "status": "healthy",
-          "detail": "Last run: 7h ago",
+          "detail": "Last run: 8h ago",
           "type": "system_cron"
         },
         "dashboard-sync": {
@@ -79,7 +79,7 @@
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 5h ago",
+          "detail": "Last run: 6h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 5h ago",
+          "detail": "Last run: 6h ago",
           "type": "system_cron"
         }
       }
@@ -160,20 +160,20 @@
     },
     "memory-files": {
       "display_name": "Memory Files",
-      "status": "healthy",
-      "passing": 3,
+      "status": "warning",
+      "passing": 2,
       "total": 3,
       "components": {
         "working-md": {
           "name": "WORKING.md (Public)",
-          "status": "healthy",
-          "detail": "2.9h old",
+          "status": "warning",
+          "detail": "3.0h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "5.5h old",
+          "detail": "5.6h old",
           "type": "file_freshness"
         },
         "memory-files": {
@@ -222,10 +222,17 @@
   "alerts": [
     {
       "severity": "warning",
+      "group": "memory-files",
+      "component": "working-md",
+      "message": "3.0h old",
+      "timestamp": "2026-02-21T12:00:02"
+    },
+    {
+      "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Could not parse weekly usage",
-      "timestamp": "2026-02-21T11:55:01"
+      "timestamp": "2026-02-21T12:00:02"
     }
   ]
 }
