@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-20T19:40:01",
+  "timestamp": "2026-02-20T19:45:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -173,7 +173,7 @@
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "4.9h old",
+          "detail": "5.0h old",
           "type": "file_freshness"
         },
         "memory-files": {
@@ -225,7 +225,7 @@
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Could not parse weekly usage",
-      "timestamp": "2026-02-20T19:40:01"
+      "timestamp": "2026-02-20T19:45:01"
     }
   ]
 }
