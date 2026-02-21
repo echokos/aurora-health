@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-21T09:55:01",
+  "timestamp": "2026-02-21T10:00:01",
   "overall": "warning",
   "groups": {
     "core-services": {
@@ -79,7 +79,7 @@
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 3h ago",
+          "detail": "Last run: 4h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 3h ago",
+          "detail": "Last run: 4h ago",
           "type": "system_cron"
         }
       }
@@ -167,13 +167,13 @@
         "working-md": {
           "name": "WORKING.md (Public)",
           "status": "healthy",
-          "detail": "0.9h old",
+          "detail": "1.0h old",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "healthy",
-          "detail": "3.5h old",
+          "detail": "3.6h old",
           "type": "file_freshness"
         },
         "memory-files": {
@@ -225,7 +225,7 @@
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Could not parse weekly usage",
-      "timestamp": "2026-02-21T09:55:01"
+      "timestamp": "2026-02-21T10:00:01"
     }
   ]
 }
