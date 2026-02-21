@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-21T12:55:01",
-  "overall": "warning",
+  "timestamp": "2026-02-21T13:00:01",
+  "overall": "failed",
   "groups": {
     "core-services": {
       "display_name": "Core Services",
@@ -79,7 +79,7 @@
         "wardrobe-selection": {
           "name": "Wardrobe Selection",
           "status": "healthy",
-          "detail": "Last run: 6h ago",
+          "detail": "Last run: 7h ago",
           "type": "system_cron"
         },
         "phone-memory-sync": {
@@ -127,7 +127,7 @@
         "mem0-verification": {
           "name": "mem0 Memory System",
           "status": "healthy",
-          "detail": "Last run: 6h ago",
+          "detail": "Last run: 7h ago",
           "type": "system_cron"
         }
       }
@@ -160,20 +160,20 @@
     },
     "memory-files": {
       "display_name": "Memory Files",
-      "status": "warning",
+      "status": "failed",
       "passing": 1,
       "total": 3,
       "components": {
         "working-md": {
           "name": "WORKING.md (Public)",
-          "status": "warning",
-          "detail": "3.9h old",
+          "status": "failed",
+          "detail": "4.0h old (max: 4h)",
           "type": "file_freshness"
         },
         "working-md-private": {
           "name": "WORKING.md (Private)",
           "status": "warning",
-          "detail": "6.5h old",
+          "detail": "6.6h old",
           "type": "file_freshness"
         },
         "memory-files": {
@@ -221,25 +221,25 @@
   },
   "alerts": [
     {
-      "severity": "warning",
+      "severity": "critical",
       "group": "memory-files",
       "component": "working-md",
-      "message": "3.9h old",
-      "timestamp": "2026-02-21T12:55:01"
+      "message": "4.0h old (max: 4h)",
+      "timestamp": "2026-02-21T13:00:01"
     },
     {
       "severity": "warning",
       "group": "memory-files",
       "component": "working-md-private",
-      "message": "6.5h old",
-      "timestamp": "2026-02-21T12:55:01"
+      "message": "6.6h old",
+      "timestamp": "2026-02-21T13:00:01"
     },
     {
       "severity": "warning",
       "group": "resource-usage",
       "component": "claude-weekly-usage",
       "message": "Could not parse weekly usage",
-      "timestamp": "2026-02-21T12:55:01"
+      "timestamp": "2026-02-21T13:00:01"
     }
   ]
 }
